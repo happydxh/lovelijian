@@ -8,7 +8,7 @@ table { border-collapse:collapse; }
 input,textarea { outline:none; }
 textarea { resize:none; overflow:auto; }
 body { font-size:12px; font-family: Arial,"微软雅黑";background: #0c0a0d; }
-
+h1, h2, h3, h4, h5, h6{ font-size:100%; } 
 
 /*首页*/
 /*头部导航*/
@@ -17,7 +17,7 @@ body { font-size:12px; font-family: Arial,"微软雅黑";background: #0c0a0d; }
 	height: 60px;
 	margin: 0 auto;
 	line-height: 60px;
-	background: grey;
+	/*background: grey;*/
 	overflow: hidden;
 }
 #header h2{
@@ -58,14 +58,17 @@ body { font-size:12px; font-family: Arial,"微软雅黑";background: #0c0a0d; }
 	width: 1200px;
 	height: 500px;
 	overflow: hidden;
-	background: red;
 	line-height: 0;
 	margin: 0px auto;
+	position: relative;
+	cursor: pointer;
 }
 #banner .piclist{
 	width: 2400px;
 	height: 500px;
 	overflow: hidden;
+	position: absolute;
+	top: 0;
 }
 #banner .piclist img{
 	width: 1200px;
@@ -73,4 +76,213 @@ body { font-size:12px; font-family: Arial,"微软雅黑";background: #0c0a0d; }
 	float: left;
 	display: block;
 	line-height: 0;
+}
+#banner .picBtn{
+	position: absolute;
+	bottom: 20px;
+	left: 45%;
+	color: white;
+}
+#banner .picBtn span{
+	font-size: 40px;
+	cursor: pointer;
+	opacity: 0.7;
+}
+#banner .picBtn span:hover{
+}
+/*最新动态*/
+#dongtai{
+	width: 1200px;
+	height: 380px;
+	margin: 50px auto;
+	background: #110f12;
+	padding: 40px 90px;
+	box-sizing: border-box;
+	color: #333332;
+}
+#dongtai .tabBox{
+	width: 700px;
+	height: 300px;
+	float: left;
+	background: #d9d9d9;
+	box-shadow:inset 2px 2px 5px 3px rgba(125,122,122,1);
+	border-radius: 15px;
+	padding: 10px 30px;
+	box-sizing: border-box;
+}
+#dongtai .tabBox .tablist{
+	height: 39px;
+	line-height: 39px;
+	border-bottom: 1px solid #a6a6a6;
+	box-shadow:0 1px 0px 0px rgba(255,255,255,1);
+	overflow: hidden;
+}
+#dongtai .tabBox .tablist li{
+	float: left;
+	width: 130px;
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
+	cursor: pointer;
+}
+#dongtai .tabBox .tablist li:hover{
+	color: #e15c03;
+}
+#dongtai .tabBox .tablist li.tabActive{
+	color: #e15c03;
+}
+#dongtai .tabBox .divBox{
+	display: none;
+}
+#dongtai .tabBox .divBox ul{
+	width: 640px;
+}
+#dongtai .tabBox .divBox ul li{
+	width: 610px;
+	height: 47px;
+	line-height: 47px;
+	padding-left: 22px;
+	border-bottom: 1px dashed #a6a6a6;
+	overflow: hidden;
+}
+#dongtai .tabBox .divBox ul li a{
+	float: left;
+	display: block;
+	color: #333332;
+	font-size: 16px;
+	width: 420px;
+ 	white-space: nowrap;
+ 	text-overflow: ellipsis;
+ 	overflow: hidden;
+}
+#dongtai .tabBox .divBox ul li a:hover{
+	color: #e15c03;
+}
+#dongtai .tabBox .divBox ul li span{
+	float: right;
+	font-size: 14px;
+	font-family: "微软雅黑";
+}
+#dongtai .tabBox .divBox ul li:nth-of-type(5){
+	width: 640px;
+	padding-left:270px ;
+	box-sizing: border-box;
+}
+
+#dongtai .tabBox .show{
+	display: block;
+}
+#dongtai .tuijian{
+	width: 280px;
+	height: 300px;
+	float: left;
+	margin-left: 40px;
+	background: #d9d9d9;
+	box-shadow:inset -2px -2px 5px 3px rgba(125,122,122,1);
+	border-radius: 15px;
+	padding: 0 10px;
+	box-sizing: border-box;
+}
+#dongtai .tuijian .biaoti{
+	height: 48px;
+	width: 260px;
+	line-height: 48px;
+	overflow: hidden;
+	border-bottom: 1px solid #a6a6a6;
+	box-shadow:0 1px 0px 0px rgba(255,255,255,1);
+}
+#dongtai .tuijian .biaoti h2{
+	float: left;
+	font-size: 18px;
+	font-weight: bold;
+}
+#dongtai .tuijian .biaoti a{
+	float: right;
+	color: #333332;
+	font-size: 16px;
+}
+#dongtai .tuijian .biaoti a:hover{
+	color: #e15c03;
+}
+#dongtai .tuijian ul{
+	width: 260px;
+}
+#dongtai .tuijian ul li{
+	width: 250px;
+	height: 47px;
+	line-height: 47px;
+	margin-left: 10px;
+	border-bottom: 1px dashed #a6a6a6;
+}
+#dongtai .tuijian ul li a{
+	display: block;
+	color: #333332;
+	font-size: 16px;
+	width: 230px;
+ 	white-space: nowrap;
+ 	text-overflow: ellipsis;
+ 	overflow: hidden;
+}
+#dongtai .tuijian ul li a:hover{
+	color: #e15c03;
+}
+#dongtai .newmusic{
+	position: relative;
+	overflow: hidden;
+}
+#dongtai .newmusic video{
+}
+#dongtai .newmusic .jianjie{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	width: 218px;
+	padding: 4px 0 0 20px;
+	box-sizing: border-box;
+}
+#dongtai .newmusic .jianjie h2{
+	margin-top: 10px;
+}
+#dongtai .newmusic .jianjie .text{
+	margin-top: 5px;
+	width: 180px;
+	word-wrap: break-word;  
+    word-break: normal;
+    font-size: 14px;  
+}
+
+/*精彩瞬间*/
+#videoShow{
+	background: #110f12;
+	width: 1200px;
+	margin: 0 auto;
+	padding-top: 10px;
+	height: 420px;
+}
+#videoShow h2{
+	font-size: 30px;
+	margin-left: 85px;
+	color: #f4c45a;
+}
+/* Custom Flipster Styles */
+.flipster {
+  padding-bottom: 50px;
+}
+.pull-right {
+  float: right;
+}
+.pull-left {
+  float: left;
+}
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
+.invisible {
+  visibility: hidden;
+}
+.affix {
+  position: fixed;
 }
