@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>关于</title>
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+	</head>
+	<body>
+		<header id="header">
+			<h2 class="logo">爱李健</h2>
+			<nav class="nav">
+				<ul>
+					<li><a href="index.html">首页</a></li>
+					<li><a href="music.html">专辑</a></li>
+					<li><a href="video.html">视频</a></li>
+					<li><a href="mv.html">MV</a></li>
+					<li><a href="about.html">关于</a></li>
+				</ul>
+			</nav>
+			<div class="login"><a href="login.html">登录</a></div>
+			<div class="reg"><a href="reg.html" class="active">注册</a></div>
+		</header>
+		<div id="reg">
+		    <h2>注册账户</h2>
+		    <form id="form" name="reg" >
+	    		<div class="int">
+	    		  <label for="users">用&nbsp;&nbsp;户&nbsp;&nbsp;名：</label>
+	    		  <input type="text" id="user" name="user" class="text" />
+	    		  <span class="info infoUser">请输入用户名至少两个字符</span>
+	    		  <span class="success successUser"></span>
+	    		</div>
+	    		
+	    		<div class="int">
+	    		  <label for="passs">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</label>
+	    		  <input type="password" id="pass" name="pass" class="text" />
+	    		  <span class="info infoPass">请输入密码不少于六位</span>
+	    		  <span class="success successPass"></span>
+	    		</div>
+	    		
+	    		<div class="int">
+	    		  <label for="passTwo">密码确认：</label>
+	    		  <input type="password" id="passTwo" name="passTwo" class="text"/>
+	    		  <span class="info infoPassTwo">请再次输入密码</span>
+	    		  <span class="success successPassTwo"></span>
+	    		</div>
+	    		<div class="int">
+	    		  <label for="email">电子邮件：</label>
+	    		  <input type="email" id="email" name="email" class="text"/>
+	    		  <span class="info infoEmail">请输入电子邮箱</span>
+	    		  <span class="success successEmail"></span>
+	    		  <ul class="all_email">
+					<li><em></em>@qq.com</li>
+					<li><em></em>@163.com</li>
+					<li><em></em>@sohu.com</li>
+					<li><em></em>@sina.com.cn</li>
+					<li><em></em>@gmail.com</li>
+					<li><em></em>@yahoo.com</li>
+				  </ul>
+	    		</div>
+	    	
+	    		<button id="regbtn">立即注册</button>
+	    	</form>
+		</div>
+		<script src="js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

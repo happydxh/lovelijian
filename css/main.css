@@ -5,7 +5,7 @@ li { list-style:none; }
 a { text-decoration:none; }
 img { border:none; vertical-align:top;display: block; }
 table { border-collapse:collapse; }
-input,textarea { outline:none; }
+/*input,textarea { outline:none; }*/
 textarea { resize:none; overflow:auto; }
 body { font-size:12px; font-family: Arial,"微软雅黑";background: #0c0a0d; }
 h1, h2, h3, h4, h5, h6{ font-size:100%; } 
@@ -53,6 +53,116 @@ h1, h2, h3, h4, h5, h6{ font-size:100%; }
 #header nav ul li:nth-of-type(4) a{
 	font-family: "微软雅黑";
 }
+#header .login{
+	float: left;
+	margin-left: 600px;
+	cursor: pointer;
+}
+#header .login a{
+	color: white;
+}
+#header .login a:hover{
+	color: #f4c45a;
+}
+#header .reg{
+	float: left;
+	margin-left: 10px;
+	cursor: pointer;
+}
+#header .reg a{
+	color: white;
+}
+#header .reg a:hover{
+	color: #f4c45a;
+}
+/*注册*/
+#reg{
+	width: 720px;
+	height: 400px;
+	margin: 50px auto;
+	background: #201c1d;
+	padding: 0 30px;
+	box-sizing: border-box;
+	text-align: center;
+}
+#reg h2{
+	color: #a29060;
+	height: 80px;
+	line-height: 80px;
+	font-size: 30px;
+	border-bottom: 1px solid #2c2b2b;
+}
+#form{
+	margin-top: 40px;
+}
+#form .int{
+	margin-bottom: 15px;
+	position: relative;
+}
+#form .int label{
+	color: #a29060;
+	font-size: 16px;
+}
+#form .int input{
+	width: 260px;
+	height: 30px;
+	background: #433f40;
+	border: none;
+	color: white;
+	font-size: 16px;
+	text-indent: 10px;
+}
+#form .int span{
+	position: absolute;
+	top: 6px;
+	left: 508px;
+}
+#form .int .info{
+	color: red;
+	font-size: 12px;
+	display: none;
+}
+#form .int .success{
+	width: 18px;
+	height: 18px;
+	background: url(../img/success.png) no-repeat center center;
+	padding-left: 18px;
+	box-sizing: border-box;
+	display: none;
+}
+#form .int .all_email{
+	position: absolute;
+	left: 242px;
+	top: 31px;
+	width: 200px;
+	background: #433f40;
+	display: none;
+}
+#form .int .all_email li{
+	height: 20px;
+	line-height: 20px;
+    color: white;
+    cursor: pointer;
+    text-align: left;
+    margin-left: 5px;
+}
+#form .int .all_email li:hover{
+	background: gray;
+}
+#regbtn{
+	/*margin-top: 10px;*/
+	margin-left: 24px;
+	border: none;
+	width: 200px;
+	height: 40px;
+	line-height: 40px;
+	background: #a29060;
+	color: white;
+	font-size: 22px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
 /*banner*/
 #banner{
 	width: 1200px;
