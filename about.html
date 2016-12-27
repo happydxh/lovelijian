@@ -19,7 +19,21 @@
 			</nav>
 			<div class="login"><a href="login.html">登录</a></div>
 			<div class="reg"><a href="reg.html">注册</a></div>
+			<div class="tuichu"><a href="javascript:;">退出</a></div>
 		</header>
 		<script src="js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+				//如果cookie存在，自动登入
+				if($.cookie('user')){
+					$('.tuichu').show();
+					$('.login').find('a').html($.cookie('user'))
+				}
+				
+				//退出登入
+				$('.tuichu').on('click',function(){
+					$.cookie('user','',{expires:-1});
+				})
+		</script>
 	</body>
 </html>

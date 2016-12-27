@@ -1,4 +1,33 @@
 $(function(){
+	
+	//如果cookie存在，自动登入
+	if($.cookie('user')){
+		$('.tuichu').show();
+		$('.login').find('a').html($.cookie('user'))
+	}
+	
+	//退出登入
+	$('.tuichu').on('click',function(){
+		$.cookie('user','',{expires:-1});
+	})
+	
+	//tool function
+        function getScroll(){
+			return {
+				top : document.documentElement.scrollTop || document.body.scrollTop,
+				left : document.documentElement.scrollLeft || document.body.scrollLeft
+			}
+		}
+        
+		function center(obj,width,height){
+			var top = (document.documentElement.clientHeight-height) / 2;
+		    var left = (document.documentElement.clientWidth-width) / 2;
+		    var scroll = 
+		    obj.css('top',top+getScroll().top+'px')
+		    obj.css('left',left+getScroll().left+'px')
+		}
+
+	
 	//焦点图
 	(function(){
 		//初始化
@@ -62,7 +91,7 @@ $(function(){
 	//注册
 	//用户名验证
 	$('#user').on('focus',function(){
-		$('.infoUser').show();
+		$('.infoUser').show().html("请输入用户名至少两个字符");
 		if(check_user()){
 			$('.successUser').show();
 			$('.infoUser').hide();
@@ -81,8 +110,24 @@ $(function(){
 	})
 	
 	function check_user(){
+		var flag = true
 		if(/[\u0391-\uFFE5\w]{2,20}/.test($.trim($('#user').val()))){
-			return true
+			//return true;
+			$.ajax({
+				type:"post",
+				url:"php/is_user.php",
+				data:$('#formreg').serialize(),
+				success:function(text){
+					if(text == 1){
+						$('.infoUser').show().html("用户名被占用");
+						flag = false;
+					}else{
+						flag = true;
+					}
+				},
+				async:false
+			});
+			return flag
 		}
 	}
 	
@@ -227,7 +272,7 @@ $(function(){
 		
 		
 		//提交表单
-		$('#regbtn').on('click',function(){
+		$('.regbtn').on('click',function(){
 			var flag = true
 			if(!check_user()){
 				$('.infoUser').show();
@@ -251,22 +296,80 @@ $(function(){
 			
 			if(flag){
 				var _this = this;
-				//$('#loading').find('p').html('正在提交注册中..');
+				var loading = $('#loading');
+				loading.show();
+				$('#loading').find('p').html('正在提交注册中..');
+				center(loading,200,40)
 				_this.disabled = true;
-				console.log('提交中')
 				$(_this).css('background','darkgray');
 				$.ajax({
 					type:"post",
 					url:"php/add.php",
-					data:$('#form').serialize(),
+					data:$('#formreg').serialize(),
 					success:function(text){
 						if(text == 1){
-							alert("注册成功，请登入！")
-						}
+							loading.hide();
+							var success = $('#success');
+							success.show();
+							success.find('p').html('注册成功，请登入');
+							center(success,200,40)
+							setTimeout(function(){
+								success.hide();
+								_this.disabled = false;
+								$(_this).css('background','#a29060');
+								$('#formreg')[0].reset();
+								window.location.href='index.html';
+							},1500);
+						}	
 					},
 					async:true
 				});
 			}
+		});
+		
+		//登入
+		$('.loginBtn').on('click',function(){
+			var _this = this;
+			var loading = $('#loading');
+			loading.show();
+			$('#loading').find('p').html('登入中..');
+			center(loading,200,40)
+			_this.disabled = true;
+			$(_this).css('background','darkgray');
+			$.ajax({
+				type:"post",
+				url:"php/is_login.php",
+				data:$('#formlogin').serialize(),
+				success:function(text){
+					loading.hide();
+					if(text == 1){//失败
+						$('.loginInfo').show();
+						_this.disabled = false;
+						$(_this).css('background','#a29060');
+					}else{
+						var success = $('#success');
+						success.show();
+						success.find('p').html('登入成功');
+						center(success,200,40);
+						if ($('#expires').is(':checked')) {
+							$.cookie('user', $('#login_user').val(), {
+								expires : 7,
+							});
+						} else {
+							$.cookie('user', $('#login_user').val());
+						}
+						setTimeout(function(){
+							success.hide();
+							_this.disabled = false;
+							$(_this).css('background','#a29060');
+							$('#formlogin')[0].reset();
+							$('.login').find('a').html($.cookie('user'));
+							window.location.href='index.html';
+						},1500);
+					}
+				},
+				async:true
+			});
 		})
 
 })

@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>关于</title>
+		<title>登入</title>
 		<link rel="stylesheet" type="text/css" href="css/main.css"/>
 	</head>
 	<body>
@@ -17,9 +17,44 @@
 					<li><a href="about.html">关于</a></li>
 				</ul>
 			</nav>
-			<div class="login"><a href="login.html">登录</a></div>
+			<div class="login"><a href="login.html" class="actives">登录</a></div>
 			<div class="reg"><a href="reg.html">注册</a></div>
+			<div class="tuichu"><a href="javascript:;">退出</a></div>
 		</header>
+		<div id="login">
+		    <h2>登入账户</h2>
+		    <p class="loginInfo">用户名或密码错误</p>
+		    <form id="formlogin" name="reg" >
+	    		<div class="int">
+	    		  <label for="login_user">用&nbsp;&nbsp;户&nbsp;&nbsp;名：</label>
+	    		  <input type="text" id="login_user" name="user" class="text" />
+	    		</div>
+	    		
+	    		<div class="int">
+	    		  <label for="login_pass">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</label>
+	    		  <input type="password" id="login_pass" name="pass" class="text" />
+	    		</div>
+	    	    
+	    	    <div class="expiresBox">
+	    		  <input type="checkbox" name="expires" id="expires" checked="checked" />
+	    		  <label for="expires">记住密码</label>
+	    		</div>
+	    		<input type="button" id="regbtn" class="loginBtn" value="立即登入" />
+	    		
+	    	</form>
+	    	<div class="reBox">
+    			<a href="reg.html">注册新用户</a>
+    			<a href="#">忘记密码</a>
+    		</div>
+		</div>
+		<div id="loading">
+			<p>加载中</p>
+		</div>
+		<div id="success">
+			<p>成功</p>
+		</div>
 		<script src="js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
 	</body>
 </html>

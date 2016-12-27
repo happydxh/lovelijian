@@ -75,8 +75,21 @@ h1, h2, h3, h4, h5, h6{ font-size:100%; }
 #header .reg a:hover{
 	color: #f4c45a;
 }
+#header  a.actives{
+	color: #f4c45a;
+}
+#header .tuichu{
+	display: none;
+}
+#header .tuichu a{
+	color: white;
+	margin-left: 6px;
+}
+#header .tuichu a:hover{
+	color: #f4c45a;
+}
 /*注册*/
-#reg{
+#reg, #login{
 	width: 720px;
 	height: 400px;
 	margin: 50px auto;
@@ -85,25 +98,25 @@ h1, h2, h3, h4, h5, h6{ font-size:100%; }
 	box-sizing: border-box;
 	text-align: center;
 }
-#reg h2{
+#reg h2, #login h2{
 	color: #a29060;
 	height: 80px;
 	line-height: 80px;
 	font-size: 30px;
 	border-bottom: 1px solid #2c2b2b;
 }
-#form{
+#formreg, #formlogin{
 	margin-top: 40px;
 }
-#form .int{
+#formreg .int, #formlogin .int{
 	margin-bottom: 15px;
 	position: relative;
 }
-#form .int label{
+#formreg .int label, #formlogin .int label{
 	color: #a29060;
 	font-size: 16px;
 }
-#form .int input{
+#formreg .int input, #formlogin .int input{
 	width: 260px;
 	height: 30px;
 	background: #433f40;
@@ -112,17 +125,17 @@ h1, h2, h3, h4, h5, h6{ font-size:100%; }
 	font-size: 16px;
 	text-indent: 10px;
 }
-#form .int span{
+#formreg .int span, #formlogin .int span{
 	position: absolute;
 	top: 6px;
 	left: 508px;
 }
-#form .int .info{
+#formreg .int .info, #formlogin .int .info{
 	color: red;
 	font-size: 12px;
 	display: none;
 }
-#form .int .success{
+#formreg .int .success, #formlogin .int .success{
 	width: 18px;
 	height: 18px;
 	background: url(../img/success.png) no-repeat center center;
@@ -130,7 +143,7 @@ h1, h2, h3, h4, h5, h6{ font-size:100%; }
 	box-sizing: border-box;
 	display: none;
 }
-#form .int .all_email{
+#formreg .int .all_email{
 	position: absolute;
 	left: 242px;
 	top: 31px;
@@ -138,7 +151,7 @@ h1, h2, h3, h4, h5, h6{ font-size:100%; }
 	background: #433f40;
 	display: none;
 }
-#form .int .all_email li{
+#formreg .int .all_email li{
 	height: 20px;
 	line-height: 20px;
     color: white;
@@ -146,7 +159,7 @@ h1, h2, h3, h4, h5, h6{ font-size:100%; }
     text-align: left;
     margin-left: 5px;
 }
-#form .int .all_email li:hover{
+#formreg .int .all_email li:hover{
 	background: gray;
 }
 #regbtn{
@@ -164,6 +177,82 @@ h1, h2, h3, h4, h5, h6{ font-size:100%; }
 }
 #regbtn:hover{
 	opacity: 0.95;
+}
+#loading {
+position:absolute;
+width:200px;
+height:40px;
+background:url(../img/login_header.png);
+border-right:solid 1px #ccc;
+border-bottom:solid 1px #ccc;
+display:none;
+z-index:10000;
+}
+#loading p {
+height:40px;
+line-height:40px;
+background:url(../img/loading3.gif) no-repeat 20px center;
+text-indent:50px;
+font-size:14px;
+font-weight:bold;
+color:#666;
+}
+#success {
+position:absolute;
+width:200px;
+height:40px;
+background:url(../img/login_header.png);
+border-right:solid 1px #ccc;
+border-bottom:solid 1px #ccc;
+display:none;
+z-index:10000;
+}
+#success p {
+height:40px;
+line-height:40px;
+background:url(../img/success.gif) no-repeat 20px center;
+text-indent:50px;
+font-size:14px;
+font-weight:bold;
+color:#666;
+}
+#login{
+	position: relative;
+	height: 350px;
+	width: 570px;
+}
+#login .reBox{
+	margin-top: 34px;
+	text-align: left;
+	margin-left: 380px;
+}
+#login .reBox a{
+	color: white;
+	margin-right: 5px;
+	
+}
+#login .reBox a:hover{
+	color: #f4c45a;
+}
+#login .loginInfo{
+	color: red;
+	position: absolute;
+	top: 94px;
+	left: 266px;
+	display: none;
+}
+#login .expiresBox{
+	text-align: left;
+	margin-bottom: 15px;
+}
+#login .expiresBox label{
+	color: #a29060;
+	position: relative;
+	top: -2px;
+	left: 4px;
+}
+#expires{
+	margin-left: 168px;
 }
 /*banner*/
 #banner{
