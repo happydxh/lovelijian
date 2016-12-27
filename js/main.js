@@ -63,7 +63,7 @@ $(function(){
 	//用户名验证
 	$('#user').on('focus',function(){
 		$('.infoUser').show();
-		if(/[\u0391-\uFFE5\w]{2,20}/.test($.trim($(this).val()))){
+		if(check_user()){
 			$('.successUser').show();
 			$('.infoUser').hide();
 		}else{
@@ -71,7 +71,7 @@ $(function(){
 			$('.infoUser').show();
 		}
 	}).on('blur',function(){
-		if(/[\u0391-\uFFE5\w]{2,20}/.test($.trim($(this).val()))){
+		if(check_user()){
 			$('.successUser').show();
 			$('.infoUser').hide();
 		}else{
@@ -80,12 +80,16 @@ $(function(){
 		}
 	})
 	
-
+	function check_user(){
+		if(/[\u0391-\uFFE5\w]{2,20}/.test($.trim($('#user').val()))){
+			return true
+		}
+	}
 	
 	//密码验证
 	$('#pass').on('focus',function(){
 		$('.infoPass').show();
-		if(/[\w]{6,20}/.test($.trim($(this).val()))){
+		if(check_pass()){
 			$('.successPass').show();
 			$('.infoPass').hide();
 		}else{
@@ -93,7 +97,7 @@ $(function(){
 			$('.infoPass').show();
 		}
 	}).on('blur',function(){
-		if(/[\w]{6,20}/.test($.trim($(this).val()))){
+		if(check_pass()){
 			$('.successPass').show();
 			$('.infoPass').hide();
 		}else{
@@ -102,18 +106,19 @@ $(function(){
 		}
 	})
 	
-//	function check_user(){
-//		if(/[\u0391-\uFFE5\w]{2,20}/.test($.trim($(this).val()))){
-//			return true
-//		}
-//	}
+	function check_pass(){
+		if(/[\w]{6,20}/.test($.trim($('#pass').val()))){
+			return true
+		}
+	}
+
 	
 	//密码确认
 		$('#passTwo').on('focus',function(){
 			if($.trim($(this).val()) == ''){
 				$('.infoPassTwo').show();
 			}else{
-				if($.trim($('#passTwo').val()) == $.trim($('#pass').val())){
+				if(check_passTwo()){
 					$('.successPassTwo').show();
 					$('.infoPassTwo').hide();
 				}else{
@@ -126,7 +131,7 @@ $(function(){
 			if($.trim($(this).val()) == ''){
 				$('.infoPassTwo').show();
 			}else{
-				if($.trim($('#passTwo').val()) == $.trim($('#pass').val())){
+				if(check_passTwo()){
 					$('.successPassTwo').show();
 					$('.infoPassTwo').hide();
 				}else{
@@ -137,6 +142,12 @@ $(function(){
 			}
 		})
 		
+		function check_passTwo(){
+			if($.trim($('#passTwo').val()) == $.trim($('#pass').val())){
+				return true
+			}
+		}
+			
 		//邮箱验证
 		$('#email').on('focus',function(){
 			if($.trim($(this).val()).length >= 1){
@@ -144,7 +155,7 @@ $(function(){
 			}
 			
 			$('.infoEmail').show();
-			if(/^[\w-\.]+@[\w-]+(\.[a-zA-Z]{2,4}){1,2}$/.test($.trim($(this).val()))){
+			if(check_passEmail()){
 				$('.successEmail').show();
 				$('.infoEmail').hide();
 			}else{
@@ -154,7 +165,7 @@ $(function(){
 			}
 		}).on('blur',function(){
 			$('.all_email').hide()
-			if(/^[\w-\.]+@[\w-]+(\.[a-zA-Z]{2,4}){1,2}$/.test($.trim($(this).val()))){
+			if(check_passEmail()){
 				$('.successEmail').show();
 				$('.infoEmail').hide();
 			}else{
@@ -163,6 +174,12 @@ $(function(){
 				$('.infoEmail').html('邮箱不合法，请重新输入')
 			}
 		})
+		
+		function check_passEmail(){
+			if(/^[\w-\.]+@[\w-]+(\.[a-zA-Z]{2,4}){1,2}$/.test($.trim($('#email').val()))){
+				return true
+			}
+		}
 		
 		//邮箱补全
 		$('#email').on('keyup',function(e){
@@ -207,9 +224,49 @@ $(function(){
 			$('.all_email').hide();
 		})
 		
+		
+		
 		//提交表单
 		$('#regbtn').on('click',function(){
 			var flag = true
+			if(!check_user()){
+				$('.infoUser').show();
+				flag = false
+			}
+			
+			if(!check_pass()){
+				$('.infoPass').show();
+				flag = false
+			}
+			
+			if(!check_passTwo()){
+				$('.infoPassTwo').show();
+				flag = false
+			}
+			
+			if(!check_passEmail()){
+				$('.infoEmail').show();
+				flag = false
+			}
+			
+			if(flag){
+				var _this = this;
+				//$('#loading').find('p').html('正在提交注册中..');
+				_this.disabled = true;
+				console.log('提交中')
+				$(_this).css('background','darkgray');
+				$.ajax({
+					type:"post",
+					url:"php/add.php",
+					data:$('#form').serialize(),
+					success:function(text){
+						if(text == 1){
+							alert("注册成功，请登入！")
+						}
+					},
+					async:true
+				});
+			}
 		})
 
 })

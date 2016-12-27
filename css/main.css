@@ -162,7 +162,9 @@ h1, h2, h3, h4, h5, h6{ font-size:100%; }
 	font-weight: bold;
 	cursor: pointer;
 }
-
+#regbtn:hover{
+	opacity: 0.95;
+}
 /*banner*/
 #banner{
 	width: 1200px;
