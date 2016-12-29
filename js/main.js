@@ -3,12 +3,13 @@ $(function(){
 	//如果cookie存在，自动登入
 	if($.cookie('user')){
 		$('.tuichu').show();
-		$('.login').find('a').html($.cookie('user'))
+		$('.login').find('a').html($.cookie('user')).css('color','#f4c45a');
 	}
 	
 	//退出登入
 	$('.tuichu').on('click',function(){
 		$.cookie('user','',{expires:-1});
+		history.go(0);
 	})
 	
 	//tool function
@@ -363,8 +364,9 @@ $(function(){
 							_this.disabled = false;
 							$(_this).css('background','#a29060');
 							$('#formlogin')[0].reset();
-							$('.login').find('a').html($.cookie('user'));
-							window.location.href='index.html';
+							$('.login').find('a').html($.cookie('user')).css('color','#f4c45a');
+							window.history.back();  
+							//window.location.href='index.html';
 						},1500);
 					}
 				},
