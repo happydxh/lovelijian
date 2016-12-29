@@ -4,7 +4,7 @@
 	sleep(1);
 	require 'config.php';
 	
-	$query = "INSERT INTO lj_article (title, content, user, date) VALUES ('{$_POST['title']}', '{$_POST['content']}', '{$_POST['user']}', NOW())";
+	$query = "INSERT INTO lj_article (content, user, date) VALUES ('{$_POST['content']}', '{$_POST['user']}', NOW())";
 	
 	mysql_query($query) or die('新增失败！'.mysql_error());
 	

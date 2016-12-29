@@ -568,3 +568,90 @@ color:#666;
 	font-weight: bold;
 	font-size: 14px;
 }
+
+/*发帖*/
+#fatieBox{
+	margin: 20px auto;
+	background: white;
+	width: 600px;
+	overflow: hidden;
+	padding: 20px;
+	box-sizing: border-box;
+}
+#fatieBox .question{
+	width: 330px;
+	height: 28px;
+	background: url(../img/text.png) no-repeat center center;
+}
+#editor {
+    width: 560px;
+    margin: auto;
+    text-align: left;
+    
+}
+#fatieBtn{
+	margin-top: 10px;
+	margin-left: 450px;
+	width: 100px;
+	height: 30px;
+	background: #dd331b;
+	border: 1px solid #dd331b;
+	font-size: 14px;
+	color: white;
+	font-weight: 600;
+	cursor: pointer;
+}
+#fatieBtn:hover{
+	opacity: 0.8;
+	filter:alpha(opacity=80)
+}
+.froala-editor{
+	border: solid 1px #dd331b;
+    border-top: solid 3px #dd331b;
+}
+#edit{
+	border: solid 1px #dd331b;
+}
+.froala-element.f-basic {
+    border: solid 1px #dd331b;
+}
+#contentBox{
+	margin: 0px auto;
+	width: 600px;
+	overflow: hidden;
+}
+#contentBox ul li{
+	
+	width: 600px;
+	background: white;
+	margin-bottom: 20px;
+	padding: 20px 20px 0 20px;
+	box-sizing: border-box;
+}
+#contentBox ul li .usertime{
+	overflow: hidden;
+}
+#contentBox ul li .usertime .user{
+	display: block;
+	float: left;
+	font-size: 16px;
+	font-weight: bold;
+}
+#contentBox ul li .usertime .time{
+	display: block;
+	float: right;
+	font-size: 14px;
+}
+#contentBox ul li .content{
+	margin: 10px 0px;
+}
+#contentBox ul li .bottomBox{
+	overflow: hidden;
+	height: 30px;
+	line-height: 30px;
+}
+#contentBox ul li .bottomBox span{
+	float: right;
+	width: 60px;
+	text-align: center;
+}

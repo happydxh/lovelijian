@@ -7,19 +7,9 @@
 	    <link href="editor/css/froala_editor.min.css" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" type="text/css" href="css/main.css"/>
 	</head>
-	<style>
-        #editor {
-            width: 80%;
-            margin: auto;
-            text-align: left;
-            
-        }
-        #edit{
-        	
-        }
-    </style>
-	<body style="background: lightgray;">
-		<header id="header">
+	
+	<body style="background: #E9EDF0;">
+		<header id="header" style="background: #0c0a0d;">
 			<h2 class="logo">爱李健</h2>
 			<nav class="nav">
 				<ul>
@@ -35,18 +25,84 @@
 			<div class="tuichu"><a href="javascript:;">退出</a></div>
 
 		</header>
-		<section id="editor">
-		    <form id="formfatie" name="fatie">
-		      <div class="int">
-		      	  <label for="title">标题</label>
-		      	  <input type="text" name="title" id="title"  />
-		      </div>
-		      <textarea name="content" id='edit' style="margin-top: 30px;">
-		      </textarea>
+		<div id="fatieBox">
+			<p class="question"></p>
+			<section id="editor">
+			    <form id="formfatie" name="fatie">
+			      <textarea name="content" id='edit' style="margin-top: 30px;">
+			      </textarea>
+			
+			      <input type="button" id="fatieBtn" value="发表">
+			    </form>
+			</section>
+		</div>
 		
-		      <input type="button" id="fatieBtn" value="发表">
-		    </form>
+		<!--content list-->
+		<section id="contentBox">
+			<ul>
+				<li>
+					<div class="usertime">
+						<span class="user">千百度</span>
+						<span class="time">2016-12-12 12:12:12</span>
+					</div>
+					<div class="content">
+						有我在》，在寒冷冬季，为你增添一丝暖意。[心]“当所有经历打磨雕琢了感情，平淡也能刻骨铭心。”一改往日的沙哑伤感唱腔，温暖的旋律娓娓诉说着对爱人和家庭的守护。
+						有我在》，在寒冷冬季，为你增添一丝暖意。[心]“当所有经历打磨雕琢了感情，平淡也能刻骨铭心。”一改往日的沙哑伤感唱腔，温暖的旋律娓娓诉说着对爱人和家庭的守护。
+						有我在》，在寒冷冬季，为你增添一丝暖意。[心]“当所有经历打磨雕琢了感情，平淡也能刻骨铭心。”一改往日的沙哑伤感唱腔，温暖的旋律娓娓诉说着对爱人和家庭的守护。
+					</div>
+					<div class="bottomBox">
+						<span class="pinglun">评论</span>
+						<span class="zan">赞</span>
+					</div>
+				</li>
+				<li>
+					<div class="usertime">
+						<span class="user">千百度</span>
+						<span class="time">2016-12-12 12:12:12</span>
+					</div>
+					<div class="content">
+						有我在》，在寒冷冬季，为你增添一丝暖意。[心]“当所有经历打磨雕琢了感情，平淡也能刻骨铭心。”一改往日的沙哑伤感唱腔，温暖的旋律娓娓诉说着对爱人和家庭的守护。
+						有我在》，在寒冷冬季，为你增添一丝暖意。[心]“当所有经历打磨雕琢了感情，平淡也能刻骨铭心。”一改往日的沙哑伤感唱腔，温暖的旋律娓娓诉说着对爱人和家庭的守护。
+						有我在》，在寒冷冬季，为你增添一丝暖意。[心]“当所有经历打磨雕琢了感情，平淡也能刻骨铭心。”一改往日的沙哑伤感唱腔，温暖的旋律娓娓诉说着对爱人和家庭的守护。
+					</div>
+					<div class="bottomBox">
+						<span class="pinglun">评论</span>
+						<span class="zan">赞</span>
+					</div>
+				</li>
+				<li>
+					<div class="usertime">
+						<span class="user">千百度</span>
+						<span class="time">2016-12-12 12:12:12</span>
+					</div>
+					<div class="content">
+						有我在》，在寒冷冬季，为你增添一丝暖意。[心]“当所有经历打磨雕琢了感情，平淡也能刻骨铭心。”一改往日的沙哑伤感唱腔，温暖的旋律娓娓诉说着对爱人和家庭的守护。
+						有我在》，在寒冷冬季，为你增添一丝暖意。[心]“当所有经历打磨雕琢了感情，平淡也能刻骨铭心。”一改往日的沙哑伤感唱腔，温暖的旋律娓娓诉说着对爱人和家庭的守护。
+						有我在》，在寒冷冬季，为你增添一丝暖意。[心]“当所有经历打磨雕琢了感情，平淡也能刻骨铭心。”一改往日的沙哑伤感唱腔，温暖的旋律娓娓诉说着对爱人和家庭的守护。
+					</div>
+					<div class="bottomBox">
+						<span class="pinglun">评论</span>
+						<span class="zan">赞</span>
+					</div>
+				</li>
+				<li>
+					<div class="usertime">
+						<span class="user">千百度</span>
+						<span class="time">2016-12-12 12:12:12</span>
+					</div>
+					<div class="content">
+						有我在》，在寒冷冬季，为你增添一丝暖意。[心]“当所有经历打磨雕琢了感情，平淡也能刻骨铭心。”一改往日的沙哑伤感唱腔，温暖的旋律娓娓诉说着对爱人和家庭的守护。
+						有我在》，在寒冷冬季，为你增添一丝暖意。[心]“当所有经历打磨雕琢了感情，平淡也能刻骨铭心。”一改往日的沙哑伤感唱腔，温暖的旋律娓娓诉说着对爱人和家庭的守护。
+						有我在》，在寒冷冬季，为你增添一丝暖意。[心]“当所有经历打磨雕琢了感情，平淡也能刻骨铭心。”一改往日的沙哑伤感唱腔，温暖的旋律娓娓诉说着对爱人和家庭的守护。
+					</div>
+					<div class="bottomBox">
+						<span class="pinglun">评论</span>
+						<span class="zan">赞</span>
+					</div>
+				</li>
+			</ul>
 		</section>
+		
 		<script src="js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
 		<script src="editor/js/froala_editor.min.js"></script>
@@ -77,22 +133,27 @@
 				})
 				
 				//发帖
+				
 				$('#fatieBtn').on('click',function(){
-					$.ajax({
-						type:"post",
-						url:"php/add_content.php",
-						data:{
-							user:$.cookie('user'),
-							title:$('#title').val(),
-							content:$('#edit').val()
-						},
-						success:function(text){
-							if(text){
-								alert("发表成功 ")
-							}
-						},
-						async:true
-					});
+					if($.cookie('user')){
+						$.ajax({
+							type:"post",
+							url:"php/add_content.php",
+							data:{
+								user:$.cookie('user'),
+								content:$('#edit').val()
+							},
+							success:function(text){
+								if(text){
+									alert("发表成功 ")
+								}
+							},
+							async:true
+						});
+				    }else{
+				    	alert("请先登入")
+				    }
+
 				})
 		  })
 				
