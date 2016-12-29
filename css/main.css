@@ -55,7 +55,7 @@ h1, h2, h3, h4, h5, h6{ font-size:100%; }
 }
 #header .login{
 	float: left;
-	margin-left: 600px;
+	margin-left: 500px;
 	cursor: pointer;
 }
 #header .login a{
@@ -216,6 +216,7 @@ font-size:14px;
 font-weight:bold;
 color:#666;
 }
+/*登入*/
 #login{
 	position: relative;
 	height: 350px;
@@ -260,7 +261,7 @@ color:#666;
 	height: 500px;
 	overflow: hidden;
 	line-height: 0;
-	margin: 0px auto;
+	margin: 10px auto;
 	position: relative;
 	cursor: pointer;
 }
@@ -486,4 +487,84 @@ color:#666;
 }
 .affix {
   position: fixed;
+}
+
+
+/*video*/
+#shoupingBox{
+	width: 1050px;
+	height: 440px;
+	margin: 10px auto;
+	background: gray;
+	overflow: hidden;
+	margin-bottom: 30px;
+}
+#shoupingBox .boxLeft{
+	float: left;
+	width: 780px;
+	height: 440px;
+	background: lightgray;
+}
+#shoupingBox .boxRight{
+	float: right;
+	width: 240px;
+	height: 440px;
+	background: #7A0715;
+}
+/*MV*/
+.videoBox{
+	width: 1050px;
+	margin: 0px auto;
+	overflow: hidden;
+}
+.videoBox h2{
+	font-size: 30px;
+	color: #f4c45a;
+	margin-bottom: 10px;
+}
+.videoBox ul{
+	width: 1050px;
+	overflow: hidden;
+}
+.videoBox ul li{
+	float: left;
+	width: 240px;
+	height: 190px;
+	background: #2c2d30;
+	margin: 0px 30px 30px 0;
+}
+.videoBox ul li:nth-of-type(4){
+	margin-right: 0;
+}
+/*关于*/
+#about{
+	width: 900px;
+	overflow: hidden;
+	margin: 10px auto;
+	background: #201c1d;
+	padding: 60px;
+	box-sizing: border-box;
+}
+#about h2{
+	font-size: 30px;
+	color: #baa76c;
+	margin-bottom: 40px;
+}
+#about h3{
+	font-size: 20px;
+	color: #baa76c;
+	margin-bottom: 20px;
+}
+#about p{
+	font-size: 14px;
+	color: #7D7A7A;
+	line-height: 22px;
+	text-indent: 28px;
+	margin-bottom: 10px;
+}
+#about .geren{
+	margin-left: 30px;
+	color: wheat;
+	font-weight: bold;
+	font-size: 14px;
 }
