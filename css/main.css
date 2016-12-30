@@ -621,7 +621,6 @@ color:#666;
 	overflow: hidden;
 }
 #contentBox ul li{
-	
 	width: 600px;
 	background: white;
 	margin-bottom: 20px;
@@ -630,28 +629,52 @@ color:#666;
 }
 #contentBox ul li .usertime{
 	overflow: hidden;
+	margin-left: 10px;
 }
 #contentBox ul li .usertime .user{
 	display: block;
-	float: left;
+	/*float: left;*/
 	font-size: 16px;
 	font-weight: bold;
 }
 #contentBox ul li .usertime .time{
 	display: block;
-	float: right;
+	/*float: right;*/
+	margin-top: 5px;
 	font-size: 14px;
 }
 #contentBox ul li .content{
-	margin: 10px 0px;
+	margin: 5px 0px;
+	border: none;
 }
 #contentBox ul li .bottomBox{
+	padding: 10px 0;
+	box-sizing: border-box;
 	overflow: hidden;
-	height: 30px;
-	line-height: 30px;
 }
 #contentBox ul li .bottomBox span{
+	height: 22px;
+	line-height: 22px;
 	float: right;
-	width: 60px;
-	text-align: center;
+	width: 80px;
+	cursor: pointer;
+	color: #6d8ba7;
+	font-size: 14px;
+	padding-left: 28px;
+	box-sizing: border-box;
+}
+#contentBox ul li .bottomBox span.pinglun{
+	background: url(../img/xinxi3.png) no-repeat left 1px;
+}
+#contentBox ul li .bottomBox span.pinglun:hover{
+	background-position-y: -20px;
+}
+#contentBox ul li .bottomBox span.zan{
+	background: url(../img/zan4.png) no-repeat left -1px;
+}
+#contentBox ul li .bottomBox span.zan:hover{
+	background-position-y: -23px;
+}
+#contentBox ul li .bottomBox span:hover{
+	color: #ed3c14;
 }

@@ -105,6 +105,7 @@
 		
 		<script src="js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/json2.js" type="text/javascript" charset="utf-8"></script>
 		<script src="editor/js/froala_editor.min.js"></script>
 		 <!--[if lt IE 9]>
 	    <script src="editor/js/froala_editor_ie8.min.js"></script>
@@ -132,8 +133,26 @@
 					history.go(0);
 				})
 				
-				//发帖
+				var jsons = [
+							{"id":"14","title":"北京奥运开幕式","addtime":"2008-08-08"},
+							{"id":"15","title":"网络文化","addtime":"2008-09-12"},
+							{"id":"17","title":"北京下雨了","addtime":"2008-09-19"},
+							{"id":"21","title":"深圳地铁通了","addtime":"2008-09-25"}
+						]
+				//alert(jsons[0].id)
+				//显示帖子
+				$.ajax({
+					type:"post",
+					url:"php/show_content.php",
+					success:function(response,status,xhr){
+						var jsons = $.parseJSON(response);
+						
+					    alert(jsons[0].content)
+					},
+					async:true
+				});
 				
+				//发帖
 				$('#fatieBtn').on('click',function(){
 					if($.cookie('user')){
 						$.ajax({
@@ -155,6 +174,10 @@
 				    }
 
 				})
+				
+				
+				
+				
 		  })
 				
 	  </script>
