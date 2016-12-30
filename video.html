@@ -95,20 +95,44 @@
 				<li></li>
 			</ul>
 		</section>
+		<div id="back"></div>
 		<script src="js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
-			//如果cookie存在，自动登入
-			if($.cookie('user')){
-				$('.tuichu').show();
-				$('.login').find('a').html($.cookie('user')).css('color','#f4c45a');
-			}
+		    $(function(){
+		    	//如果cookie存在，自动登入
+				if($.cookie('user')){
+					$('.tuichu').show();
+					$('.login').find('a').html($.cookie('user')).css('color','#f4c45a');
+				}
+				
+				//退出登入
+				$('.tuichu').on('click',function(){
+					$.cookie('user','',{expires:-1});
+					history.go(0);
+				})
+				
+			    //返回顶部
+	            $('#back').on('click',function(){
+	            	$('html,body').animate({
+						scrollTop:0
+					},800);
+	            })
+	            $(window).on('scroll',function(){
+	            	checkPosition($(window).height())
+	            })
+	            
+	            checkPosition($(window).height())
+	            
+	            function checkPosition(pos){
+	            	if($(window).scrollTop() < pos){
+	            		$('#back').fadeOut()
+	            	}else{
+	            		$('#back').fadeIn()
+	            	}
+	            }
+		    })
 			
-			//退出登入
-			$('.tuichu').on('click',function(){
-				$.cookie('user','',{expires:-1});
-				history.go(0);
-			})
 		</script>
 	</body>
 </html>

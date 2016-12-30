@@ -2,7 +2,7 @@
 
     require 'php/config.php';
 
-    $query = mysql_query("SELECT content,user,date FROM lj_article ORDER BY date DESC LIMIT 0,10") or die('SQL 错误！');
+    $query = mysql_query("SELECT content,user,date FROM lj_article ORDER BY date DESC LIMIT 0,20") or die('SQL 错误！');
     date_default_timezone_set('PRC');
 	function tranTime($time) { 
 	    $rtime = date("Y-m-d H:i:s",$time); 
@@ -91,6 +91,7 @@
 			    ?>
 			</ul>
 		</section>
+		<div id="back"></div>
 		<!--<div contenteditable="true" class="froala-element not-msie f-basic f-placeholder" style="outline: 0px;" spellcheck="false" data-placeholder="Type something"><p><br></p></div>-->
 		<script src="js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
@@ -160,8 +161,37 @@
 
 				})
 				
-				
-				
+//				var lilist = $('#contentBox ul li')
+//				lilist.each(function(index){
+//					var quanwen = lilist.eq(index).find('.content').text()
+//					var jieduan = lilist.eq(index).find('.content').text().substr(0,200)
+//					$(this).find('.pinglun').on('click',function(){
+//						lilist.eq(index).find('.content').text('');
+//						lilist.eq(index).find('.content').text(jieduan+'...')
+//					})
+//					$(this).find('.zan').on('click',function(){
+//						lilist.eq(index).find('.content').text(quanwen);
+//					})
+//				})
+                //返回顶部
+                $('#back').on('click',function(){
+                	$('html,body').animate({
+						scrollTop:0
+					},800);
+                })
+                $(window).on('scroll',function(){
+                	checkPosition($(window).height())
+                })
+                
+                checkPosition($(window).height())
+                
+                function checkPosition(pos){
+                	if($(window).scrollTop() < pos){
+                		$('#back').fadeOut()
+                	}else{
+                		$('#back').fadeIn()
+                	}
+                }
 				
 		  })
 				

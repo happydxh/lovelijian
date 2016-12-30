@@ -10,6 +10,23 @@ textarea { resize:none; overflow:auto; }
 body { font-size:12px; font-family: Arial,"微软雅黑";background: #0c0a0d; }
 h1, h2, h3, h4, h5, h6{ font-size:100%; } 
 
+/*返回顶部*/
+#back{
+	width: 52px;
+	height: 52px;
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	background: url(../img/back.png) no-repeat 0 0;
+	cursor: pointer;
+	transition: all 1s;
+	-webkit-transition: all 1s; 
+	-moz-transition: all 1s; 
+	-o-transition: all 1s;  
+}
+#back:hover{
+	background-position-y: -52px;
+}
 /*首页*/
 /*头部导航*/
 #header{
@@ -648,14 +665,14 @@ color:#666;
 	border: none;
 }
 #contentBox ul li .bottomBox{
-	padding: 10px 0;
+	padding: 0px 0px 10px 10px;
 	box-sizing: border-box;
 	overflow: hidden;
 }
 #contentBox ul li .bottomBox span{
 	height: 22px;
 	line-height: 22px;
-	float: right;
+	float: left;
 	width: 80px;
 	cursor: pointer;
 	color: #6d8ba7;
