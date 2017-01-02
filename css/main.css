@@ -12,20 +12,21 @@ h1, h2, h3, h4, h5, h6{ font-size:100%; }
 
 /*返回顶部*/
 #back{
-	width: 52px;
-	height: 52px;
+	width: 47px;
+	height: 78px;
 	position: fixed;
 	bottom: 20px;
 	right: 20px;
-	background: url(../img/back.png) no-repeat 0 0;
+	background: url(../img/top.png) no-repeat 0 0;
 	cursor: pointer;
-	transition: all 1s;
+	/*transition: all 1s;
 	-webkit-transition: all 1s; 
 	-moz-transition: all 1s; 
-	-o-transition: all 1s;  
+	-o-transition: all 1s;  */
 }
 #back:hover{
-	background-position-y: -52px;
+	background: url(../img/top.gif) no-repeat 0 0;
+	/*background-position-y: -52px;*/
 }
 /*首页*/
 /*头部导航*/
