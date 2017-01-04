@@ -40,8 +40,12 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>发帖</title>
-		<link href="UMeditor/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+		<script type="text/javascript" charset="utf-8" src="UMeditor/ueditor.config.js"></script>
+	    <script type="text/javascript" charset="utf-8" src="UMeditor/ueditor.all.min.js"> </script>
+	    <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+	    <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+	    <script type="text/javascript" charset="utf-8" src="UMeditor/lang/zh-cn/zh-cn.js"></script>
 		
 	</head>
 	
@@ -67,12 +71,13 @@
 			<section id="editor">
 			    <form id="formfatie" name="fatie">
 			        <!--style给定宽度可以影响编辑器的最终宽度-->
-					<script type="text/plain" id="myEditor" style="width:560px;height:140px;">
-					</script>
-			
-			      <input type="button" id="fatieBtn" value="发表">
+					<script type="text/plain" id="myEditor" style="width:560px;height:100px;"></script>
+			        
+			        
 			    </form>
+			    
 			</section>
+			<input type="button" id="fatieBtn" value="发表">
 		</div>
 		
 		<!--content list-->
@@ -95,10 +100,10 @@
 		<div id="back"></div>
 		<script src="js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>
 		<!--编辑器-->
-		<script type="text/javascript" src="UMeditor/third-party/jquery.min.js"></script>
+		<!--<script type="text/javascript" src="UMeditor/third-party/jquery.min.js"></script>
 	    <script type="text/javascript" charset="utf-8" src="UMeditor/umeditor.config.js"></script>
 	    <script type="text/javascript" charset="utf-8" src="UMeditor/umeditor.min.js"></script>
-	    <script type="text/javascript" src="UMeditor/lang/zh-cn/zh-cn.js"></script>
+	    <script type="text/javascript" src="UMeditor/lang/zh-cn/zh-cn.js"></script>-->
 		
 		<script src="js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/json2.js" type="text/javascript" charset="utf-8"></script>
@@ -108,7 +113,7 @@
 	  <script type="text/javascript">
 		  $(function(){
 		  	  //实例化编辑器
-              var um = UM.getEditor('myEditor');
+              var ue = UE.getEditor('editor');
 		  	  
 		  	  //如果cookie存在，自动登入
 				if($.cookie('user')){
@@ -135,7 +140,7 @@
 							url:"php/add_content.php",
 							data:{
 								user:$.cookie('user'),
-								content:um.getContent()
+								content:ue.getContent()
 							},
 							success:function(text){
 								if(text){
