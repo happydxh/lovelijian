@@ -40,9 +40,13 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>发帖</title>
-		<link href="editor/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	    <link href="editor/css/froala_editor.min.css" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+		<script type="text/javascript" charset="utf-8" src="UMeditor/ueditor.config.js"></script>
+	    <script type="text/javascript" charset="utf-8" src="UMeditor/ueditor.all.min.js"> </script>
+	    <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+	    <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+	    <script type="text/javascript" charset="utf-8" src="UMeditor/lang/zh-cn/zh-cn.js"></script>
+		
 	</head>
 	
 	<body style="background: #E9EDF0;">
@@ -66,12 +70,14 @@
 			<p class="question"></p>
 			<section id="editor">
 			    <form id="formfatie" name="fatie">
-			      <textarea name="content" id='edit' style="margin-top: 30px;">
-			      </textarea>
-			
-			      <input type="button" id="fatieBtn" value="发表">
+			        <!--style给定宽度可以影响编辑器的最终宽度-->
+					<script type="text/plain" id="myEditor" style="width:560px;height:100px;"></script>
+			        
+			        
 			    </form>
+			    
 			</section>
+			<input type="button" id="fatieBtn" value="发表">
 		</div>
 		
 		<!--content list-->
@@ -86,44 +92,29 @@
 						$_time = $_htmllist['date'];
 						$_timecuo = strtotime($_time);
 						$_newtime =  tranTime($_timecuo);
-						echo '<li><div class="usertime"><span class="user">'.$_htmllist['user'].'</span><span class="time">'.$_newtime.'</span></div><div class="content froala-element not-msie f-basic f-placeholder">'.$_htmllist['content'].'</div><div class="bottomBox"><span class="pinglun">评论(0)</span><span class="zan">赞(0)</span></div></li>';
+						echo '<li><div class="usertime"><span class="user">'.$_htmllist['user'].'</span><span class="time">'.$_newtime.'</span></div><div class="content">'.$_htmllist['content'].'</div><div class="bottomBox"><span class="pinglun">评论(0)</span><span class="zan">赞(0)</span></div></li>';
 					};
 			    ?>
 			</ul>
 		</section>
 		<div id="back"></div>
-		<!--<div contenteditable="true" class="froala-element not-msie f-basic f-placeholder" style="outline: 0px;" spellcheck="false" data-placeholder="Type something"><p><br></p></div>-->
 		<script src="js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<!--编辑器-->
+		<!--<script type="text/javascript" src="UMeditor/third-party/jquery.min.js"></script>
+	    <script type="text/javascript" charset="utf-8" src="UMeditor/umeditor.config.js"></script>
+	    <script type="text/javascript" charset="utf-8" src="UMeditor/umeditor.min.js"></script>
+	    <script type="text/javascript" src="UMeditor/lang/zh-cn/zh-cn.js"></script>-->
+		
 		<script src="js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/json2.js" type="text/javascript" charset="utf-8"></script>
-		<script src="editor/js/froala_editor.min.js"></script>
-		 <!--[if lt IE 9]>
-	    <script src="editor/js/froala_editor_ie8.min.js"></script>
-	  <![endif]-->
-	  <script src="editor/js/plugins/tables.min.js"></script>
-	  <script src="editor/js/plugins/lists.min.js"></script>
-	  <script src="editor/js/plugins/colors.min.js"></script>
-	  <script src="editor/js/plugins/media_manager.min.js"></script>
-	  <script src="editor/js/plugins/font_family.min.js"></script>
-	  <script src="editor/js/plugins/font_size.min.js"></script>
-	  <script src="editor/js/plugins/block_styles.min.js"></script>
-	  <script src="editor/js/plugins/video.min.js"></script>
-	  <script src="editor/js/langs/zh_cn.js" type="text/javascript" charset="utf-8"></script>
+		
+		
+		
 	  <script type="text/javascript">
 		  $(function(){
-		  	  $('#edit').editable({
-	              inlineMode: false, alwaysBlank: true,
-	              language: "zh_cn",
-	              imageUploadURL: 'php/imgupload.php',//上传到本地服务器
-	              imageUploadParams: {id: "edit"},
-	              imageDeleteURL: 'lib/delete_image.php',//删除图片
-	              imagesLoadURL: 'lib/load_images.php'//管理图片
-	            }).on('editable.afterRemoveImage', function (e, editor, $img) {
-	               // Set the image source to the image delete params.        
-	               editor.options.imageDeleteParams = {src: $img.attr('src')};
-	               // Make the delete request
-	              editor.deleteImage($img);
-	           });
+		  	  //实例化编辑器
+              var ue = UE.getEditor('editor');
+		  	  
 		  	  //如果cookie存在，自动登入
 				if($.cookie('user')){
 					$('.tuichu').show();
@@ -137,18 +128,9 @@
 				})
 				
 				
-				//alert(jsons[0].id)
+
 				//显示帖子
-//				$.ajax({
-//					type:"post",
-//					url:"php/show_content.php",
-//					success:function(response,status,xhr){
-//						var jsons = $.parseJSON(response);
-//						
-//					    alert(jsons[0].content)
-//					},
-//					async:true
-//				});
+
 				
 				//发帖
 				$('#fatieBtn').on('click',function(){
@@ -158,7 +140,7 @@
 							url:"php/add_content.php",
 							data:{
 								user:$.cookie('user'),
-								content:$('#edit').val()
+								content:ue.getContent()
 							},
 							success:function(text){
 								if(text){
@@ -174,18 +156,7 @@
 
 				})
 				
-//				var lilist = $('#contentBox ul li')
-//				lilist.each(function(index){
-//					var quanwen = lilist.eq(index).find('.content').text()
-//					var jieduan = lilist.eq(index).find('.content').text().substr(0,200)
-//					$(this).find('.pinglun').on('click',function(){
-//						lilist.eq(index).find('.content').text('');
-//						lilist.eq(index).find('.content').text(jieduan+'...')
-//					})
-//					$(this).find('.zan').on('click',function(){
-//						lilist.eq(index).find('.content').text(quanwen);
-//					})
-//				})
+
                 //返回顶部
                 $('#back').on('click',function(){
                 	$('html,body').animate({

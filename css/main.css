@@ -664,6 +664,7 @@ color:#666;
 #contentBox ul li .content{
 	margin: 5px 0px;
 	border: none;
+	font-size: 16px; 
 }
 #contentBox ul li .bottomBox{
 	padding: 0px 0px 10px 10px;
