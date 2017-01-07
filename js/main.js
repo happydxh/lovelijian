@@ -12,6 +12,13 @@ $(function(){
 		history.go(0);
 	})
 	
+	//显示隐藏个人中心
+	$('#touxiangBox').hover(function(){
+		$(this).find('.shezhi').fadeIn();
+	},function(){
+		$(this).find('.shezhi').fadeOut();
+	})
+	
 	//tool function
         function getScroll(){
 			return {

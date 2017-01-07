@@ -61,7 +61,15 @@
 					<li><a href="about.html">关于</a></li>
 				</ul>
 			</nav>
-			<div class="login"><a href="login.html">登录</a><img id="touxiang" src="face/moren.png" alt="头像"/></div>
+			<div class="login">
+				<a href="login.html">登录</a>
+				<span id="touxiangBox">
+					<img id="touxiang" src="" alt="头像"/>
+					<div class="shezhi">
+						<span class="jiantuo"></span>
+					</div>
+				</span>
+			</div>
 			<div class="reg"><a href="reg.html">注册</a></div>
 			<div class="tuichu"><a href="javascript:;">退出</a></div>
 
@@ -123,14 +131,25 @@
 		
 	  <script type="text/javascript">
 		  $(function(){
-		  	  //实例化编辑器
-              var ue = UE.getEditor('editor');
+		  	 
+		  	 
 		  	  
 		  	  //如果cookie存在，自动登入
 				if($.cookie('user')){
 					$('.tuichu').show();
 					$('.login').find('a').html($.cookie('user')).css('color','#f4c45a');
-					$('#touxiang').show();
+					$.ajax({
+						type:"post",
+						url:"php/show_face.php",
+						data:{
+								user:$.cookie('user')
+							},
+						success:function(texts){
+							$('#touxiang').attr('src',texts).show();
+						},
+						async:true
+					});
+					
 				}
 				
 				//退出登入
@@ -140,11 +159,19 @@
 					history.go(0);
 				})
 				
+				//显示隐藏个人中心
+				$('#touxiangBox').hover(function(){
+					$(this).find('.shezhi').fadeIn();
+				},function(){
+					$(this).find('.shezhi').fadeOut();
+				})
 				
-
+				
+       
 				//显示帖子
 
-				
+				//实例化编辑器
+                var ue = UE.getEditor('editor');
 				//发帖
 				$('#fatieBtn').on('click',function(){
 					if($.cookie('user')){
@@ -168,6 +195,8 @@
 				    }
 
 				})
+				
+				
 				
 
                 //返回顶部

@@ -36,7 +36,7 @@ h1, h2, h3, h4, h5, h6{ font-size:100%; }
 	margin: 0 auto;
 	line-height: 60px;
 	/*background: grey;*/
-	overflow: hidden;
+	/*overflow: hidden;*/
 }
 #header h2{
 	height: 60px;
@@ -51,7 +51,7 @@ h1, h2, h3, h4, h5, h6{ font-size:100%; }
 	margin-left: 30px;
 }
 #header nav ul{
-	overflow: hidden;
+	/*overflow: hidden;*/
 }
 #header nav ul li{
 	width: 70px;
@@ -106,6 +106,9 @@ h1, h2, h3, h4, h5, h6{ font-size:100%; }
 #header .tuichu a:hover{
 	color: #f4c45a;
 }
+#touxiangBox{
+	position: relative;
+} 
 #touxiang{
 	width: 30px;
 	height: 30px;
@@ -113,6 +116,26 @@ h1, h2, h3, h4, h5, h6{ font-size:100%; }
 	margin: 14px 0px 0 10px;
 	display: none;
 	
+}
+#touxiangBox .shezhi{
+	position: absolute;
+	left: 0px;
+	top: 37px;
+	width: 150px;
+	height: 200px;
+	background: white;
+	z-index: 100000;
+	display: none;
+	
+}
+#touxiangBox .shezhi .jiantuo{
+	display: block;
+	width: 12px;
+	height: 16px;
+	background: url(../img/jiantuo.png) no-repeat center center;
+	position: absolute;
+	top: -16px;
+	left: 20px;
 }
 /*注册*/
 #reg, #login{
