@@ -106,6 +106,14 @@ h1, h2, h3, h4, h5, h6{ font-size:100%; }
 #header .tuichu a:hover{
 	color: #f4c45a;
 }
+#touxiang{
+	width: 30px;
+	height: 30px;
+	border-radius: 15px;
+	margin: 14px 0px 0 10px;
+	display: none;
+	
+}
 /*注册*/
 #reg, #login{
 	width: 720px;
@@ -647,7 +655,7 @@ color:#666;
 }
 #contentBox ul li .usertime{
 	overflow: hidden;
-	margin-left: 10px;
+	margin-left: 0px;
 }
 #contentBox ul li .usertime .user{
 	display: block;

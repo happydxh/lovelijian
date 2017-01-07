@@ -61,7 +61,7 @@
 					<li><a href="about.html">关于</a></li>
 				</ul>
 			</nav>
-			<div class="login"><a href="login.html">登录</a></div>
+			<div class="login"><a href="login.html">登录</a><img id="touxiang" src="face/moren.png" alt="头像"/></div>
 			<div class="reg"><a href="reg.html">注册</a></div>
 			<div class="tuichu"><a href="javascript:;">退出</a></div>
 
@@ -83,6 +83,17 @@
 		<!--content list-->
 		<section id="contentBox">
 			<ul>
+				<li>
+			    	<div class="usertime">
+			    		<span class="user">刘看山</span>
+			    		<span class="time">2017-01-07 10:10:10</span>
+			    	</div>
+			    	<div class="content">打开国际视野，来看国外设计师是怎么找灵感，看待雾霾。（他欣赏的国内设计大神会是谁呢？）[可爱]预告：这个月也会为追波人气第一名的Mike 大神做一期专</div>
+			    	<div class="bottomBox">
+			    		<span class="pinglun">评论(0)</span>
+			    		<span class="zan">赞(0)</span>
+			    	</div>
+			    </li>
 				<?php
 				     $_htmllist = array();
 	                 while($_rows = mysql_fetch_array($query,MYSQL_ASSOC)){
@@ -119,11 +130,13 @@
 				if($.cookie('user')){
 					$('.tuichu').show();
 					$('.login').find('a').html($.cookie('user')).css('color','#f4c45a');
+					$('#touxiang').show();
 				}
 				
 				//退出登入
 				$('.tuichu').on('click',function(){
 					$.cookie('user','',{expires:-1});
+					$('#touxiang').hide();
 					history.go(0);
 				})
 				
