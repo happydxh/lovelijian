@@ -17,24 +17,57 @@
 					<li><a href="about.html">关于</a></li>
 				</ul>
 			</nav>
-			<div class="login"><a href="login.html">登录</a></div>
+			<div class="login">
+				<a href="login.html">登录</a>
+				<span id="touxiangBox">
+					<img id="touxiang" src="" alt="头像"/>
+					<div class="shezhi">
+						<span class="jiantuo"></span>
+						<ul>
+							<li><a href="changeface.html">更改头像</a></li>
+							<li class="tuichu"><a href="javascript:;">退出</a></li>
+						</ul>
+					</div>
+				</span>
+			</div>
 			<div class="reg"><a href="reg.html">注册</a></div>
-			<div class="tuichu"><a href="javascript:;">退出</a></div>
 		</header>
 		<script src="js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
+			$(function(){
 				//如果cookie存在，自动登入
 				if($.cookie('user')){
 					$('.tuichu').show();
-					$('.login').find('a').html($.cookie('user')).css('color','#f4c45a');
+					$('.login').children('a').html($.cookie('user')).css('color','#f4c45a');
+					$.ajax({
+						type:"post",
+						url:"php/show_face.php",
+						data:{
+								user:$.cookie('user')
+							},
+						success:function(texts){
+							$('#touxiang').attr('src',texts).show();
+						},
+						async:true
+					});
+					
 				}
 				
 				//退出登入
 				$('.tuichu').on('click',function(){
 					$.cookie('user','',{expires:-1});
+					$('#touxiang').hide();
 					history.go(0);
 				})
+				
+				//显示隐藏个人中心
+				$('#touxiangBox').hover(function(){
+					$(this).find('.shezhi').fadeIn();
+				},function(){
+					$(this).find('.shezhi').fadeOut();
+				})
+			})
 		</script>
 	</body>
 </html>

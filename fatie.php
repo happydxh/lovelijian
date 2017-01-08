@@ -67,11 +67,15 @@
 					<img id="touxiang" src="" alt="头像"/>
 					<div class="shezhi">
 						<span class="jiantuo"></span>
+						<ul>
+							<li><a href="changeface.html">更改头像</a></li>
+							<li class="tuichu"><a href="javascript:;">退出</a></li>
+						</ul>
 					</div>
 				</span>
 			</div>
 			<div class="reg"><a href="reg.html">注册</a></div>
-			<div class="tuichu"><a href="javascript:;">退出</a></div>
+			
 
 		</header>
 		<div id="fatieBox">
@@ -137,7 +141,7 @@
 		  	  //如果cookie存在，自动登入
 				if($.cookie('user')){
 					$('.tuichu').show();
-					$('.login').find('a').html($.cookie('user')).css('color','#f4c45a');
+					$('.login').children('a').html($.cookie('user')).css('color','#f4c45a');
 					$.ajax({
 						type:"post",
 						url:"php/show_face.php",

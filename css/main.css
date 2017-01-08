@@ -96,16 +96,7 @@ h1, h2, h3, h4, h5, h6{ font-size:100%; }
 #header  a.actives{
 	color: #f4c45a;
 }
-#header .tuichu{
-	display: none;
-}
-#header .tuichu a{
-	color: white;
-	margin-left: 6px;
-}
-#header .tuichu a:hover{
-	color: #f4c45a;
-}
+
 #touxiangBox{
 	position: relative;
 } 
@@ -127,6 +118,29 @@ h1, h2, h3, h4, h5, h6{ font-size:100%; }
 	z-index: 100000;
 	display: none;
 	
+}
+#touxiangBox .shezhi ul{
+	width: 150px;
+	padding: 10px;
+	box-sizing: content-box;
+}
+#touxiangBox .shezhi ul li{
+	width: 130px;
+	height: 32px;
+	line-height: 32px;
+}
+#touxiangBox .shezhi ul li:hover{
+	background: #edeeef;
+}
+#touxiangBox .shezhi ul li a{
+	height: 32px;
+	line-height: 32px;
+	font-size: 14px;
+	color: #666666;
+	text-align: left;
+}
+#touxiangBox .shezhi ul li a:hover{
+	color: #666666;
 }
 #touxiangBox .shezhi .jiantuo{
 	display: block;
@@ -544,7 +558,7 @@ color:#666;
 	width: 1050px;
 	height: 440px;
 	margin: 10px auto;
-	background: gray;
+	/*background: gray;*/
 	overflow: hidden;
 	margin-bottom: 30px;
 }
@@ -552,7 +566,6 @@ color:#666;
 	float: left;
 	width: 780px;
 	height: 440px;
-	background: lightgray;
 }
 #shoupingBox .boxRight{
 	float: right;
