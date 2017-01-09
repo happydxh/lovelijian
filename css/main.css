@@ -591,9 +591,51 @@ color:#666;
 .videoBox ul li{
 	float: left;
 	width: 240px;
-	height: 190px;
+	height: 200px;
 	background: #2c2d30;
 	margin: 0px 30px 30px 0;
+	position: relative;
+}
+.videoBox ul li .zhezhao{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 240px;
+	height: 160px;
+	background: black;
+	opacity: 0; 
+    filter:alpha(opacity=0)
+	z-index: 1100;
+	cursor: pointer;
+}
+.videoBox ul li .play{
+	position: absolute;
+	top:58px;
+	left: 98px;
+	background: url(../img/play.png) no-repeat center center;
+	width: 44px;
+	height: 44px;
+	display: none;
+}
+.videoBox ul li img{
+	width: 240px;
+	height: 160px;
+}
+.videoBox ul li p{
+	margin-top: 4px;
+	margin-left: 8px;
+	height: 14px;
+	line-height: 14px;
+	color: darkgray;
+	
+}
+.videoBox ul li p a{
+	height: 14px;
+	line-height: 14px;
+	color: white;
+}
+.videoBox ul li p a:hover{
+	color: #ff6200;
 }
 .videoBox ul li:nth-of-type(4){
 	margin-right: 0;

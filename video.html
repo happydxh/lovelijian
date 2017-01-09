@@ -10,11 +10,11 @@
 			<h2 class="logo" style="margin-left: 146px;">爱李健</h2>
 			<nav class="nav">
 				<ul>
-					<li><a href="../index.html">首页</a></li>
-					<li><a href="../music.html">专辑</a></li>
-					<li><a href="../video.html" class="active">视频</a></li>
-					<li><a href="../fatie.php">发帖</a></li>
-					<li><a href="../about.html">关于</a></li>
+					<li><a href="index.html">首页</a></li>
+					<li><a href="music.html">专辑</a></li>
+					<li><a href="video.html" class="active">视频</a></li>
+					<li><a href="fatie.php">发帖</a></li>
+					<li><a href="about.html">关于</a></li>
 				</ul>
 			</nav>
 			<div class="login">
@@ -44,16 +44,58 @@
 			</div>
 		</section>
 		<!--MV-->
-		<section class="videoBox">
+		<section class="videoBox videoBoxMv">
 			<h2>MV</h2>
 			<ul>
-				<li><a href="mv/001.php">你一言我一语</a></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
+				<li>
+					<img alt="你一言我一语" src="img/mv/yijudingyiwanju.jpg"/>
+					<p><a href="mv/001.php" target="_blank">你一言我一语</a></p>
+					<p>电影《一句顶一万句》主题曲</p>
+					<span class="play"></span>
+					<a href="mv/001.php" target="_blank"><div class="zhezhao"></div></a>
+				</li>
+				<li>
+					<img alt="你一言我一语" src="img/mv/yijudingyiwanju.jpg"/>
+					<p><a href="mv/001.php" target="_blank">你一言我一语</a></p>
+					<p>电影《一句顶一万句》主题曲</p>
+					<span class="play"></span>
+					<a href="mv/001.php" target="_blank"><div class="zhezhao"></div></a>
+				</li>
+				<li>
+					<img alt="你一言我一语" src="img/mv/yijudingyiwanju.jpg"/>
+					<p><a href="mv/001.php" target="_blank">你一言我一语</a></p>
+					<p>电影《一句顶一万句》主题曲</p>
+					<span class="play"></span>
+					<a href="mv/001.php" target="_blank"><div class="zhezhao"></div></a>
+				</li>
+				<li>
+					<img alt="你一言我一语" src="img/mv/yijudingyiwanju.jpg"/>
+					<p><a href="mv/001.php" target="_blank">你一言我一语</a></p>
+					<p>电影《一句顶一万句》主题曲</p>
+					<span class="play"></span>
+					<a href="mv/001.php" target="_blank"><div class="zhezhao"></div></a>
+				</li>
+				<li>
+					<img alt="你一言我一语" src="img/mv/yijudingyiwanju.jpg"/>
+					<p><a href="mv/001.php" target="_blank">你一言我一语</a></p>
+					<p>电影《一句顶一万句》主题曲</p>
+					<span class="play"></span>
+					<a href="mv/001.php" target="_blank"><div class="zhezhao"></div></a>
+				</li>
+				<li>
+					<img alt="你一言我一语" src="img/mv/yijudingyiwanju.jpg"/>
+					<p><a href="mv/001.php" target="_blank">你一言我一语</a></p>
+					<p>电影《一句顶一万句》主题曲</p>
+					<span class="play"></span>
+					<a href="mv/001.php" target="_blank"><div class="zhezhao"></div></a>
+				</li>
+				<li>
+					<img alt="你一言我一语" src="img/mv/yijudingyiwanju.jpg"/>
+					<p><a href="mv/001.php" target="_blank">你一言我一语</a></p>
+					<p>电影《一句顶一万句》主题曲</p>
+					<span class="play"></span>
+					<a href="mv/001.php" target="_blank"><div class="zhezhao"></div></a>
+				</li>
 			</ul>
 		</section>
 		<!--我是歌手-->
@@ -143,6 +185,19 @@
 					$(this).find('.shezhi').fadeIn();
 				},function(){
 					$(this).find('.shezhi').fadeOut();
+				})
+				
+				//显示隐藏play
+				var mvlist = $('.videoBoxMv ul').find('li');
+				mvlist.each(function(i){
+					var index = i
+					$(this).find('.zhezhao').hover(function(){
+						$(mvlist[index]).find('.play').fadeIn();
+						$(mvlist[index]).find('.zhezhao').css('opacity','.2')
+					},function(){
+						$(mvlist[index]).find('.play').fadeOut();
+						$(mvlist[index]).find('.zhezhao').css('opacity','0')
+					})
 				})
 				
 			    //返回顶部
