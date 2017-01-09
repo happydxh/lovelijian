@@ -631,6 +631,40 @@ color:#666;
 	font-size: 14px;
 }
 
+/*vedio/mv*/
+#videoShow{
+	width: 1050px;
+	margin: 0 auto;
+	background: white;
+	overflow: hidden;
+	padding: 0;
+	height: auto;
+}
+#videoShow .videoLeft{
+	width: 820px;
+	padding: 10px 10px;
+	box-sizing: border-box;
+	float: left;
+	border-right: 1px solid #e1e1e1;
+}
+#videoShow .videoLeft h3, #videoShow .videoRight h3{
+	font-size: 22px;
+	height: 38px;
+	line-height: 38px;
+	padding: 0 0 6px 2px;
+	color: #333333;
+}
+#videoShow .videoRight{
+	width: 230px;
+	padding: 10px 10px;
+	box-sizing: border-box;
+	float: left;
+}
+#videoShow .videoRight h3{
+	font-size: 18px;
+	border-bottom: 1px solid #e1e1e1;
+}
+
 /*发帖*/
 #fatieBox{
 	margin: 20px auto;
