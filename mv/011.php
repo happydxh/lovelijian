@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>凌晨两点</title>
+		<title>美若黎明</title>
 		<link rel="stylesheet" type="text/css" href="../css/main.css"/>
 	</head>
 	
@@ -38,9 +38,9 @@
 		
 		<section id="videoShow">
 			<div class="videoLeft">
-				<h3>MV/凌晨两点</h2>
+				<h3>MV/美若黎明</h2>
 				<video  width="800px" autoplay="autoplay"  controls="controls" poster="">
-					<source type="video/mp4" src="http://oivwcgufp.bkt.clouddn.com/%E6%9D%8E%E5%81%A5%20-%20%E5%87%8C%E6%99%A8%E4%B8%A4%E7%82%B9.mp4">
+					<source type="video/mp4" src="http://oivwcgufp.bkt.clouddn.com/%E6%9D%8E%E5%81%A5%20-%20%E7%BE%8E%E8%8B%A5%E9%BB%8E%E6%98%8E.mp4">
 			    </video>
 			    <p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p>
 			    <p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p>
@@ -51,9 +51,9 @@
 			</div>
 			<div class="videoRight">
 				<h3>MV介绍</h3>
-				<p class="mvtitle">凌晨两点</p>
-				<time>发布时间：2013-03-25</time>
-                <p>简介:...</p>
+				<p class="mvtitle">美若黎明</p>
+				<time>发布时间：2016-09-08</time>
+                <p>简介:李健第6张创作专辑《李健》主打曲《美若黎明》曝光正式版MV，MV由金曲奖导演陈映之掌镜，以梦境与时间的推移，营造魔幻写实的影像。无论在什么时间、在人生的任何阶段，只要有新的希望和目标，那一刻就是“黎明”。</p>
 			    <h3>相关MV</h3>
 			</div>
 		</section>

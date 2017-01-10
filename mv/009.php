@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>凌晨两点</title>
+		<title>等待黎明</title>
 		<link rel="stylesheet" type="text/css" href="../css/main.css"/>
 	</head>
 	
@@ -38,9 +38,9 @@
 		
 		<section id="videoShow">
 			<div class="videoLeft">
-				<h3>MV/凌晨两点</h2>
+				<h3>MV/等待黎明</h2>
 				<video  width="800px" autoplay="autoplay"  controls="controls" poster="">
-					<source type="video/mp4" src="http://oivwcgufp.bkt.clouddn.com/%E6%9D%8E%E5%81%A5%20-%20%E5%87%8C%E6%99%A8%E4%B8%A4%E7%82%B9.mp4">
+					<source type="video/mp4" src="http://oivwcgufp.bkt.clouddn.com/%E6%9D%8E%E5%81%A5%20-%20%E7%AD%89%E5%BE%85%E9%BB%8E%E6%98%8E.mp4">
 			    </video>
 			    <p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p>
 			    <p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p>
@@ -51,9 +51,9 @@
 			</div>
 			<div class="videoRight">
 				<h3>MV介绍</h3>
-				<p class="mvtitle">凌晨两点</p>
-				<time>发布时间：2013-03-25</time>
-                <p>简介:...</p>
+				<p class="mvtitle">等待黎明</p>
+				<time>发布时间：2015-08-17</time>
+                <p>简介:《百团大战》主题曲《等待黎明》由爵士乐大师、电影《狼图腾》主题曲制作人黄勇再次操刀作曲及制作，并特别邀请“男神级”歌手李健演唱。MV中大量选用了《百团大战》的片段，不论是让人热血沸腾的战争场面，还是情人间紧握的双手，都极其震撼，感人至深。</p>
 			    <h3>相关MV</h3>
 			</div>
 		</section>

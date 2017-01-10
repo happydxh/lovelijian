@@ -39,7 +39,7 @@
 		<section id="videoShow">
 			<div class="videoLeft">
 				<h3>MV/异乡人</h2>
-				<video  width="780px" autoplay="autoplay"  controls="controls" poster="">
+				<video  width="800px" autoplay="autoplay"  controls="controls" poster="">
 					<source type="video/mp4" src="http://oivwcgufp.bkt.clouddn.com/%E6%9D%8E%E5%81%A5%20-%20%E5%BC%82%E4%B9%A1%E4%BA%BA.mp4">
 			    </video>
 			    <p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p>

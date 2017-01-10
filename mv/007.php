@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>凌晨两点</title>
+		<title>深海之行</title>
 		<link rel="stylesheet" type="text/css" href="../css/main.css"/>
 	</head>
 	
@@ -38,9 +38,9 @@
 		
 		<section id="videoShow">
 			<div class="videoLeft">
-				<h3>MV/凌晨两点</h2>
+				<h3>MV/深海之行</h2>
 				<video  width="800px" autoplay="autoplay"  controls="controls" poster="">
-					<source type="video/mp4" src="http://oivwcgufp.bkt.clouddn.com/%E6%9D%8E%E5%81%A5%20-%20%E5%87%8C%E6%99%A8%E4%B8%A4%E7%82%B9.mp4">
+					<source type="video/mp4" src="http://oivwcgufp.bkt.clouddn.com/%E6%9D%8E%E5%81%A5%20-%20%E6%B7%B1%E6%B5%B7%E4%B9%8B%E5%AF%BB.mp4">
 			    </video>
 			    <p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p>
 			    <p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p>
@@ -51,9 +51,9 @@
 			</div>
 			<div class="videoRight">
 				<h3>MV介绍</h3>
-				<p class="mvtitle">凌晨两点</p>
-				<time>发布时间：2013-03-25</time>
-                <p>简介:...</p>
+				<p class="mvtitle">深海之行</p>
+				<time>发布时间：2015-10-28</time>
+                <p>简介:6月8日李健荣膺“海洋公益形象大使”头衔。8月，李健发行个人第6张创作专辑，其中以海为主题的《深海之寻》被选定为“世界海洋日暨全国海洋公益日”的宣传曲，他在歌中与“海洋”对话式的表达，用反思的方式，写出了自然对人类的失望，人类对自然的亏欠。</p>
 			    <h3>相关MV</h3>
 			</div>
 		</section>

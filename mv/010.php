@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>凌晨两点</title>
+		<title>等我遇见你</title>
 		<link rel="stylesheet" type="text/css" href="../css/main.css"/>
 	</head>
 	
@@ -38,9 +38,9 @@
 		
 		<section id="videoShow">
 			<div class="videoLeft">
-				<h3>MV/凌晨两点</h2>
+				<h3>MV/等我遇见你</h2>
 				<video  width="800px" autoplay="autoplay"  controls="controls" poster="">
-					<source type="video/mp4" src="http://oivwcgufp.bkt.clouddn.com/%E6%9D%8E%E5%81%A5%20-%20%E5%87%8C%E6%99%A8%E4%B8%A4%E7%82%B9.mp4">
+					<source type="video/mp4" src="http://oivwcgufp.bkt.clouddn.com/%E6%9D%8E%E5%81%A5%20-%20%E7%AD%89%E6%88%91%E9%81%87%E8%A7%81%E4%BD%A0.mp4">
 			    </video>
 			    <p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p>
 			    <p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p>
@@ -51,9 +51,9 @@
 			</div>
 			<div class="videoRight">
 				<h3>MV介绍</h3>
-				<p class="mvtitle">凌晨两点</p>
-				<time>发布时间：2013-03-25</time>
-                <p>简介:...</p>
+				<p class="mvtitle">等我遇见你</p>
+				<time>发布时间：2016-04-28</time>
+                <p>简介:电影《北京遇上西雅图之不二情书》今日曝光李健演唱的主题曲《等我遇见你》MV，除了将电影中绝美的八大城市景观收录其中，汤唯、吴秀波片中的重要金句也与李健的词完美遇上，让这个音乐与电影跨界合作更加令人耳目一新。完美传达了片中角色的浪漫与孤单。</p>
 			    <h3>相关MV</h3>
 			</div>
 		</section>

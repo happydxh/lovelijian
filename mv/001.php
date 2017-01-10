@@ -39,7 +39,7 @@
 		<section id="videoShow">
 			<div class="videoLeft">
 				<h3>MV/你一言我一语</h2>
-				<video  width="780px" autoplay="autoplay"  controls="controls" poster="">
+				<video  width="800px" autoplay="autoplay"  controls="controls" poster="">
 					<source type="video/mp4" src="http://oivwcgufp.bkt.clouddn.com/%E6%9D%8E%E5%81%A5%20-%20%E4%BD%A0%E4%B8%80%E8%A8%80%E6%88%91%E4%B8%80%E8%AF%AD.mp4">
 			    </video>
 			    <p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p>
