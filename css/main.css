@@ -643,38 +643,7 @@ color:#666;
 .videoBox ul li:nth-of-type(8){
 	margin-right: 0;
 }
-/*关于*/
-#about{
-	width: 900px;
-	overflow: hidden;
-	margin: 10px auto;
-	background: #201c1d;
-	padding: 60px;
-	box-sizing: border-box;
-}
-#about h2{
-	font-size: 30px;
-	color: #baa76c;
-	margin-bottom: 40px;
-}
-#about h3{
-	font-size: 20px;
-	color: #baa76c;
-	margin-bottom: 20px;
-}
-#about p{
-	font-size: 14px;
-	color: #7D7A7A;
-	line-height: 22px;
-	text-indent: 28px;
-	margin-bottom: 10px;
-}
-#about .geren{
-	margin-left: 30px;
-	color: wheat;
-	font-weight: bold;
-	font-size: 14px;
-}
+
 
 /*vedio/mv*/
 #videoShow{
@@ -722,6 +691,52 @@ color:#666;
 #videoShow .videoRight .mvtitle{
 	margin-top: 10px;
 }
+#videoShow .videoRight .xiangguanBox{
+	margin-top: 10px;
+}
+#videoShow .videoRight .xiangguanBox a{
+	color: gray;
+	height: 80px;
+	line-height: 80px;
+}
+#videoShow .videoRight .xiangguanBox a:hover{
+	color: #ff6200;
+}
+
+/*关于*/
+#about{
+	width: 900px;
+	overflow: hidden;
+	margin: 10px auto;
+	background: #201c1d;
+	padding: 60px;
+	box-sizing: border-box;
+}
+#about h2{
+	font-size: 30px;
+	color: #baa76c;
+	margin-bottom: 40px;
+}
+#about h3{
+	font-size: 20px;
+	color: #baa76c;
+	margin-bottom: 20px;
+}
+#about p{
+	font-size: 14px;
+	color: #7D7A7A;
+	line-height: 22px;
+	text-indent: 28px;
+	margin-bottom: 10px;
+}
+#about .geren{
+	margin-left: 30px;
+	color: wheat;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+
 /*发帖*/
 #fatieBox{
 	margin: 20px auto;

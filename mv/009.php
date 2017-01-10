@@ -55,6 +55,22 @@
 				<time>发布时间：2015-08-17</time>
                 <p>简介:《百团大战》主题曲《等待黎明》由爵士乐大师、电影《狼图腾》主题曲制作人黄勇再次操刀作曲及制作，并特别邀请“男神级”歌手李健演唱。MV中大量选用了《百团大战》的片段，不论是让人热血沸腾的战争场面，还是情人间紧握的双手，都极其震撼，感人至深。</p>
 			    <h3>相关MV</h3>
+			    <div class="xiangguanBox">
+			    	<a href="007.php" target="_blank"><img alt="深海之行" src="../img/mv/minshzx.jpg"/></a>
+			    	<a href="007.php" target="_blank">深海之行</a>
+			    </div>
+			    <div class="xiangguanBox">
+			    	<a href="010.php" target="_blank"><img alt="等我遇见你" src="../img/mv/mindwyjn.jpg"/></a>
+			    	<a href="010.php" target="_blank">等我遇见你</a>
+			    </div>
+			    <div class="xiangguanBox">
+			    	<a href="005.php" target="_blank"><img alt="异乡人" src="../img/mv/minyixiangren.jpg"/></a>
+			    	<a href="005.php" target="_blank">异乡人</a>
+			    </div>
+			    <div class="xiangguanBox">
+			    	<a href="006.php" target="_blank"><img alt="我始终在这里" src="../img/mv/minwszzzl.jpg"/></a>
+			    	<a href="006.php" target="_blank">我始终在这里</a>
+			    </div>
 			</div>
 		</section>
 		

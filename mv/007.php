@@ -55,6 +55,22 @@
 				<time>发布时间：2015-10-28</time>
                 <p>简介:6月8日李健荣膺“海洋公益形象大使”头衔。8月，李健发行个人第6张创作专辑，其中以海为主题的《深海之寻》被选定为“世界海洋日暨全国海洋公益日”的宣传曲，他在歌中与“海洋”对话式的表达，用反思的方式，写出了自然对人类的失望，人类对自然的亏欠。</p>
 			    <h3>相关MV</h3>
+			    <div class="xiangguanBox">
+			    	<a href="011.php" target="_blank"><img alt="美若黎明" src="../img/mv/minmrlm.jpeg"/></a>
+			    	<a href="011.php" target="_blank">美若黎明</a>
+			    </div>
+			    <div class="xiangguanBox">
+			    	<a href="010.php" target="_blank"><img alt="等我遇见你" src="../img/mv/mindwyjn.jpg"/></a>
+			    	<a href="010.php" target="_blank">等我遇见你</a>
+			    </div>
+			    <div class="xiangguanBox">
+			    	<a href="005.php" target="_blank"><img alt="异乡人" src="../img/mv/minyixiangren.jpg"/></a>
+			    	<a href="005.php" target="_blank">异乡人</a>
+			    </div>
+			    <div class="xiangguanBox">
+			    	<a href="006.php" target="_blank"><img alt="我始终在这里" src="../img/mv/minwszzzl.jpg"/></a>
+			    	<a href="006.php" target="_blank">我始终在这里</a>
+			    </div>
 			</div>
 		</section>
 		

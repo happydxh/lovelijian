@@ -55,6 +55,22 @@
 				<time>发布时间：2016-04-28</time>
                 <p>简介:电影《北京遇上西雅图之不二情书》今日曝光李健演唱的主题曲《等我遇见你》MV，除了将电影中绝美的八大城市景观收录其中，汤唯、吴秀波片中的重要金句也与李健的词完美遇上，让这个音乐与电影跨界合作更加令人耳目一新。完美传达了片中角色的浪漫与孤单。</p>
 			    <h3>相关MV</h3>
+			    <div class="xiangguanBox">
+			    	<a href="011.php" target="_blank"><img alt="美若黎明" src="../img/mv/minmrlm.jpeg"/></a>
+			    	<a href="011.php" target="_blank">美若黎明</a>
+			    </div>
+			    <div class="xiangguanBox">
+			    	<a href="010.php" target="_blank"><img alt="等我遇见你" src="../img/mv/mindwyjn.jpg"/></a>
+			    	<a href="010.php" target="_blank">等我遇见你</a>
+			    </div>
+			    <div class="xiangguanBox">
+			    	<a href="005.php" target="_blank"><img alt="异乡人" src="../img/mv/minyixiangren.jpg"/></a>
+			    	<a href="005.php" target="_blank">异乡人</a>
+			    </div>
+			    <div class="xiangguanBox">
+			    	<a href="006.php" target="_blank"><img alt="我始终在这里" src="../img/mv/minwszzzl.jpg"/></a>
+			    	<a href="006.php" target="_blank">我始终在这里</a>
+			    </div>
 			</div>
 		</section>
 		

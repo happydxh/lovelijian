@@ -55,6 +55,22 @@
 				<time>发布时间：2013-03-26</time>
                 <p>简介:...</p>
 			    <h3>相关MV</h3>
+			    <div class="xiangguanBox">
+			    	<a href="011.php" target="_blank"><img alt="美若黎明" src="../img/mv/minmrlm.jpeg"/></a>
+			    	<a href="011.php" target="_blank">美若黎明</a>
+			    </div>
+			    <div class="xiangguanBox">
+			    	<a href="010.php" target="_blank"><img alt="等我遇见你" src="../img/mv/mindwyjn.jpg"/></a>
+			    	<a href="010.php" target="_blank">等我遇见你</a>
+			    </div>
+			    <div class="xiangguanBox">
+			    	<a href="003.php" target="_blank"><img alt="凌晨两点" src="../img/mv/minlcld.jpg"/></a>
+			    	<a href="003.php" target="_blank">凌晨两点</a>
+			    </div>
+			    <div class="xiangguanBox">
+			    	<a href="002.php" target="_blank"><img alt="假如爱有天意" src="../img/mv/minjrayty.jpg"/></a>
+			    	<a href="002.php" target="_blank">假如爱有天意</a>
+			    </div>
 			</div>
 		</section>
 		

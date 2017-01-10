@@ -55,6 +55,22 @@
 				<time>发布时间：2016-10-27</time>
                 <p>简介：由李健献声的电影《一句顶一万句》主题曲《你一言我一语》MV正式上线。李健用质朴简单的歌词，清澈温暖的声音，将影片中每个人物充满苦楚与无奈的内心世界诠释得淋漓尽致，同时他也首次分享了歌曲的创作灵感。</p>
 			    <h3>相关MV</h3>
+			    <div class="xiangguanBox">
+			    	<a href="002.php" target="_blank"><img alt="假如爱有天意" src="../img/mv/minjrayty.jpg"/></a>
+			    	<a href="002.php" target="_blank">假如爱有天意</a>
+			    </div>
+			    <div class="xiangguanBox">
+			    	<a href="009.php" target="_blank"><img alt="等待黎明" src="../img/mv/minddlm.jpg"/></a>
+			    	<a href="009.php" target="_blank">等待黎明</a>
+			    </div>
+			    <div class="xiangguanBox">
+			    	<a href="010.php" target="_blank"><img alt="等我遇见你" src="../img/mv/mindwyjn.jpg"/></a>
+			    	<a href="010.php" target="_blank">等我遇见你</a>
+			    </div>
+			    <div class="xiangguanBox">
+			    	<a href="005.php" target="_blank"><img alt="异乡人" src="../img/mv/minyixiangren.jpg"/></a>
+			    	<a href="005.php" target="_blank">异乡人</a>
+			    </div>
 			</div>
 		</section>
 		

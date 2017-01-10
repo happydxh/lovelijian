@@ -55,6 +55,22 @@
 				<time>发布时间：2015-07-17</time>
                 <p> 简介：史诗爱情鸿篇巨制《太平轮·彼岸》发布了由李健献唱的电影推广曲《假如爱有天意》MV。MV中李健置身于水中央的立体空间里，伴着漫天飘零的雪花动情演绎着这首唯美伤感的《假如爱有天意》。震撼的影像画面搭配感染力十足的音乐直戳观众泪点。</p>
 			    <h3>相关MV</h3>
+			    <div class="xiangguanBox">
+			    	<a href="009.php" target="_blank"><img alt="等待黎明" src="../img/mv/minddlm.jpg"/></a>
+			    	<a href="009.php" target="_blank">等待黎明</a>
+			    </div>
+			    <div class="xiangguanBox">
+			    	<a href="010.php" target="_blank"><img alt="等我遇见你" src="../img/mv/mindwyjn.jpg"/></a>
+			    	<a href="010.php" target="_blank">等我遇见你</a>
+			    </div>
+			    <div class="xiangguanBox">
+			    	<a href="005.php" target="_blank"><img alt="异乡人" src="../img/mv/minyixiangren.jpg"/></a>
+			    	<a href="005.php" target="_blank">异乡人</a>
+			    </div>
+			    <div class="xiangguanBox">
+			    	<a href="006.php" target="_blank"><img alt="我始终在这里" src="../img/mv/minwszzzl.jpg"/></a>
+			    	<a href="006.php" target="_blank">我始终在这里</a>
+			    </div>
 			</div>
 		</section>
 		

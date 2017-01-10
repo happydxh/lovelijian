@@ -55,6 +55,22 @@
 				<time>发布时间：2016-09-08</time>
                 <p>简介:李健第6张创作专辑《李健》主打曲《美若黎明》曝光正式版MV，MV由金曲奖导演陈映之掌镜，以梦境与时间的推移，营造魔幻写实的影像。无论在什么时间、在人生的任何阶段，只要有新的希望和目标，那一刻就是“黎明”。</p>
 			    <h3>相关MV</h3>
+			    <div class="xiangguanBox">
+			    	<a href="009.php" target="_blank"><img alt="等待黎明" src="../img/mv/minddlm.jpg"/></a>
+			    	<a href="009.php" target="_blank">等待黎明</a>
+			    </div>
+			    <div class="xiangguanBox">
+			    	<a href="010.php" target="_blank"><img alt="等我遇见你" src="../img/mv/mindwyjn.jpg"/></a>
+			    	<a href="010.php" target="_blank">等我遇见你</a>
+			    </div>
+			    <div class="xiangguanBox">
+			    	<a href="005.php" target="_blank"><img alt="异乡人" src="../img/mv/minyixiangren.jpg"/></a>
+			    	<a href="005.php" target="_blank">异乡人</a>
+			    </div>
+			    <div class="xiangguanBox">
+			    	<a href="006.php" target="_blank"><img alt="我始终在这里" src="../img/mv/minwszzzl.jpg"/></a>
+			    	<a href="006.php" target="_blank">我始终在这里</a>
+			    </div>
 			</div>
 		</section>
 		
