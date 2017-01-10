@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>一句顶一万句</title>
+		<title>向往</title>
 		<link rel="stylesheet" type="text/css" href="../css/main.css"/>
 	</head>
 	
@@ -38,9 +38,9 @@
 		
 		<section id="videoShow">
 			<div class="videoLeft">
-				<h3>MV/你一言我一语</h2>
+				<h3>MV/向往</h2>
 				<video  width="780px" autoplay="autoplay"  controls="controls" poster="">
-					<source type="video/mp4" src="http://oivwcgufp.bkt.clouddn.com/%E6%9D%8E%E5%81%A5%20-%20%E4%BD%A0%E4%B8%80%E8%A8%80%E6%88%91%E4%B8%80%E8%AF%AD.mp4">
+					<source type="video/mp4" src="http://oivwcgufp.bkt.clouddn.com/%E6%9D%8E%E5%81%A5%20-%20%E5%90%91%E5%BE%80.mp4">
 			    </video>
 			    <p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p>
 			    <p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p>
@@ -51,9 +51,9 @@
 			</div>
 			<div class="videoRight">
 				<h3>MV介绍</h3>
-				<p class="mvtitle">李健《你一言我一语》</p>
-				<time>发布时间：2016-10-27</time>
-                <p>简介：由李健献声的电影《一句顶一万句》主题曲《你一言我一语》MV正式上线。李健用质朴简单的歌词，清澈温暖的声音，将影片中每个人物充满苦楚与无奈的内心世界诠释得淋漓尽致，同时他也首次分享了歌曲的创作灵感。</p>
+				<p class="mvtitle">向往</p>
+				<time>发布时间：2013-08-22</time>
+                <p>简介:...</p>
 			    <h3>相关MV</h3>
 			</div>
 		</section>

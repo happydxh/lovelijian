@@ -694,7 +694,7 @@ color:#666;
 	height: 38px;
 	line-height: 38px;
 	padding: 0 0 6px 2px;
-	color: #333333;
+	color: gray;
 }
 #videoShow .videoRight{
 	width: 230px;
@@ -705,8 +705,20 @@ color:#666;
 #videoShow .videoRight h3{
 	font-size: 18px;
 	border-bottom: 1px solid #e1e1e1;
+	color: gray;
 }
-
+#videoShow .videoRight time{
+	display: block;
+	color: gray;
+	margin-top: 10px;
+}
+#videoShow .videoRight p{
+	color: gray;
+	line-height: 18px;
+}
+#videoShow .videoRight .mvtitle{
+	margin-top: 10px;
+}
 /*发帖*/
 #fatieBox{
 	margin: 20px auto;
