@@ -52,20 +52,8 @@
 			<div class="videoRight">
 				<h3>相关video</h3>
 			    <div class="xiangguanBox">
-			    	<a href="002.php" target="_blank"><img alt="假如爱有天意" src="../img/mv/minjrayty.jpg"/></a>
-			    	<a href="002.php" target="_blank">假如爱有天意</a>
-			    </div>
-			    <div class="xiangguanBox">
-			    	<a href="009.php" target="_blank"><img alt="等待黎明" src="../img/mv/minddlm.jpg"/></a>
-			    	<a href="009.php" target="_blank">等待黎明</a>
-			    </div>
-			    <div class="xiangguanBox">
-			    	<a href="010.php" target="_blank"><img alt="等我遇见你" src="../img/mv/mindwyjn.jpg"/></a>
-			    	<a href="010.php" target="_blank">等我遇见你</a>
-			    </div>
-			    <div class="xiangguanBox">
-			    	<a href="005.php" target="_blank"><img alt="异乡人" src="../img/mv/minyixiangren.jpg"/></a>
-			    	<a href="005.php" target="_blank">异乡人</a>
+			    	<a href="002.php" target="_blank"><img alt="在水一方" src="../img/geshou/02.jpg"/></a>
+			    	<a href="002.php" target="_blank">在水一方</a>
 			    </div>
 			</div>
 		</section>
