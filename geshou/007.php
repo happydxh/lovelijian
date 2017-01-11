@@ -52,21 +52,26 @@
 			<div class="videoRight">
 				<h3>相关video</h3>
 			    <div class="xiangguanBox">
-			    	<a href="002.php" target="_blank"><img alt="假如爱有天意" src="../img/mv/minjrayty.jpg"/></a>
-			    	<a href="002.php" target="_blank">假如爱有天意</a>
+			    	<a href="008.php" target="_blank"><img alt="陀螺" src="../img/geshou/min08.jpg"/></a>
+			    	<a href="008.php" target="_blank">陀螺</a>
 			    </div>
 			    <div class="xiangguanBox">
-			    	<a href="009.php" target="_blank"><img alt="等待黎明" src="../img/mv/minddlm.jpg"/></a>
-			    	<a href="009.php" target="_blank">等待黎明</a>
+			    	<a href="009.php" target="_blank"><img alt="假如爱有天意" src="../img/geshou/min09.jpg"/></a>
+			    	<a href="009.php" target="_blank">假如爱有天意</a>
 			    </div>
 			    <div class="xiangguanBox">
-			    	<a href="010.php" target="_blank"><img alt="等我遇见你" src="../img/mv/mindwyjn.jpg"/></a>
-			    	<a href="010.php" target="_blank">等我遇见你</a>
+			    	<a href="010.php" target="_blank"><img alt="故乡山川" src="../img/geshou/min10.jpg"/></a>
+			    	<a href="010.php" target="_blank">故乡山川</a>
 			    </div>
 			    <div class="xiangguanBox">
-			    	<a href="005.php" target="_blank"><img alt="异乡人" src="../img/mv/minyixiangren.jpg"/></a>
-			    	<a href="005.php" target="_blank">异乡人</a>
+			    	<a href="011.php" target="_blank"><img alt="车站" src="../img/geshou/min11.jpg"/></a>
+			    	<a href="011.php" target="_blank">车站</a>
 			    </div>
+			    <div class="xiangguanBox">
+			    	<a href="001.php" target="_blank"><img alt="贝加尔湖畔" src="../img/geshou/min01.jpg"/></a>
+			    	<a href="001.php" target="_blank">贝加尔湖畔</a>
+			    </div>
+			    
 			</div>
 		</section>
 		

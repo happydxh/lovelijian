@@ -52,8 +52,24 @@
 			<div class="videoRight">
 				<h3>相关video</h3>
 			    <div class="xiangguanBox">
-			    	<a href="002.php" target="_blank"><img alt="在水一方" src="../img/geshou/02.jpg"/></a>
+			    	<a href="002.php" target="_blank"><img alt="在水一方" src="../img/geshou/min02.jpg"/></a>
 			    	<a href="002.php" target="_blank">在水一方</a>
+			    </div>
+			    <div class="xiangguanBox">
+			    	<a href="003.php" target="_blank"><img alt="袖手旁观" src="../img/geshou/min03.jpg"/></a>
+			    	<a href="003.php" target="_blank">袖手旁观</a>
+			    </div>
+			    <div class="xiangguanBox">
+			    	<a href="004.php" target="_blank"><img alt="今天是你的生日,妈妈 " src="../img/geshou/min04.jpg"/></a>
+			    	<a href="004.php" target="_blank">今天是你的生日</a>
+			    </div>
+			    <div class="xiangguanBox">
+			    	<a href="005.php" target="_blank"><img alt="当你老了" src="../img/geshou/min05.jpg"/></a>
+			    	<a href="005.php" target="_blank">当你老了</a>
+			    </div>
+			    <div class="xiangguanBox">
+			    	<a href="006.php" target="_blank"><img alt="尘缘" src="../img/geshou/min06.jpg"/></a>
+			    	<a href="006.php" target="_blank">尘缘</a>
 			    </div>
 			</div>
 		</section>
