@@ -21,19 +21,19 @@
 				</ul>
 			</nav>
 			<div class="login">
-				<a href="login.html">登录</a>
+				<a href="../login.html">登录</a>
 				<span id="touxiangBox">
 					<img id="touxiang" src="" alt="头像"/>
 					<div class="shezhi">
 						<span class="jiantuo"></span>
 						<ul>
-							<li><a href="changeface.html">更改头像</a></li>
+							<li><a href="../changeface.html">更改头像</a></li>
 							<li class="tuichu"><a href="javascript:;">退出</a></li>
 						</ul>
 					</div>
 				</span>
 			</div>
-			<div class="reg"><a href="reg.html">注册</a></div>
+			<div class="reg"><a href="../reg.html">注册</a></div>
 		</header>
 		
 		<section id="videoShow">

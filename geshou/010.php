@@ -1,10 +1,10 @@
-
+<br />
 
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>今天是你的生日，妈妈</title>
+		<title>故乡山川</title>
 		<link rel="stylesheet" type="text/css" href="../css/main.css"/>
 	</head>
 	
@@ -38,9 +38,9 @@
 		
 		<section id="videoShow">
 			<div class="videoLeft">
-				<h3>我是歌手/今天是你的生日，妈妈</h2>
-				<video  width="800px" autoplay="autoplay" id="bgAudio"  controls="controls" poster="">
-					<source type="video/mp4" src="http://oiquezwzp.bkt.clouddn.com/%E4%BB%8A%E5%A4%A9%E6%98%AF%E4%BD%A0%E7%9A%84%E7%94%9F%E6%97%A5%EF%BC%8C%E5%A6%88%E5%A6%88.mp4">
+				<h3>我是歌手/故乡山川</h2>
+				<video  width="800px" autoplay="autoplay" id="bgAudio" controls="controls" poster="">
+					<source type="video/mp4" src="http://oiquezwzp.bkt.clouddn.com/%E6%9D%8E%E5%81%A5%E3%80%8A%E6%95%85%E4%B9%A1%E5%B1%B1%E5%B7%9D%E3%80%8B%E7%A7%80%E2%80%9C%E6%B0%91%E6%AD%8C%E8%85%94%E2%80%9D%E6%A2%A6%E5%9B%9E%E6%95%85%E9%87%8C.mp4">
 			    </video>
 			    <p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p>
 			    <p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p>

@@ -1,10 +1,10 @@
-
+<br />
 
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>今天是你的生日，妈妈</title>
+		<title>假如爱有天意</title>
 		<link rel="stylesheet" type="text/css" href="../css/main.css"/>
 	</head>
 	
@@ -38,9 +38,9 @@
 		
 		<section id="videoShow">
 			<div class="videoLeft">
-				<h3>我是歌手/今天是你的生日，妈妈</h2>
-				<video  width="800px" autoplay="autoplay" id="bgAudio"  controls="controls" poster="">
-					<source type="video/mp4" src="http://oiquezwzp.bkt.clouddn.com/%E4%BB%8A%E5%A4%A9%E6%98%AF%E4%BD%A0%E7%9A%84%E7%94%9F%E6%97%A5%EF%BC%8C%E5%A6%88%E5%A6%88.mp4">
+				<h3>我是歌手/假如爱有天意</h2>
+				<video  width="800px" autoplay="autoplay" id="bgAudio" controls="controls" poster="">
+					<source type="video/mp4" src="http://oiquezwzp.bkt.clouddn.com/%E5%81%87%E5%A6%82%E7%88%B1%E6%9C%89%E5%A4%A9%E6%84%8F.mp4">
 			    </video>
 			    <p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p>
 			    <p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p>
