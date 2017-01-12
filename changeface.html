@@ -14,31 +14,41 @@ body {
 	text-align: center;
 }
 #clipArea {
-	margin: 20px;
+	margin: 10px;
 	height: 300px;
 }
 #file,
 #clipBtn {
-	margin: 20px;
+	margin: 10px;
 }
 #view {
 	margin: 0 auto;
 	width: 200px;
 	height: 200px;
 }
+.ps{
+	margin:10px 0 0 0 ;
+	padding: 0;
+}
+#clipForm{
+	margin-top: 10px;
+}
 </style>
 </head>
 <body ontouchstart="">
-<div id="clipArea"></div>
+	<p class="ps">ps:鼠标滚轮可以调节图片大小</p>
+<div id="clipArea" style="cursor: move;"></div>
 <input type="file" id="file">
-<button id="clipBtn">截取</button>
+<button id="clipBtn">裁剪</button>
+
 <div id="view"></div>
 <form id="clipForm">
-	<input type="text" name="baseurl" id="baseurl"  />
+	<input type="hidden" name="baseurl" id="baseurl"  />
 	<input type="button" id="upImg" value="上传" />
 </form>
 
 <script src="js/jquery-1.12.3.min.js"></script>
+<script src="js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
 <script src="photoClip/js/iscroll-zoom.js"></script>
 <script src="photoClip/js/hammer.js"></script>
 <script src="photoClip/js/lrz.all.bundle.js"></script>
@@ -77,10 +87,15 @@ body {
 		    			type:"post",
 		    			url:"php/upfaceimg.php",
 		    			data:{
-		    				baseurl:base64
+		    				baseurl:base64,
+		    				user:$.cookie('user')
 		    			},
 		    			success:function(text){
-		    				alert(text)
+		    				if(text == 1){
+		    					window.history.back();
+		    				}else{
+		    					alert('上传失败，请重新上传')
+		    				}
 		    			},
 		    			async:true
 		    		});
