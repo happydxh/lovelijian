@@ -11,4 +11,5 @@
 	@mysql_select_db(DB_NAME) or die('数据库错误：'.mysql_error());
 	
 	@mysql_query('SET NAMES UTF8') or die('字符集错误：'.mysql_error());
+	
 ?>

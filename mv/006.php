@@ -39,7 +39,7 @@
 		<section id="videoShow">
 			<div class="videoLeft">
 				<h3>MV/我始终在这里</h2>
-				<video  width="800px" autoplay="autoplay"  controls="controls" poster="">
+				<video  width="800px" autoplay="autoplay"  id="bgAudio" controls="controls" poster="">
 					<source type="video/mp4" src="http://oivwcgufp.bkt.clouddn.com/%E6%9D%8E%E5%81%A5%20-%20%E6%88%91%E5%A7%8B%E7%BB%88%E5%9C%A8%E8%BF%99%E9%87%8C%28But%20I%20Still%20Love%20You%29.mp4">
 			    </video>
 			    <p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p>
@@ -84,7 +84,8 @@
 	  <script type="text/javascript">
 		  $(function(){
 		  	 
-		  	 
+		  	  //设置初始音量大小
+		  	  document.getElementById("bgAudio").volume = 0.4;
 		  	  
 		  	  //如果cookie存在，自动登入
 				if($.cookie('user')){

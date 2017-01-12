@@ -39,7 +39,7 @@
 		<section id="videoShow">
 			<div class="videoLeft">
 				<h3>MV/假如爱有天意</h2>
-				<video  width="800px" autoplay="autoplay"  controls="controls" poster="">
+				<video  width="800px" autoplay="autoplay" id="bgAudio"  controls="controls" poster="">
 					<source type="video/mp4" src="http://oivwcgufp.bkt.clouddn.com/%E6%9D%8E%E5%81%A5%20-%20%E5%81%87%E5%A6%82%E7%88%B1%E6%9C%89%E5%A4%A9%E6%84%8F.mp4">
 			    </video>
 			    <p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p>
@@ -84,7 +84,8 @@
 	  <script type="text/javascript">
 		  $(function(){
 		  	 
-		  	 
+		  	  //设置初始音量大小
+		  	  document.getElementById("bgAudio").volume = 0.4;
 		  	  
 		  	  //如果cookie存在，自动登入
 				if($.cookie('user')){

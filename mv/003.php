@@ -39,7 +39,7 @@
 		<section id="videoShow">
 			<div class="videoLeft">
 				<h3>MV/凌晨两点</h2>
-				<video  width="800px" autoplay="autoplay"  controls="controls" poster="">
+				<video  width="800px" autoplay="autoplay" id="bgAudio"  controls="controls" poster="">
 					<source type="video/mp4" src="http://oivwcgufp.bkt.clouddn.com/%E6%9D%8E%E5%81%A5%20-%20%E5%87%8C%E6%99%A8%E4%B8%A4%E7%82%B9.mp4">
 			    </video>
 			    <p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p>
@@ -84,7 +84,8 @@
 	  <script type="text/javascript">
 		  $(function(){
 		  	 
-		  	 
+		  	  //设置初始音量大小
+		  	  document.getElementById("bgAudio").volume = 0.4;
 		  	  
 		  	  //如果cookie存在，自动登入
 				if($.cookie('user')){

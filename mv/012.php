@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>异乡人</title>
+		<title>陀螺</title>
 		<link rel="stylesheet" type="text/css" href="../css/main.css"/>
 	</head>
 	
@@ -38,9 +38,9 @@
 		
 		<section id="videoShow">
 			<div class="videoLeft">
-				<h3>MV/异乡人</h2>
-				<video  width="800px" autoplay="autoplay" id="bgAudio"  controls="controls" poster="">
-					<source type="video/mp4" src="http://oivwcgufp.bkt.clouddn.com/%E6%9D%8E%E5%81%A5%20-%20%E5%BC%82%E4%B9%A1%E4%BA%BA.mp4">
+				<h3>MV/陀螺</h2>
+				<video  width="800px" autoplay="autoplay" id="bgAudio" controls="controls" poster="">
+					<source type="video/mp4" src="http://oivwcgufp.bkt.clouddn.com/%E3%80%8A%E9%99%80%E8%9E%BA%E3%80%8BMV%E7%89%88%EF%BC%8C%E6%B7%B7%E6%90%AD%E7%94%B5%E5%BD%B1%E3%80%8A%E6%B5%B7%E4%B8%8A%E9%92%A2%E7%90%B4%E5%B8%88%E3%80%8B.mp4">
 			    </video>
 			    <p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p>
 			    <p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p>
@@ -51,21 +51,21 @@
 			</div>
 			<div class="videoRight">
 				<h3>MV介绍</h3>
-				<p class="mvtitle">异乡人</p>
-				<time>发布时间：2013-09-13</time>
+				<p class="mvtitle">陀螺</p>
+				<time>发布时间：...</time>
                 <p>简介:...</p>
 			    <h3>相关MV</h3>
 			    <div class="xiangguanBox">
-			    	<a href="011.php" target="_blank"><img alt="美若黎明" src="../img/mv/minmrlm.jpeg"/></a>
-			    	<a href="011.php" target="_blank">美若黎明</a>
+			    	<a href="009.php" target="_blank"><img alt="等待黎明" src="../img/mv/minddlm.jpg"/></a>
+			    	<a href="009.php" target="_blank">等待黎明</a>
 			    </div>
 			    <div class="xiangguanBox">
 			    	<a href="010.php" target="_blank"><img alt="等我遇见你" src="../img/mv/mindwyjn.jpg"/></a>
 			    	<a href="010.php" target="_blank">等我遇见你</a>
 			    </div>
 			    <div class="xiangguanBox">
-			    	<a href="003.php" target="_blank"><img alt="凌晨两点" src="../img/mv/minlcld.jpg"/></a>
-			    	<a href="003.php" target="_blank">凌晨两点</a>
+			    	<a href="005.php" target="_blank"><img alt="异乡人" src="../img/mv/minyixiangren.jpg"/></a>
+			    	<a href="005.php" target="_blank">异乡人</a>
 			    </div>
 			    <div class="xiangguanBox">
 			    	<a href="006.php" target="_blank"><img alt="我始终在这里" src="../img/mv/minwszzzl.jpg"/></a>
