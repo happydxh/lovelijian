@@ -33,20 +33,20 @@ $(function(){
 	})
 	
 	//tool function
-        function getScroll(){
-			return {
-				top : document.documentElement.scrollTop || document.body.scrollTop,
-				left : document.documentElement.scrollLeft || document.body.scrollLeft
-			}
+    function getScroll(){
+		return {
+			top : document.documentElement.scrollTop || document.body.scrollTop,
+			left : document.documentElement.scrollLeft || document.body.scrollLeft
 		}
-        
-		function center(obj,width,height){
-			var top = (document.documentElement.clientHeight-height) / 2;
-		    var left = (document.documentElement.clientWidth-width) / 2;
-		    var scroll = 
-		    obj.css('top',top+getScroll().top+'px')
-		    obj.css('left',left+getScroll().left+'px')
-		}
+	}
+    
+	function center(obj,width,height){
+		var top = (document.documentElement.clientHeight-height) / 2;
+	    var left = (document.documentElement.clientWidth-width) / 2;
+	    var scroll = 
+	    obj.css('top',top+getScroll().top+'px')
+	    obj.css('left',left+getScroll().left+'px')
+	}
 
 	
 	//焦点图

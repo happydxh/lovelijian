@@ -5,10 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="format-detection" content="telephone=no, email=no" />
-<meta name="keywords" content="">
-<meta name="description" content="">
 <title>图片裁剪</title>
 <style>
+*{
+	margin: 0;
+	padding: 0;
+}
 body {
 	margin: 0;
 	text-align: center;
@@ -33,20 +35,65 @@ body {
 #clipForm{
 	margin-top: 10px;
 }
+#loading {
+	position:absolute;
+	width:200px;
+	height:40px;
+	line-height:40px;
+	background:url(img/login_header.png);
+	border-right:solid 1px #ccc;
+	border-bottom:solid 1px #ccc;
+	display:none;
+	z-index:10000;
+}
+#loading p {
+	height:40px;
+	line-height:40px;
+	background:url(img/loading3.gif) no-repeat 20px center;
+	text-indent:50px;
+	font-size:14px;
+	font-weight:bold;
+	color:#E66921;
+}
+#success {
+	position:absolute;
+	width:200px;
+	height:40px;
+	line-height:40px;
+	background:url(img/login_header.png);
+	border-right:solid 1px #ccc;
+	border-bottom:solid 1px #ccc;
+	display:none;
+	z-index:10000;
+}
+#success p {
+	height:40px;
+	line-height:40px;
+	background:url(img/success.gif) no-repeat 20px center;
+	text-indent:50px;
+	font-size:14px;
+	font-weight:bold;
+	color:#63A319;
+}
 </style>
 </head>
 <body ontouchstart="">
 	<p class="ps">ps:鼠标滚轮可以调节图片大小</p>
-<div id="clipArea" style="cursor: move;"></div>
-<input type="file" id="file">
-<button id="clipBtn">裁剪</button>
-
-<div id="view"></div>
-<form id="clipForm">
-	<input type="hidden" name="baseurl" id="baseurl"  />
-	<input type="button" id="upImg" value="上传" />
-</form>
-
+	<div id="clipArea" style="cursor: move;"></div>
+	<input type="file" id="file">
+	<button id="clipBtn">裁剪</button>
+	
+	<div id="view"></div>
+	<form id="clipForm">
+		<input type="hidden" name="baseurl" id="baseurl"  />
+		<input type="button" id="upImg" value="上传" />
+	</form>
+	<div id="loading">
+		<p>加载中</p>
+	</div>
+	<div id="success">
+		<p>成功</p>
+	</div>
 <script src="js/jquery-1.12.3.min.js"></script>
 <script src="js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
 <script src="photoClip/js/iscroll-zoom.js"></script>
@@ -63,6 +110,20 @@ body {
 //  		alert(urls);
 //  		console.log(urls)
 //  	})
+        function getScroll(){
+			return {
+				top : document.documentElement.scrollTop || document.body.scrollTop,
+				left : document.documentElement.scrollLeft || document.body.scrollLeft
+			}
+		}
+        
+		function center(obj,width,height){
+			var top = (document.documentElement.clientHeight-height) / 2;
+		    var left = (document.documentElement.clientWidth-width) / 2;
+		    var scroll = 
+		    obj.css('top',top+getScroll().top+'px')
+		    obj.css('left',left+getScroll().left+'px')
+		}
     	
 	    var clipArea = new bjj.PhotoClip("#clipArea", {
 			size: [260, 260],
@@ -83,6 +144,11 @@ body {
 		    		var baseurl = $('#baseurl').val();
 		    		var basearr = baseurl.split(',');
 		    		var base64 = basearr[1];
+		    		
+		    		var loading = $('#loading');
+					loading.show();
+					$('#loading').find('p').html('上传中..');
+					center(loading,200,40)
 		    		$.ajax({
 		    			type:"post",
 		    			url:"php/upfaceimg.php",
@@ -91,8 +157,16 @@ body {
 		    				user:$.cookie('user')
 		    			},
 		    			success:function(text){
+		    				loading.hide();
 		    				if(text == 1){
-		    					window.history.back();
+		    					var success = $('#success');
+								success.show();
+								success.find('p').html('上传成功');
+								center(success,200,40);
+								setTimeout(function(){
+									success.hide();
+									window.history.back();
+								},1500);
 		    				}else{
 		    					alert('上传失败，请重新上传')
 		    				}

@@ -23,7 +23,7 @@
 
 	mysql_query($query) or die('更新失败！'.mysql_error());
 	
-	sleep(3);
+//	sleep(3);
 //	echo mysql_affected_rows();
     if(mysql_affected_rows() == 1){//更新成功
 		echo 1;

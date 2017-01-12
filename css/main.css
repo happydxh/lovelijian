@@ -258,7 +258,7 @@ background:url(../img/loading3.gif) no-repeat 20px center;
 text-indent:50px;
 font-size:14px;
 font-weight:bold;
-color:#666;
+color:#E66921;
 }
 #success {
 position:absolute;
@@ -277,7 +277,7 @@ background:url(../img/success.gif) no-repeat 20px center;
 text-indent:50px;
 font-size:14px;
 font-weight:bold;
-color:#666;
+color:#63A319;
 }
 /*登入*/
 #login{
@@ -795,24 +795,38 @@ color:#666;
 	width: 600px;
 	background: white;
 	margin-bottom: 20px;
+	
+}
+#contentBox ul li .contentwrap{
 	padding: 20px 20px 0 20px;
 	box-sizing: border-box;
+	border-bottom: 1px solid #d9d9d9;
 }
 #contentBox ul li .usertime{
 	overflow: hidden;
 	margin-left: 0px;
+}
+#contentBox ul li .faceImgs{
+	margin-top: 3px;
+	width: 40px;
+	height: 40px;
+	display: block;
+	float: left;
 }
 #contentBox ul li .usertime .user{
 	display: block;
 	/*float: left;*/
 	font-size: 16px;
 	font-weight: bold;
+	margin-left: 45px;
 }
 #contentBox ul li .usertime .time{
 	display: block;
 	/*float: right;*/
 	margin-top: 5px;
 	font-size: 14px;
+	margin-left: 45px;
+	color: gray;
 }
 #contentBox ul li .content{
 	margin: 5px 0px;
@@ -823,6 +837,7 @@ color:#666;
 	padding: 0px 0px 10px 10px;
 	box-sizing: border-box;
 	overflow: hidden;
+	
 }
 #contentBox ul li .bottomBox span{
 	height: 22px;
@@ -849,4 +864,50 @@ color:#666;
 }
 #contentBox ul li .bottomBox span:hover{
 	color: #ed3c14;
+}
+#contentBox ul li .comment{
+	width: 600px;
+	height: 500px;
+	background: #f2f2f5;
+}
+#contentBox ul li .comment .emotion{
+	display:block;
+    margin:8px 0 0 50px;
+    overflow:hidden;
+    width:500px;
+    font-size:14px;
+    height:18px;
+    line-height:24px;
+    padding:2px;
+    border:1px solid #fa7d3c;
+}
+
+#commentForm{
+	padding: 16px 20px 20px 20px;
+}
+#contentBox ul li .comment .emoijBox{
+	overflow: hidden;
+	margin-top: 10px;
+}
+#emoij{
+	float: left;
+	display: block;
+	width: 20px;
+	height: 20px;
+	background: url(../img/emoij.png) no-repeat center center;
+	margin-left: 60px;
+	cursor: pointer;
+}
+#commentBtn{
+	float: right;
+	width: 64px;
+	height: 28px;
+	line-height: 28px;
+	text-align: center;
+	background: #f39f72;
+	color: white;
+	font-size: 14px;
+	border: none;
+	margin-right: 5px;
+	cursor: pointer;
 }
