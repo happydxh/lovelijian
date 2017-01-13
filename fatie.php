@@ -3,6 +3,35 @@
     require 'php/config.php';
     //显示贴子
     $query = mysql_query("SELECT (SELECT face_url FROM lj_user WHERE user=a.user) AS faceurl,a.id,a.content,a.user,a.date FROM lj_article a ORDER BY a.date DESC LIMIT 0,20") or die('SQL 错误！');
+	//显示评论
+//	$_id = $_POST['articleid'];
+//	echo 1;
+//	exit;
+//	$_commentquery = mysql_query("SELECT comment,user,date FROM lj_comment WHERE articleid='{$_POST['articleid']}' ORDER BY date DESC LIMIT 0,10") or die('SQL 错误！');
+//  $_commentlist = array();
+//									                 while($_rows = mysql_fetch_array($_commentquery,MYSQL_ASSOC)){
+//									                    $_commentlist['user'] = $_rows['user'];
+//														$_commentlist['comment'] = $_rows['comment'];
+//														$_commentlist['date'] = $_rows['date'];
+//														$_time = $_commentlist['date'];
+//														$_timecuo = strtotime($_time);
+//														$_newtime =  tranTime($_timecuo);
+//													    echo '<li>'.
+//										    					'<div class="commentLeft">'.
+//										    						'<img src="face/test1484196094.jpg"/>'.
+//										    					'</div>'.
+//										    					'<div class="commentRight">'.
+//										    						'<p>'.
+//											    						'<span class="commentUser">'.$_commentlist['user'].':</span>'.
+//											    						'<span class="commentContent">'.$_commentlist['comment'].'</span>'.
+//											    				     '</p>'.
+//											    				    '<div class="commentBottom">'.
+//											    				    	'<time>'.$_newtime.'</time>'.
+//											    				    	'<span class="huifu">回复</span>'.
+//											    				    '</div>'.
+//										    					'</div>'.
+//										    				 '</li>';
+//													    }; 
     date_default_timezone_set('PRC');
 	function tranTime($time) { 
 	    $rtime = date("Y-m-d H:i:s",$time); 
@@ -87,6 +116,7 @@
 			
 
 		</header>
+		
 		<div id="fatieBox">
 			<p class="question"></p>
 			<section id="editor">
@@ -118,7 +148,7 @@
 				    	</div>
 			    	</div>
 			    	<div class="comment">
-			    		<form id="commentForm">
+			    		<form id="commentForm" >
 			    			<input type="hidden" name="articleid" id="articleid" value="1" />
 			    			<img class="faceImgs" src="face/test1484196094.jpg"/>
 			    			<textarea name="comments" class="emotion" id="textarea"></textarea>
@@ -139,7 +169,7 @@
 				    						<span class="commentContent">打开国际视野，来看国外设计师是怎么找灵感 来啦！C3PO是经典电影系列中一个重要的机械人。它性格怕事懦弱，但对主人绝无异心。那怕自己受困苦捱灾难，仍会随传随到，功成身退后将爱拱手相让也无怨言。[心]这首歌将它的默默付出，一一诉说。</span>
 				    				    </p>
 				    				    <div class="commentBottom">
-				    				    	<time>今天</time>
+				    				    	<time>2016-12-12 12:12:12</time>
 				    				    	<span class="huifu">回复</span>
 				    				    </div>
 			    					</div>
@@ -183,7 +213,7 @@
 						          	  '</div>'.
 						          	  '<div class="content">'.$_htmllist['content'].'</div>'.
 						          	  '<div class="bottomBox">'.
-						          	      '<span class="pinglun">评论(0)</span>'.
+						          	      '<span class="pinglun">评论(<em id="count">0</em>)</span>'.
 						          	      '<span class="zan">赞(0)</span>'.
 						          	  '</div>'.
 						          '</div>'.
@@ -198,7 +228,9 @@
 							    			'</div>'.
 							    		'</form>'.
 							    		'<div id="showComment">'.
-							    			'<ol>'.
+							    			'<ol id="comments">'.
+								    			    
+													
 							    			'</ol>'.
 							    		'</div>'.
 							    	'</div>'.
@@ -229,7 +261,12 @@
 		
 	  <script type="text/javascript">
 		  
-		  
+		    $(function(){
+				$('#jiexi').on('click',function(){
+					var inputText = '[左哼哼]';
+			        alert(AnalyticEmotion(inputText))
+				})
+			})
 		  
 				
 	  </script>

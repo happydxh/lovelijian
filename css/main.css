@@ -948,15 +948,18 @@ color:#63A319;
 	line-height: 20px;
 }
 #showComment ol li .commentRight .commentBottom{
+	width: 510px;
 	height: 20px;
 	line-height: 20px;
 	color: #333;
+	overflow: hidden;
 }
 #showComment ol li .commentRight .commentBottom time{
 	color: gray;
+	float: left;
 }
 #showComment ol li .commentRight .commentBottom .huifu{
-	margin-left: 454px;
+	float: right;
 	cursor: pointer;
 }
 #showComment ol li .commentRight .commentBottom .huifu:hover{

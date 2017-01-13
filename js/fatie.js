@@ -91,6 +91,8 @@ $(function(){
 		    	
 		    	//发表评论
 				$(this).find('#commentBtn').on('click',function(){
+					var comments = AnalyticEmotion($(tiezilist[index]).find('#textarea').val());
+					//var comments = htmlencode(textareas)
 					if($.cookie('user')){
 						var loading = $('#loading');
 						loading.show();
@@ -101,7 +103,7 @@ $(function(){
 							url:"php/add_comment.php",
 							data:{
 								user:$.cookie('user'),
-								comments:$(tiezilist[index]).find('#textarea').val(),
+								comments:comments,
 								articleid:$(tiezilist[index]).find('#articleid').val()
 							},
 							success:function(text){
@@ -123,7 +125,61 @@ $(function(){
 				    }else{
 				    	alert("请先登入")
 				    }
-				})
+				});
+				
+				//显示评论数
+				$.ajax({
+					type:"post",
+					url:"php/show_commentCount.php",
+					data:{
+						articleid:$(tiezilist[index]).find('#articleid').val()
+					},
+					success:function(response){
+						$(tiezilist[index]).find('#count').text(response)
+					},
+					async:true
+				});
+				
+
+
+                
+				//显示评论
+				$.ajax({
+					type:"post",
+					url:"php/show_comment.php",
+					data:{
+						articleid:$(tiezilist[index]).find('#articleid').val()
+					},
+					success:function(response){
+						//alert(response)
+						var json = $.parseJSON(response);
+						var html = '';
+						//alert(AnalyticEmotion(json[0]['comment']))
+						$.each(json, function (index, value) {
+							
+							var commentContent = AnalyticEmotion(value.comment);
+							
+							html += '<li>'+
+				    					'<div class="commentLeft">'+
+				    						'<img src="face/test1484196094.jpg"/>'+
+				    					'</div>'+
+				    					'<div class="commentRight">'+
+				    						'<p>'+
+					    						'<span class="commentUser">'+value.user+':</span>'+
+					    						'<span class="commentContent">'+commentContent+'</span>'+
+					    				     '</p>'+
+					    				    '<div class="commentBottom">'+
+					    				    	'<time>'+value.date+'</time>'+
+					    				    	'<span class="huifu">回复</span>'+
+					    				    '</div>'+
+				    					'</div>'+
+				    				'</li>';
+						});
+                        
+						$(tiezilist[index]).find('#comments').append(html);
+					},
+					async:true
+				});
 		    	
 		    })
 			
