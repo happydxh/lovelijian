@@ -1,8 +1,8 @@
 <?php
 
     require 'php/config.php';
-
-    $query = mysql_query("SELECT (SELECT face_url FROM lj_user WHERE user=a.user) AS faceurl,a.content,a.user,a.date FROM lj_article a ORDER BY a.date DESC LIMIT 0,20") or die('SQL 错误！');
+    //显示贴子
+    $query = mysql_query("SELECT (SELECT face_url FROM lj_user WHERE user=a.user) AS faceurl,a.id,a.content,a.user,a.date FROM lj_article a ORDER BY a.date DESC LIMIT 0,20") or die('SQL 错误！');
     date_default_timezone_set('PRC');
 	function tranTime($time) { 
 	    $rtime = date("Y-m-d H:i:s",$time); 
@@ -119,18 +119,54 @@
 			    	</div>
 			    	<div class="comment">
 			    		<form id="commentForm">
+			    			<input type="hidden" name="articleid" id="articleid" value="1" />
 			    			<img class="faceImgs" src="face/test1484196094.jpg"/>
-			    			<textarea class="emotion" id="textarea"></textarea>
+			    			<textarea name="comments" class="emotion" id="textarea"></textarea>
 			    			<div class="emoijBox">
 				    			<span id="emoij"></span>
 				    			<input id="commentBtn" type="button" value="评论" />
 			    			</div>
 			    		</form>
+			    		<div id="showComment">
+			    			<ol>
+			    				<li>
+			    					<div class="commentLeft">
+			    						<img src="face/test1484196094.jpg"/>
+			    					</div>
+			    					<div class="commentRight">
+			    						<p>
+				    						<span class="commentUser">千百度:</span>
+				    						<span class="commentContent">打开国际视野，来看国外设计师是怎么找灵感 来啦！C3PO是经典电影系列中一个重要的机械人。它性格怕事懦弱，但对主人绝无异心。那怕自己受困苦捱灾难，仍会随传随到，功成身退后将爱拱手相让也无怨言。[心]这首歌将它的默默付出，一一诉说。</span>
+				    				    </p>
+				    				    <div class="commentBottom">
+				    				    	<time>今天</time>
+				    				    	<span class="huifu">回复</span>
+				    				    </div>
+			    					</div>
+			    				</li>
+			    				<li>
+			    					<div class="commentLeft">
+			    						<img src="face/test1484196094.jpg"/>
+			    					</div>
+			    					<div class="commentRight">
+			    						<p>
+				    						<span class="commentUser">千百度:</span>
+				    						<span class="commentContent">打开国际视野，来看国外设计师是怎么找灵感</span>
+				    				    </p>
+				    				    <div class="commentBottom">
+				    				    	<time>今天</time>
+				    				    	<span class="huifu">回复</span>
+				    				    </div>
+			    					</div>
+			    				</li>
+			    			</ol>
+			    		</div>
 			    	</div>
 			    </li>
 				<?php
 				     $_htmllist = array();
 	                 while($_rows = mysql_fetch_array($query,MYSQL_ASSOC)){
+	                 	$_htmllist['id'] = $_rows['id'];
 	                 	$_htmllist['faceurl'] = $_rows['faceurl'];
 	                    $_htmllist['user'] = $_rows['user'];
 						$_htmllist['content'] = $_rows['content'];
@@ -138,7 +174,35 @@
 						$_time = $_htmllist['date'];
 						$_timecuo = strtotime($_time);
 						$_newtime =  tranTime($_timecuo);
-						echo '<li><div class="contentwrap"><div class="usertime"><img class="faceImgs" src="'.$_htmllist['faceurl'].'"/><span class="user">'.$_htmllist['user'].'</span><span class="time">'.$_newtime.'</span></div><div class="content">'.$_htmllist['content'].'</div><div class="bottomBox"><span class="pinglun">评论(0)</span><span class="zan">赞(0)</span></div></div></li>';
+						echo '<li>'.
+						          '<div class="contentwrap">'.
+						          	  '<div class="usertime">'.
+						          	      '<img class="faceImgs" src="'.$_htmllist['faceurl'].'"/>'.
+						          	      '<span class="user">'.$_htmllist['user'].'</span>'.
+						          	      '<span class="time">'.$_newtime.'</span>'.
+						          	  '</div>'.
+						          	  '<div class="content">'.$_htmllist['content'].'</div>'.
+						          	  '<div class="bottomBox">'.
+						          	      '<span class="pinglun">评论(0)</span>'.
+						          	      '<span class="zan">赞(0)</span>'.
+						          	  '</div>'.
+						          '</div>'.
+						          '<div class="comment">'.
+							    		'<form id="commentForm">'.
+							    			'<input type="hidden" name="articleid" id="articleid" value="'.$_htmllist['id'].'" />'.
+							    			'<img class="faceImgs" src="'.$_htmllist['faceurl'].'"/>'.
+							    			'<textarea name="comments" class="emotion" id="textarea"></textarea>'.
+							    			'<div class="emoijBox">'.
+								    			'<span id="emoij"></span>'.
+								    			'<input id="commentBtn" type="button" value="评论" />'.
+							    			'</div>'.
+							    		'</form>'.
+							    		'<div id="showComment">'.
+							    			'<ol>'.
+							    			'</ol>'.
+							    		'</div>'.
+							    	'</div>'.
+						      '</li>';
 					};
 			    ?>
 			</ul>
@@ -161,116 +225,12 @@
 		<script src="js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/json2.js" type="text/javascript" charset="utf-8"></script>
 		<script src="emoji/jquery.sinaEmotion.js" type="text/javascript" charset="utf-8"></script>
-		
+		<script src="js/fatie.js" type="text/javascript" charset="utf-8"></script>
 		
 	  <script type="text/javascript">
-		  $(function(){
-		  	    
-		  	    //textarea高度自适应
-		  	    var texts = document.getElementById("textarea");
-                autoTextarea(texts);
-                
-                // 绑定表情
-		        $('#emoij').SinaEmotion($('.emotion'));
-		  	  
-		  	    //如果cookie存在，自动登入
-				if($.cookie('user')){
-					$('.tuichu').show();
-					$('.login').children('a').html($.cookie('user')).css('color','#f4c45a');
-					$.ajax({
-						type:"post",
-						url:"php/show_face.php",
-						data:{
-								user:$.cookie('user')
-							},
-						success:function(texts){
-							$('#touxiang').attr('src',texts).show();
-						},
-						async:true
-					});
-					
-				}
-				
-				//退出登入
-				$('.tuichu').on('click',function(){
-					$.cookie('user','',{expires:-1});
-					$('#touxiang').hide();
-					history.go(0);
-				})
-				
-				//显示隐藏个人中心
-				$('#touxiangBox').hover(function(){
-					$(this).find('.shezhi').fadeIn();
-				},function(){
-					$(this).find('.shezhi').fadeOut();
-				})
-				
-				
-       
-				//显示帖子
-
-				//实例化编辑器
-                var ue = UE.getEditor('editor');
-				//发帖
-				$('#fatieBtn').on('click',function(){
-					if($.cookie('user')){
-						var loading = $('#loading');
-						loading.show();
-						$('#loading').find('p').html('发表中..');
-						center(loading,200,40)
-						$.ajax({
-							type:"post",
-							url:"php/add_content.php",
-							data:{
-								user:$.cookie('user'),
-								content:ue.getContent()
-							},
-							success:function(text){
-								loading.hide();
-								if(text){
-									var success = $('#success');
-									success.show();
-									success.find('p').html('发表成功');
-									center(success,200,40);
-									setTimeout(function(){
-										success.hide();
-										history.go(0);
-									},1500);
-									
-								}
-							},
-							async:true
-						});
-				    }else{
-				    	alert("请先登入")
-				    }
-
-				})
-				
-				
-				
-
-                //返回顶部
-                $('#back').on('click',function(){
-                	$('html,body').animate({
-						scrollTop:0
-					},800);
-                })
-                $(window).on('scroll',function(){
-                	checkPosition($(window).height())
-                })
-                
-                checkPosition($(window).height())
-                
-                function checkPosition(pos){
-                	if($(window).scrollTop() < pos){
-                		$('#back').fadeOut()
-                	}else{
-                		$('#back').fadeIn()
-                	}
-                }
-				
-		  })
+		  
+		  
+		  
 				
 	  </script>
 	</body>

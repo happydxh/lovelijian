@@ -883,7 +883,9 @@ color:#63A319;
 }
 
 #commentForm{
-	padding: 16px 20px 20px 20px;
+	margin: 0px 20px 0px 20px;
+	padding: 16px 0 15px 0;
+	border-bottom:1px solid #d9d9d9;
 }
 #contentBox ul li .comment .emoijBox{
 	overflow: hidden;
@@ -910,4 +912,53 @@ color:#63A319;
 	border: none;
 	margin-right: 5px;
 	cursor: pointer;
+}
+#showComment{
+	
+}
+#showComment ol li{
+	overflow: hidden;
+	margin: 10px 20px 0px 20px;
+	padding: 0px 0px 10px 0;
+	width: 560px;
+	background: #f2f2f5;
+	border-bottom:1px solid #d9d9d9;
+}
+#showComment ol li .commentLeft{
+	float: left;
+}
+#showComment ol li .commentLeft img{
+	width: 40px;
+	height: 40px;
+	display: block;
+}
+#showComment ol li .commentRight{
+	float: left;
+	margin-left: 10px;
+	width: 510px;
+}
+#showComment ol li .commentRight p span.commentUser{
+	color: #eb7350;
+	font-size: 14px;
+	line-height: 20px;
+}
+#showComment ol li .commentRight p span.commentContent{
+	color: #333;
+	font-size: 12px;
+	line-height: 20px;
+}
+#showComment ol li .commentRight .commentBottom{
+	height: 20px;
+	line-height: 20px;
+	color: #333;
+}
+#showComment ol li .commentRight .commentBottom time{
+	color: gray;
+}
+#showComment ol li .commentRight .commentBottom .huifu{
+	margin-left: 454px;
+	cursor: pointer;
+}
+#showComment ol li .commentRight .commentBottom .huifu:hover{
+	color: #eb7350;
 }
