@@ -8,7 +8,6 @@
 
 	mysql_query($query) or die('新增失败！'.mysql_error());
 	
-	sleep(3);
 	echo mysql_affected_rows();
 	
 	mysql_close();

@@ -15,6 +15,7 @@ $(function(){
 							user:$.cookie('user')
 						},
 					success:function(texts){
+						
 						$('#touxiang').attr('src',texts).show();
 					},
 					async:true
@@ -38,7 +39,7 @@ $(function(){
 			
 			
    
-			//显示帖子
+			
 
 			//实例化编辑器
             var ue = UE.getEditor('editor');
@@ -89,42 +90,88 @@ $(function(){
 		    	// 绑定表情
 		    	$(this).find('#emoij').SinaEmotion($(this).find('.emotion'));
 		    	
+		    	//评论者头像
+		    	$.ajax({
+					type:"post",
+					url:"php/show_face.php",
+					data:{
+							user:$.cookie('user')
+						},
+					success:function(texts){
+						//alert(texts)
+						
+						$(tiezilist[index]).find('#pinglunFace').attr('src',texts);
+					},
+					async:true
+				});
+				
 		    	//发表评论
 				$(this).find('#commentBtn').on('click',function(){
-					var textareas = AnalyticEmotion($(tiezilist[index]).find('#textarea').val());
-					var comments = encodeURIComponent(textareas);
-					if($.cookie('user')){
-						var loading = $('#loading');
-						loading.show();
-						$('#loading').find('p').html('发表中..');
-						center(loading,200,40)
-						$.ajax({
-							type:"post",
-							url:"php/add_comment.php",
-							data:{
-								user:$.cookie('user'),
-								comments:comments,
-								articleid:$(tiezilist[index]).find('#articleid').val()
-							},
-							success:function(text){
-								loading.hide();
-								if(text){
-									var success = $('#success');
-									success.show();
-									success.find('p').html('发表成功');
-									center(success,200,40);
-									setTimeout(function(){
-										success.hide();
-										history.go(0);
-									},1500);
-									
-								}
-							},
-							async:true
-						});
-				    }else{
-				    	alert("请先登入")
-				    }
+					if( $(tiezilist[index]).find('#textarea').val() == '' ){
+						var tishi = $('#tishi');
+							tishi.show();
+							$('#tishi').find('p').html('评论内容不得为空哦！');
+							center(tishi,200,40);
+							setTimeout(function(){
+								tishi.hide();
+							},1500);
+					}else{
+						var textareas = AnalyticEmotion($(tiezilist[index]).find('#textarea').val());
+						var comments = encodeURIComponent(textareas);
+						if($.cookie('user')){
+							var htmls = '';
+							htmls += '<li>'+
+					    					'<div class="commentLeft">'+
+					    						'<img src="face/test1484196094.jpg"/>'+
+					    					'</div>'+
+					    					'<div class="commentRight">'+
+					    						'<p>'+
+						    						'<span class="commentUser">'+$.cookie('user')+':</span>'+
+						    						'<span class="commentContent">'+textareas+'</span>'+
+						    				     '</p>'+
+						    				    '<div class="commentBottom">'+
+						    				    	'<time>刚刚</time>'+
+						    				    	'<span class="huifu">回复</span>'+
+						    				    '</div>'+
+					    					'</div>'+
+					    				'</li>';
+							
+	                        
+							$(tiezilist[index]).find('#comments').prepend(htmls);
+							$(tiezilist[index]).find('#commentForm')[0].reset();
+							
+							//评论数
+							var count = $(tiezilist[index]).find('#count').text();
+							count++
+							$(tiezilist[index]).find('#count').text(count);
+							$.ajax({
+								type:"post",
+								url:"php/add_comment.php",
+								data:{
+									user:$.cookie('user'),
+									comments:comments,
+									articleid:$(tiezilist[index]).find('#articleid').val()
+								},
+	//							success:function(text){
+	//								loading.hide();
+	//								if(text){
+	//									var success = $('#success');
+	//									success.show();
+	//									success.find('p').html('发表成功');
+	//									center(success,200,40);
+	//									setTimeout(function(){
+	//										success.hide();
+	//										//history.go(0);
+	//									},1500);
+	//									
+	//								}
+	//							},
+								async:true
+							});
+					    }else{
+					    	alert("请先登入")
+					    }
+				   }
 				});
 				
 				//显示评论数
@@ -140,10 +187,25 @@ $(function(){
 					async:true
 				});
 				
+				//点赞
+				$(tiezilist[index]).find('.zan').on('click',function(){
+					var zanCount = $(tiezilist[index]).find('#zan').text();
+					zanCount++
+					$(tiezilist[index]).find('#zan').text(zanCount);
+					$.ajax({
+						type:"post",
+						url:"php/add_zan.php",
+						data:{
+							articleid:$(tiezilist[index]).find('#articleid').val(),
+							zan:zanCount
+						},
+						async:true
+					});
+				})
+				
+				
 
-//<img src="http://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/50/pcmoren_huaixiao_thumb.png" height="22" width="22" />
- //&l&nbsp; &nbsp; ;img src="h&nbsp; &nbsp; &nbsp; &nbsp; p:&xie;&xie;img.&nbsp; &nbsp; .sinajs.cn&xie;&nbsp; &nbsp; 4&xie;apps&nbsp; &nbsp; yle&xie;expression&xie;ex&nbsp; &nbsp; &xie;normal&xie;50&xie;pcmoren_huaixiao_&nbsp; &nbsp; humb.png" heigh&nbsp; &nbsp; ="22" wid&nbsp; &nbsp; h="22" &xie;&g&nbsp; &nbsp; ;               
-				//显示评论
+                //显示评论
 				$.ajax({
 					type:"post",
 					url:"php/show_comment.php",
@@ -156,11 +218,14 @@ $(function(){
 						var html = '';
 						//alert(AnalyticEmotion(json[0]['comment']))
 						$.each(json, function (index, value) {
+							//解码comment
 							var jiama = decodeURIComponent(value.comment);
-							
+							//格式时间
+							var unix_time = get_unix_time(value.date);
+							var autotime = trantime(unix_time)
 							html += '<li>'+
 				    					'<div class="commentLeft">'+
-				    						'<img src="face/test1484196094.jpg"/>'+
+				    						'<img src="'+value.faceurl+'"/>'+
 				    					'</div>'+
 				    					'<div class="commentRight">'+
 				    						'<p>'+
@@ -168,7 +233,7 @@ $(function(){
 					    						'<span class="commentContent">'+jiama+'</span>'+
 					    				     '</p>'+
 					    				    '<div class="commentBottom">'+
-					    				    	'<time>'+value.date+'</time>'+
+					    				    	'<time>'+autotime+'</time>'+
 					    				    	'<span class="huifu">回复</span>'+
 					    				    '</div>'+
 				    					'</div>'+

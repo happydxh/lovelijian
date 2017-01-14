@@ -2,7 +2,7 @@
 
     require 'php/config.php';
     //显示贴子
-    $query = mysql_query("SELECT (SELECT face_url FROM lj_user WHERE user=a.user) AS faceurl,a.id,a.content,a.user,a.date FROM lj_article a ORDER BY a.date DESC LIMIT 0,20") or die('SQL 错误！');
+    $query = mysql_query("SELECT (SELECT face_url FROM lj_user WHERE user=a.user) AS faceurl,a.id,a.content,a.user,a.date , a.zan FROM lj_article a ORDER BY a.date DESC LIMIT 0,20") or die('SQL 错误！');
 	
     date_default_timezone_set('PRC');
 	function tranTime($time) { 
@@ -120,9 +120,10 @@
 				    	</div>
 			    	</div>
 			    	<div class="comment">
+			    		<div class="biaoji1"></div>
 			    		<form id="commentForm" >
 			    			<input type="hidden" name="articleid" id="articleid" value="1" />
-			    			<img class="faceImgs" src="face/test1484196094.jpg"/>
+			    			<img class="faceImgs" alt="face" src="face/test1484196094.jpg"/>
 			    			<textarea name="comments" class="emotion" id="textarea"></textarea>
 			    			<div class="emoijBox">
 				    			<span id="emoij"></span>
@@ -148,7 +149,7 @@
 			    				</li>
 			    				<li>
 			    					<div class="commentLeft">
-			    						<img src="face/test1484196094.jpg"/>
+			    						<img alt="face" src="face/test1484196094.jpg"/>
 			    					</div>
 			    					<div class="commentRight">
 			    						<p>
@@ -173,6 +174,7 @@
 	                    $_htmllist['user'] = $_rows['user'];
 						$_htmllist['content'] = $_rows['content'];
 						$_htmllist['date'] = $_rows['date'];
+						$_htmllist['zan'] = $_rows['zan'];
 						$_time = $_htmllist['date'];
 						$_timecuo = strtotime($_time);
 						$_newtime =  tranTime($_timecuo);
@@ -186,13 +188,14 @@
 						          	  '<div class="content">'.$_htmllist['content'].'</div>'.
 						          	  '<div class="bottomBox">'.
 						          	      '<span class="pinglun">评论(<em id="count">0</em>)</span>'.
-						          	      '<span class="zan">赞(0)</span>'.
+						          	      '<span class="zan">赞(<em id="zan">'.$_htmllist['zan'].'</em>)</span>'.
 						          	  '</div>'.
 						          '</div>'.
 						          '<div class="comment">'.
+						                '<div class="biaoji1"></div>'.
 							    		'<form id="commentForm">'.
 							    			'<input type="hidden" name="articleid" id="articleid" value="'.$_htmllist['id'].'" />'.
-							    			'<img class="faceImgs" src="'.$_htmllist['faceurl'].'"/>'.
+							    			'<img id="pinglunFace" class="faceImgs" alt="face" src=""/>'.
 							    			'<textarea name="comments" class="emotion" id="textarea"></textarea>'.
 							    			'<div class="emoijBox">'.
 								    			'<span id="emoij"></span>'.
@@ -216,6 +219,9 @@
 		</div>
 		<div id="success">
 			<p>成功</p>
+		</div>
+		<div id="tishi">
+			<p>请登入后操作</p>
 		</div>
 		<div id="back"></div>
 		<script src="js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>

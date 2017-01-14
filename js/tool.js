@@ -78,6 +78,62 @@
 	        change();
         };
         
+        
+        //将后台反过来时间 "2014-05-08 00:22:11" 格式成时间戳
+        function get_unix_time(dateStr){
+		    var newstr = dateStr.replace(/-/g,'/');
+		    //alert(newstr)
+		    var date =  new Date(newstr); 
+		    var time_str = date.getTime();
+		    //return time_str.substr(0, 10);
+		    return time_str
+		}
+        
+        //时间戳格式化
+        function formatDate(now) { 
+			var year=now.getFullYear();  
+			var month=now.getMonth()+1; 
+			var date=now.getDate(); 
+			var hour=now.getHours(); 
+			var minute=now.getMinutes(); 
+			var second=now.getSeconds(); 
+			return year+"-"+month+"-"+date+" "+hour+":"+minute+":"+second; 
+		} 
+        
+        function trantime(oldtime){
+        	
+        	var datetimes = new Date(oldtime);
+        	var datetime = formatDate(datetimes);
+        	
+        	var now = new Date().getTime();
+        	var newtime = now - oldtime;
+        	var str = null;
+        	
+        	if (newtime < 60 * 1000){ 
+		        str = '刚刚'; 
+		    }else if (newtime < 60 * 60 * 1000) { 
+		        var min = Math.floor(newtime/(60 * 1000)); 
+		        str = min+'分钟前'; 
+		    } 
+		    else if (newtime < 60 * 60 * 24 * 1000) { 
+		        var h = Math.floor(newtime/(60*60 * 1000)); 
+		        str = h+'小时前 '; 
+		    } 
+		    else if (newtime < 60 * 60 * 24 * 10 * 1000) { 
+		        var d = Math.floor(newtime/(60*60*24 * 1000)); 
+		        if(d==1){
+		        	str = '昨天 ';
+		        }else{
+		        	 str = d+'天前';
+		        }
+		    } 
+		    else { 
+		        str = datetime; 
+		    }
+		    
+		    return str; 
+        }
+        
 
         //js字符过滤html标签互转函数
                 function htmlencode(str) {
