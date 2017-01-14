@@ -3,35 +3,7 @@
     require 'php/config.php';
     //显示贴子
     $query = mysql_query("SELECT (SELECT face_url FROM lj_user WHERE user=a.user) AS faceurl,a.id,a.content,a.user,a.date FROM lj_article a ORDER BY a.date DESC LIMIT 0,20") or die('SQL 错误！');
-	//显示评论
-//	$_id = $_POST['articleid'];
-//	echo 1;
-//	exit;
-//	$_commentquery = mysql_query("SELECT comment,user,date FROM lj_comment WHERE articleid='{$_POST['articleid']}' ORDER BY date DESC LIMIT 0,10") or die('SQL 错误！');
-//  $_commentlist = array();
-//									                 while($_rows = mysql_fetch_array($_commentquery,MYSQL_ASSOC)){
-//									                    $_commentlist['user'] = $_rows['user'];
-//														$_commentlist['comment'] = $_rows['comment'];
-//														$_commentlist['date'] = $_rows['date'];
-//														$_time = $_commentlist['date'];
-//														$_timecuo = strtotime($_time);
-//														$_newtime =  tranTime($_timecuo);
-//													    echo '<li>'.
-//										    					'<div class="commentLeft">'.
-//										    						'<img src="face/test1484196094.jpg"/>'.
-//										    					'</div>'.
-//										    					'<div class="commentRight">'.
-//										    						'<p>'.
-//											    						'<span class="commentUser">'.$_commentlist['user'].':</span>'.
-//											    						'<span class="commentContent">'.$_commentlist['comment'].'</span>'.
-//											    				     '</p>'.
-//											    				    '<div class="commentBottom">'.
-//											    				    	'<time>'.$_newtime.'</time>'.
-//											    				    	'<span class="huifu">回复</span>'.
-//											    				    '</div>'.
-//										    					'</div>'.
-//										    				 '</li>';
-//													    }; 
+	
     date_default_timezone_set('PRC');
 	function tranTime($time) { 
 	    $rtime = date("Y-m-d H:i:s",$time); 

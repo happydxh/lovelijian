@@ -89,6 +89,7 @@
 					 str = str.replace(/t/g, '&nbsp; &nbsp; ');
 					 str = str.replace(/x22/g, '&quot;');
 					 str = str.replace(/x27/g, '&#39;');
+					 str = str.replace(/\//g, '&xie;');
 					 return str;
 				}
 				
@@ -99,6 +100,7 @@
 					 str = str.replace(/&#39;/g, "'");
 					 str = str.replace(/&lt;/gi, '<');
 					 str = str.replace(/&gt;/gi, '>');
+					 str = str.replace(/&xie;/gi, '/');
 					 //str = str.replace(/<br[^>]*>(?:(rn)|r|n)?/gi, 'n');
 					 return str;
 				}

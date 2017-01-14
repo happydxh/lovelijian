@@ -91,8 +91,8 @@ $(function(){
 		    	
 		    	//发表评论
 				$(this).find('#commentBtn').on('click',function(){
-					var comments = AnalyticEmotion($(tiezilist[index]).find('#textarea').val());
-					//var comments = htmlencode(textareas)
+					var textareas = AnalyticEmotion($(tiezilist[index]).find('#textarea').val());
+					var comments = encodeURIComponent(textareas);
 					if($.cookie('user')){
 						var loading = $('#loading');
 						loading.show();
@@ -141,8 +141,8 @@ $(function(){
 				});
 				
 
-
-                
+//<img src="http://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/50/pcmoren_huaixiao_thumb.png" height="22" width="22" />
+ //&l&nbsp; &nbsp; ;img src="h&nbsp; &nbsp; &nbsp; &nbsp; p:&xie;&xie;img.&nbsp; &nbsp; .sinajs.cn&xie;&nbsp; &nbsp; 4&xie;apps&nbsp; &nbsp; yle&xie;expression&xie;ex&nbsp; &nbsp; &xie;normal&xie;50&xie;pcmoren_huaixiao_&nbsp; &nbsp; humb.png" heigh&nbsp; &nbsp; ="22" wid&nbsp; &nbsp; h="22" &xie;&g&nbsp; &nbsp; ;               
 				//显示评论
 				$.ajax({
 					type:"post",
@@ -156,8 +156,7 @@ $(function(){
 						var html = '';
 						//alert(AnalyticEmotion(json[0]['comment']))
 						$.each(json, function (index, value) {
-							
-							var commentContent = AnalyticEmotion(value.comment);
+							var jiama = decodeURIComponent(value.comment);
 							
 							html += '<li>'+
 				    					'<div class="commentLeft">'+
@@ -166,7 +165,7 @@ $(function(){
 				    					'<div class="commentRight">'+
 				    						'<p>'+
 					    						'<span class="commentUser">'+value.user+':</span>'+
-					    						'<span class="commentContent">'+commentContent+'</span>'+
+					    						'<span class="commentContent">'+jiama+'</span>'+
 					    				     '</p>'+
 					    				    '<div class="commentBottom">'+
 					    				    	'<time>'+value.date+'</time>'+
