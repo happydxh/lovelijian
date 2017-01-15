@@ -995,7 +995,63 @@ color:#E66921;
 #showComment ol li .commentRight .commentBottom .huifu{
 	float: right;
 	cursor: pointer;
+	margin-right: 10px;
 }
 #showComment ol li .commentRight .commentBottom .huifu:hover{
 	color: #eb7350;
+}
+/*回复*/
+#answerBox{
+	margin-top: 5px;
+	width: 510px;
+	height: 500px;
+	background: #BDBDBD;
+}
+#answerForm{
+	width: 510px;
+	background: white;
+	padding: 16px 0;
+} 
+#answerForm .answer_textarea{
+	width: 490px;
+	margin-left:10px;
+	display:block;
+    overflow:hidden;
+    font-size:14px;
+    height:18px;
+    line-height:24px;
+    padding:2px;
+    border:1px solid #fa7d3c;
+}
+#answerForm .emoijBox{
+	overflow: hidden;
+	margin-top: 10px;
+}
+#answerForm .emoijBox .answer_emoij{
+	float: left;
+	display: block;
+	width: 20px;
+	height: 20px;
+	background: url(../img/emoij.png) no-repeat center center;
+	margin-left: 20px;
+	cursor: pointer;
+}
+#answerForm .emoijBox .answer_Btn{
+	float: right;
+	width: 64px;
+	height: 28px;
+	line-height: 28px;
+	text-align: center;
+	background: #F1681E;
+	color: white;
+	font-size: 14px;
+	border: none;
+	margin-right: 5px;
+	cursor: pointer;
+	opacity: .7;
+	filter:alpha(opacity=70);
+}
+#answerForm .emoijBox .answer_Btn:hover{
+	opacity: 1;
+	filter:alpha(opacity=100);
 }

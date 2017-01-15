@@ -339,7 +339,7 @@ $(function(){
 								_this.disabled = false;
 								$(_this).css('background','#a29060');
 								$('#formreg')[0].reset();
-								window.location.href='index.html';
+								window.history.back(); 
 							},1500);
 						}	
 					},

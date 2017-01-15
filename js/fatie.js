@@ -91,19 +91,25 @@ $(function(){
 		    	$(this).find('#emoij').SinaEmotion($(this).find('.emotion'));
 		    	
 		    	//评论者头像
-		    	$.ajax({
-					type:"post",
-					url:"php/show_face.php",
-					data:{
-							user:$.cookie('user')
+		    	if($.cookie('user')){
+		    		$.ajax({
+						type:"post",
+						url:"php/show_face.php",
+						data:{
+								user:$.cookie('user')
+							},
+						success:function(texts){
+							//alert(texts)
+							
+							$(tiezilist[index]).find('#pinglunFace').attr('src',texts);
 						},
-					success:function(texts){
-						//alert(texts)
-						
-						$(tiezilist[index]).find('#pinglunFace').attr('src',texts);
-					},
-					async:true
-				});
+						async:true
+					});
+		    	}else{
+		    		var faceUrl = 'face/moren.png'
+		    		$(tiezilist[index]).find('#pinglunFace').attr('src',faceUrl);
+		    	}
+		    	
 				
 		    	//发表评论
 				$(this).find('#commentBtn').on('click',function(){
@@ -116,9 +122,9 @@ $(function(){
 								tishi.hide();
 							},1500);
 					}else{
-						var textareas = AnalyticEmotion($(tiezilist[index]).find('#textarea').val());
-						var comments = encodeURIComponent(textareas);
 						if($.cookie('user')){
+							var textareas = AnalyticEmotion($(tiezilist[index]).find('#textarea').val());
+						    var comments = encodeURIComponent(textareas);
 							var htmls = '';
 							htmls += '<li>'+
 					    					'<div class="commentLeft">'+
@@ -152,24 +158,16 @@ $(function(){
 									comments:comments,
 									articleid:$(tiezilist[index]).find('#articleid').val()
 								},
-	//							success:function(text){
-	//								loading.hide();
-	//								if(text){
-	//									var success = $('#success');
-	//									success.show();
-	//									success.find('p').html('发表成功');
-	//									center(success,200,40);
-	//									setTimeout(function(){
-	//										success.hide();
-	//										//history.go(0);
-	//									},1500);
-	//									
-	//								}
-	//							},
 								async:true
 							});
 					    }else{
-					    	alert("请先登入")
+					    	var tishi = $('#tishi');
+							tishi.show();
+							$('#tishi').find('p').html('请登入后操作');
+							center(tishi,200,40);
+							setTimeout(function(){
+								tishi.hide();
+							},1500);
 					    }
 				   }
 				});
@@ -236,6 +234,16 @@ $(function(){
 					    				    	'<time>'+autotime+'</time>'+
 					    				    	'<span class="huifu">回复</span>'+
 					    				    '</div>'+
+					    				    '<div id="answerBox">'+
+						    				    '<form id="answerForm" >'+
+									    			'<input type="hidden" name="commentid" id="commentid" value="1" />'+
+									    			'<textarea name="answer_comments" class="answer_textarea" id="answer_textarea"></textarea>'+
+									    			'<div class="emoijBox">'+
+										    			'<span class="answer_emoij" id="answer_emoij"></span>'+
+										    			'<input class="answer_Btn" id="answer_Btn" type="button" value="评论" />'+
+									    			'</div>'+
+									    		'</form>'+
+								    		'</div>'+
 				    					'</div>'+
 				    				'</li>';
 						});
