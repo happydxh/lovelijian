@@ -950,7 +950,7 @@ color:#E66921;
 #showComment{
 	
 }
-#showComment ol li{
+#showComment .commentOl li{
 	overflow: hidden;
 	margin: 10px 20px 0px 20px;
 	padding: 0px 0px 10px 0;
@@ -958,67 +958,66 @@ color:#E66921;
 	background: #f2f2f5;
 	border-bottom:1px solid #d9d9d9;
 }
-#showComment ol li .commentLeft{
+#showComment .commentOl li .commentLeft{
 	float: left;
 }
-#showComment ol li .commentLeft img{
+#showComment .commentOl li .commentLeft img{
 	width: 40px;
 	height: 40px;
 	display: block;
 }
-#showComment ol li .commentRight{
+#showComment .commentOl li .commentRight{
 	float: left;
 	margin-left: 10px;
 	width: 510px;
 }
-#showComment ol li .commentRight p span.commentUser{
+#showComment .commentOl li .commentRight p span.commentUser{
 	color: #eb7350;
 	font-size: 14px;
 	line-height: 20px;
 }
-#showComment ol li .commentRight p span.commentContent{
+#showComment .commentOl li .commentRight p span.commentContent{
 	color: #333;
 	font-size: 12px;
 	line-height: 20px;
 }
-#showComment ol li .commentRight .commentBottom{
+#showComment .commentOl li .commentRight .commentBottom{
 	width: 510px;
 	height: 20px;
 	line-height: 20px;
 	color: #333;
 	overflow: hidden;
 }
-#showComment ol li .commentRight .commentBottom time{
+#showComment .commentOl li .commentRight .commentBottom time{
 	color: gray;
 	float: left;
 }
-#showComment ol li .commentRight .commentBottom .huifu{
+#showComment .commentOl li .commentRight .commentBottom .huifu{
 	float: right;
 	cursor: pointer;
 	margin-right: 10px;
 }
-#showComment ol li .commentRight .commentBottom .huifu:hover{
+#showComment .commentOl li .commentRight .commentBottom .huifu:hover{
 	color: #eb7350;
 }
 /*回复*/
 #answerBox{
 	margin-top: 5px;
 	width: 510px;
-	height: 500px;
-	background: #BDBDBD;
 }
 #answerForm{
 	width: 510px;
 	background: white;
 	padding: 16px 0;
+	display: none;
 } 
 #answerForm .answer_textarea{
-	width: 490px;
+	width: 480px;
 	margin-left:10px;
 	display:block;
     overflow:hidden;
     font-size:14px;
-    height:18px;
+    height:24px;
     line-height:24px;
     padding:2px;
     border:1px solid #fa7d3c;
@@ -1046,7 +1045,7 @@ color:#E66921;
 	color: white;
 	font-size: 14px;
 	border: none;
-	margin-right: 5px;
+	margin-right: 15px;
 	cursor: pointer;
 	opacity: .7;
 	filter:alpha(opacity=70);
@@ -1054,4 +1053,39 @@ color:#E66921;
 #answerForm .emoijBox .answer_Btn:hover{
 	opacity: 1;
 	filter:alpha(opacity=100);
+}
+#answerBox .answerol{
+	margin-top: 10px;
+	background: #D8D8D8;
+	overflow: hidden;
+}
+#answerBox .answerol dt{
+	margin: 0 auto;
+	width: 490px;
+	color: #333;
+	border-bottom:1px solid #C5C5C5;
+	padding: 5px 0;
+}
+#answerBox .answerol dt:last-child{
+	border: none;
+}
+#answerBox .answerol dt p{
+	
+	line-height: 20px;
+}
+#answerBox .answerol dt .answer_user{
+	color: #eb7350;
+}
+#answerBox .answerol dt .answerBottom{
+	line-height: 20px;
+}
+#answerBox .answerol dt .answerBottom time{
+    color: gray;
+}
+#answerBox .answerol dt .answerBottom .huifu{
+	cursor: pointer;
+	margin-left: 10px;
+}
+#answerBox .answerol dt .answerBottom .huifu:hover{
+	color: #eb7350;
 }

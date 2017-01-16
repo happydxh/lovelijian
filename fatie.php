@@ -130,7 +130,7 @@
 			    			</div>
 			    		</form>
 			    		<div id="showComment">
-			    			<ol>
+			    			<ol class="commentOl">
 			    				<li>
 			    					<div class="commentLeft">
 			    						<img src="face/test1484196094.jpg"/>
@@ -147,12 +147,42 @@
 				    				    <div id="answerBox">
 			    							<form id="answerForm" >
 								    			<input type="hidden" name="commentid" id="commentid" value="1" />
-								    			<textarea name="answer_comments" class="answer_textarea" id="answer_textarea"></textarea>
+								    			<textarea name="answer_comments" class="answer_textarea"  id="answer_textarea"></textarea>
 								    			<div class="emoijBox">
 									    			<span class="answer_emoij" id="answer_emoij"></span>
 									    			<input class="answer_Btn" id="answer_Btn" type="button" value="评论" />
 								    			</div>
 								    		</form>
+								    		<dl class="answerol">
+								    			<dt>
+								    				<p class="ans_comment"><span class="answer_user">月光:</span> 独家电台上线！大幂幂给我们带来的内容，是经典的童话故事《九尾猫》。在这个故事里，你可以听到爱、奉献和收获。愿这个小小的故</p>
+								    			    <div class="answerBottom">
+								    					<time>刚刚</time>
+								    					<span class="huifu">回复</span>
+								    				</div>
+								    			</dt>
+								    			<dt>
+								    				<p class="ans_comment"><span class="answer_user">月光:</span> 独家电台上线！大幂幂给我们带来的内容，是经典的童话故事《九尾猫》。在这个故事里，你可以听到爱、奉献和收获。愿这个小小的故</p>
+								    			    <div class="answerBottom">
+								    					<time>刚刚</time>
+								    					<span class="huifu">回复</span>
+								    				</div>
+								    			</dt>
+								    			<dt>
+								    				<p class="ans_comment"><span class="answer_user">月光:</span> 独家电台上线！大幂幂给我们带来的内容，是经典的童话故事《九尾猫》。在这个故事里，你可以听到爱、奉献和收获。愿这个小小的故</p>
+								    			    <div class="answerBottom">
+								    					<time>刚刚</time>
+								    					<span class="huifu">回复</span>
+								    				</div>
+								    			</dt>
+								    			<dt>
+								    				<p class="ans_comment"><span class="answer_user">月光:</span> 独家电台上线！大幂幂给我们带来的内容，是经典的童话故事《九尾猫》。在这个故事里，你可以听到爱、奉献和收获。愿这个小小的故</p>
+								    			    <div class="answerBottom">
+								    					<time>刚刚</time>
+								    					<span class="huifu">回复</span>
+								    				</div>
+								    			</dt>
+								    		</dl>
 			    					    </div>
 			    					</div>
 			    				</li>
@@ -215,7 +245,7 @@
 							    			'</div>'.
 							    		'</form>'.
 							    		'<div id="showComment">'.
-							    			'<ol id="comments">'.
+							    			'<ol class="commentOl" id="comments">'.
 								    			    
 													
 							    			'</ol>'.

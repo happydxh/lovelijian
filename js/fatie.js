@@ -80,7 +80,7 @@ $(function(){
 			});
 			
 			
-
+            
 		    var tiezilist = $('#contentBox ul').children('li');
 		    tiezilist.each(function(i){
 		    	var index = i
@@ -123,8 +123,11 @@ $(function(){
 							},1500);
 					}else{
 						if($.cookie('user')){
+							//解析表情
 							var textareas = AnalyticEmotion($(tiezilist[index]).find('#textarea').val());
+						    //对发送的内容进行编码
 						    var comments = encodeURIComponent(textareas);
+						    
 							var htmls = '';
 							htmls += '<li>'+
 					    					'<div class="commentLeft">'+
@@ -235,23 +238,140 @@ $(function(){
 					    				    	'<span class="huifu">回复</span>'+
 					    				    '</div>'+
 					    				    '<div id="answerBox">'+
+					    				        '<dl class="answerol">'+
+									    		
+									    		'</dl>'+
 						    				    '<form id="answerForm" >'+
-									    			'<input type="hidden" name="commentid" id="commentid" value="1" />'+
-									    			'<textarea name="answer_comments" class="answer_textarea" id="answer_textarea"></textarea>'+
+									    			'<input type="hidden" name="commentid" id="commentid" value="'+value.id+'" />'+
+									    			'<textarea name="answer_comment" class="answer_textarea" autofocus="autofocus" placeholder="回复@'+value.user+':" id="answer_textarea"></textarea>'+
 									    			'<div class="emoijBox">'+
 										    			'<span class="answer_emoij" id="answer_emoij"></span>'+
 										    			'<input class="answer_Btn" id="answer_Btn" type="button" value="评论" />'+
 									    			'</div>'+
 									    		'</form>'+
+									    		
 								    		'</div>'+
 				    					'</div>'+
 				    				'</li>';
 						});
                         
 						$(tiezilist[index]).find('#comments').append(html);
+						
+						//评论list
+						var commentList = $(tiezilist[index]).find('#comments').children('li');
+						commentList.each(function(i){
+							var commentindex = i;
+							
+							//显示隐藏回复标签
+							$(this).find('.huifu').on('click',function(){
+								$(commentList[commentindex]).find('#answerForm').toggle();
+							})
+							
+							//textarea高度自适应
+					    	var texts = $(this).find('#answer_textarea').get(0);
+			                autoTextarea(texts);
+					    	// 绑定表情
+					    	$(this).find('#answer_emoij').SinaEmotion($(this).find('.answer_textarea'));
+					    	
+					    	//发表评论
+							$(this).find('#answer_Btn').on('click',function(){
+								if( $(commentList[commentindex]).find('#answer_textarea').val() == '' ){
+									var tishi = $('#tishi');
+										tishi.show();
+										$('#tishi').find('p').html('评论内容不得为空哦！');
+										center(tishi,200,40);
+										setTimeout(function(){
+											tishi.hide();
+										},1500);
+								}else{
+									if($.cookie('user')){
+										//解析表情
+										var answer_textarea = AnalyticEmotion($(commentList[commentindex]).find('#answer_textarea').val());
+									    //对发送的内容进行编码
+									    var answer_comment = encodeURIComponent(answer_textarea);
+									    
+									    var ansuser = $(commentList[commentindex]).find('.commentUser').text();
+									    
+										var answer_html = '';
+										answer_html += '<dt>'+
+								    				'<p class="ans_comment"><span class="answer_user">'+$.cookie('user')+':</span> 回复 <span class="answer_user">'+ansuser+':</span>'+ answer_textarea+'</p>'+
+								    			    '<div class="answerBottom">'+
+								    					'<time>刚刚</time>'+
+								    					'<span class="huifu">回复</span>'+
+								    				'</div>'+
+								    			'</dt>';
+										
+				                        $(commentList[commentindex]).find('.answerol').prepend(answer_html);
+										$(commentList[commentindex]).find('#answerForm')[0].reset();
+										
+										//评论数
+//										var count = $(tiezilist[index]).find('#count').text();
+//										count++
+//										$(tiezilist[index]).find('#count').text(count);
+										
+										$.ajax({
+											type:"post",
+											url:"php/add_answer.php",
+											data:{
+												user:$.cookie('user'),
+												answer_comment:answer_comment,
+												commentid:$(commentList[commentindex]).find('#commentid').val()
+											},
+											async:true
+										});
+								    }else{
+								    	var tishi = $('#tishi');
+										tishi.show();
+										$('#tishi').find('p').html('请登入后操作');
+										center(tishi,200,40);
+										setTimeout(function(){
+											tishi.hide();
+										},1500);
+								    }
+							   }
+							});
+							
+							//显示回复
+							$.ajax({
+								type:"post",
+								url:"php/show_answer.php",
+								data:{
+									commentid:$(commentList[commentindex]).find('#commentid').val()
+								},
+								success:function(response){
+									var answer_json = $.parseJSON(response);
+									var html = '';
+									//alert(AnalyticEmotion(json[0]['comment']))
+									$.each(answer_json, function (index, value) {
+										//解码comment
+										var jiama = decodeURIComponent(value.comment);
+										//格式时间
+										var unix_time = get_unix_time(value.date);
+										var autotime = trantime(unix_time);
+										//alert(jiama)
+										html+='<dt>'+
+								    				'<p class="ans_comment"><span class="answer_user">'+value.user+':</span> 回复 <span class="answer_user">'+value.ansuser+':</span>'+jiama+'</p>'+
+								    			    '<div class="answerBottom">'+
+								    					'<time>'+autotime+'</time>'+
+								    					'<span class="huifu">回复</span>'+
+								    				'</div>'+
+								    			'</dt>';
+									});
+									$(commentList[commentindex]).find('.answerol').append(html);
+								},
+								async:true
+							});
+								    	
+						});
+						
+						
 					},
 					async:true
 				});
+				
+				
+				
+				
 		    	
 		    })
 			
