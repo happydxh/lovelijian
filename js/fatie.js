@@ -217,8 +217,10 @@ $(function(){
 						//alert(response)
 						var json = $.parseJSON(response);
 						var html = '';
+						var placeholder = ''
 						//alert(AnalyticEmotion(json[0]['comment']))
 						$.each(json, function (index, value) {
+							placeholder = value.user
 							//解码comment
 							var jiama = decodeURIComponent(value.comment);
 							//格式时间
@@ -243,7 +245,7 @@ $(function(){
 									    		'</dl>'+
 						    				    '<form id="answerForm" >'+
 									    			'<input type="hidden" name="commentid" id="commentid" value="'+value.id+'" />'+
-									    			'<textarea name="answer_comment" class="answer_textarea" autofocus="autofocus" placeholder="回复@'+value.user+':" id="answer_textarea"></textarea>'+
+									    			'<textarea name="answer_comment" class="answer_textarea" autofocus="autofocus"  placeholder="" id="answer_textarea"></textarea>'+
 									    			'<div class="emoijBox">'+
 										    			'<span class="answer_emoij" id="answer_emoij"></span>'+
 										    			'<input class="answer_Btn" id="answer_Btn" type="button" value="评论" />'+
@@ -265,6 +267,7 @@ $(function(){
 							//显示隐藏回复标签
 							$(this).find('.huifu').on('click',function(){
 								$(commentList[commentindex]).find('#answerForm').toggle();
+								$(commentList[commentindex]).find('#answer_textarea').attr('placeholder','回复@'+placeholder+':');
 							})
 							
 							//textarea高度自适应
@@ -273,20 +276,27 @@ $(function(){
 					    	// 绑定表情
 					    	$(this).find('#answer_emoij').SinaEmotion($(this).find('.answer_textarea'));
 					    	
-					    	//发表评论
+					    	//发表回复
 							$(this).find('#answer_Btn').on('click',function(){
 								if( $(commentList[commentindex]).find('#answer_textarea').val() == '' ){
 									var tishi = $('#tishi');
 										tishi.show();
-										$('#tishi').find('p').html('评论内容不得为空哦！');
+										$('#tishi').find('p').html('内容不得为空哦！');
 										center(tishi,200,40);
 										setTimeout(function(){
 											tishi.hide();
 										},1500);
 								}else{
 									if($.cookie('user')){
-										//解析表情
-										var answer_textarea = AnalyticEmotion($(commentList[commentindex]).find('#answer_textarea').val());
+										var answer_textarea = ''
+										if( /\[[\u0391-\uFFE5\w]*\]/ig.test( $(commentList[commentindex]).find('#answer_textarea').val() ) ){
+											//解析表情
+											answer_textarea = AnalyticEmotion($(commentList[commentindex]).find('#answer_textarea').val());
+										}else{
+											answer_textarea = $(commentList[commentindex]).find('#answer_textarea').val();
+										}
+										
+										
 									    //对发送的内容进行编码
 									    var answer_comment = encodeURIComponent(answer_textarea);
 									    
@@ -294,12 +304,12 @@ $(function(){
 									    
 										var answer_html = '';
 										answer_html += '<dt>'+
-								    				'<p class="ans_comment"><span class="answer_user">'+$.cookie('user')+':</span> 回复 <span class="answer_user">'+ansuser+':</span>'+ answer_textarea+'</p>'+
-								    			    '<div class="answerBottom">'+
-								    					'<time>刚刚</time>'+
-								    					'<span class="huifu">回复</span>'+
-								    				'</div>'+
-								    			'</dt>';
+											    				'<p class="ans_comment"><span class="answer_user">'+$.cookie('user')+':</span> 回复 <span class="answer_user">'+ansuser+'</span>'+ answer_textarea+'</p>'+
+											    			    '<div class="answerBottom">'+
+											    					'<time>刚刚</time>'+
+											    					'<span class="huifu">回复</span>'+
+											    				'</div>'+
+										    			'</dt>';
 										
 				                        $(commentList[commentindex]).find('.answerol').prepend(answer_html);
 										$(commentList[commentindex]).find('#answerForm')[0].reset();
@@ -350,14 +360,29 @@ $(function(){
 										var autotime = trantime(unix_time);
 										//alert(jiama)
 										html+='<dt>'+
-								    				'<p class="ans_comment"><span class="answer_user">'+value.user+':</span> 回复 <span class="answer_user">'+value.ansuser+':</span>'+jiama+'</p>'+
-								    			    '<div class="answerBottom">'+
-								    					'<time>'+autotime+'</time>'+
-								    					'<span class="huifu">回复</span>'+
-								    				'</div>'+
+									    				'<p class="ans_comment"><span class="placeholder answer_user">'+value.user+':</span> 回复 <span class="answer_user">'+value.ansuser+':</span>'+jiama+'</p>'+
+									    			    '<div class="answerBottom">'+
+									    					'<time>'+autotime+'</time>'+
+									    					'<span class="huifu" dataid="'+value.id+'">回复</span>'+
+									    				'</div>'+
 								    			'</dt>';
 									});
 									$(commentList[commentindex]).find('.answerol').append(html);
+									
+									//回复list
+									var huifuList = $(commentList[commentindex]).find('.answerol').children('dt');
+									huifuList.each(function(i){
+										var huifuindex = i;
+										//显示隐藏回复标签
+										$(this).find('.huifu').on('click',function(){
+											var placeholder = $(this).parents('dt').find('.placeholder').text();
+											//console.log(placeholder)
+											$(commentList[commentindex]).find('#answerForm').toggle();
+											$(commentList[commentindex]).find('#commentid').val($(this).attr('dataid'))
+											$(commentList[commentindex]).find('#answer_textarea').attr('placeholder','回复@'+placeholder);
+										})
+										
+									})
 								},
 								async:true
 							});
