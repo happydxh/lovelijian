@@ -1070,14 +1070,21 @@ color:#E66921;
 	border: none;
 }
 #answerBox .answerol dt p{
-	
+	margin-left: 30px;
 	line-height: 20px;
+}
+#answerBox .answerol dt p:nth-of-type(1){
+	margin-left: 0px;
 }
 #answerBox .answerol dt .answer_user{
 	color: #eb7350;
 }
 #answerBox .answerol dt .answerBottom{
 	line-height: 20px;
+	margin-left: 30px;
+}
+#answerBox .answerol dt .answerBottom:nth-of-type(1){
+	margin-left: 0px;
 }
 #answerBox .answerol dt .answerBottom time{
     color: gray;
