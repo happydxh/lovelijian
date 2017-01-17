@@ -88,72 +88,81 @@
 			
 
 		</header>
-		<div id="fatieBox">
-			<p class="question"></p>
-			<section id="editor">
-			    <form id="formfatie" name="fatie">
-			        <!--style给定宽度可以影响编辑器的最终宽度-->
-					<script type="text/plain" id="myEditor" style="width:560px;height:100px;"></script>
-			        
-			        
-			    </form>
-			    
-			</section>
-			<input type="button" id="fatieBtn" value="发表">
-		</div>
-		
-		<!--content list-->
-		<section id="contentBox">
-			<ul>
+		<section id="contentWrap">
+			<div class="contentWrapLeft">
+				<div id="fatieBox">
+					<p class="question"></p>
+					<section id="editor">
+					    <form id="formfatie" name="fatie">
+					        <!--style给定宽度可以影响编辑器的最终宽度-->
+							<script type="text/plain" id="myEditor" style="width:560px;height:100px;"></script>
+					        
+					        
+					    </form>
+					    
+					</section>
+					<input type="button" id="fatieBtn" value="发表">
+				</div>
 				
-				<?php
-				     $_htmllist = array();
-	                 while($_rows = mysql_fetch_array($query,MYSQL_ASSOC)){
-	                 	$_htmllist['id'] = $_rows['id'];
-	                 	$_htmllist['faceurl'] = $_rows['faceurl'];
-	                    $_htmllist['user'] = $_rows['user'];
-						$_htmllist['content'] = $_rows['content'];
-						$_htmllist['date'] = $_rows['date'];
-						$_htmllist['zan'] = $_rows['zan'];
-						$_time = $_htmllist['date'];
-						$_timecuo = strtotime($_time);
-						$_newtime =  tranTime($_timecuo);
-						echo '<li>'.
-						          '<div class="contentwrap">'.
-						          	  '<div class="usertime">'.
-						          	      '<img class="faceImgs" src="'.$_htmllist['faceurl'].'"/>'.
-						          	      '<span class="user">'.$_htmllist['user'].'</span>'.
-						          	      '<span class="time">'.$_newtime.'</span>'.
-						          	  '</div>'.
-						          	  '<div class="content">'.$_htmllist['content'].'</div>'.
-						          	  '<div class="bottomBox">'.
-						          	      '<span class="pinglun">评论(<em id="count">0</em>)</span>'.
-						          	      '<span class="zan">赞(<em id="zan">'.$_htmllist['zan'].'</em>)</span>'.
-						          	  '</div>'.
-						          '</div>'.
-						          '<div class="comment">'.
-						                '<div class="biaoji1"></div>'.
-							    		'<form id="commentForm">'.
-							    			'<input type="hidden" name="articleid" id="articleid" value="'.$_htmllist['id'].'" />'.
-							    			'<img id="pinglunFace" class="faceImgs" alt="face" src=""/>'.
-							    			'<textarea name="comments" class="emotion" id="textarea"></textarea>'.
-							    			'<div class="emoijBox">'.
-								    			'<span id="emoij"></span>'.
-								    			'<input id="commentBtn" type="button" value="评论" />'.
-							    			'</div>'.
-							    		'</form>'.
-							    		'<div id="showComment">'.
-							    			'<ol class="commentOl" id="comments">'.
-								    			    
-													
-							    			'</ol>'.
-							    		'</div>'.
-							    	'</div>'.
-						      '</li>';
-					};
-			    ?>
-			</ul>
+				<!--content list-->
+				<section id="contentBox">
+					<ul>
+						
+						<?php
+						     $_htmllist = array();
+			                 while($_rows = mysql_fetch_array($query,MYSQL_ASSOC)){
+			                 	$_htmllist['id'] = $_rows['id'];
+			                 	$_htmllist['faceurl'] = $_rows['faceurl'];
+			                    $_htmllist['user'] = $_rows['user'];
+								$_htmllist['content'] = $_rows['content'];
+								$_htmllist['date'] = $_rows['date'];
+								$_htmllist['zan'] = $_rows['zan'];
+								$_time = $_htmllist['date'];
+								$_timecuo = strtotime($_time);
+								$_newtime =  tranTime($_timecuo);
+								echo '<li>'.
+								          '<div class="contentwrap">'.
+								          	  '<div class="usertime">'.
+								          	      '<img class="faceImgs" src="'.$_htmllist['faceurl'].'"/>'.
+								          	      '<span class="user">'.$_htmllist['user'].'</span>'.
+								          	      '<span class="time">'.$_newtime.'</span>'.
+								          	  '</div>'.
+								          	  '<div class="content">'.$_htmllist['content'].'</div>'.
+								          	  '<div class="bottomBox">'.
+								          	      '<span class="pinglun">评论(<em id="count">0</em>)</span>'.
+								          	      '<span class="zan">赞(<em id="zan">'.$_htmllist['zan'].'</em>)</span>'.
+								          	  '</div>'.
+								          '</div>'.
+								          '<div class="comment">'.
+								                '<div class="biaoji1"></div>'.
+									    		'<form id="commentForm">'.
+									    			'<input type="hidden" name="articleid" id="articleid" value="'.$_htmllist['id'].'" />'.
+									    			'<img id="pinglunFace" class="faceImgs" alt="face" src=""/>'.
+									    			'<textarea name="comments" class="emotion" id="textarea"></textarea>'.
+									    			'<div class="emoijBox">'.
+										    			'<span id="emoij"></span>'.
+										    			'<input id="commentBtn" type="button" value="评论" />'.
+									    			'</div>'.
+									    		'</form>'.
+									    		'<div id="showComment">'.
+									    			'<ol class="commentOl" id="comments">'.
+										    			    
+															
+									    			'</ol>'.
+									    		'</div>'.
+									    	'</div>'.
+								      '</li>';
+							};
+					    ?>
+					</ul>
+				</section>
+			</div>
+			<div class="music">
+				<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=450 src="//music.163.com/outchain/player?type=0&id=539997813&auto=0&height=430"></iframe>
+			</div>
 		</section>
+		
+		
 		<div id="loading">
 			<p>加载中</p>
 		</div>

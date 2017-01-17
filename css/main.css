@@ -537,14 +537,14 @@ color:#E66921;
 }
 
 /*精彩瞬间*/
-#videoShow{
+#videoShows{
 	background: #110f12;
 	width: 1200px;
 	margin: 0 auto;
 	padding-top: 10px;
 	height: 420px;
 }
-#videoShow h2{
+#videoShows h2{
 	font-size: 30px;
 	margin-left: 85px;
 	color: #f4c45a;
@@ -761,8 +761,22 @@ color:#E66921;
 
 
 /*发帖*/
-#fatieBox{
+
+#contentWrap{
+	width: 930px;
 	margin: 20px auto;
+	overflow: hidden;
+}
+#contentWrap .contentWrapLeft{
+	width: 600px;
+	float: left;
+}
+#contentWrap .music{
+	width: 310px;
+	float: left;
+}
+#fatieBox{
+	margin-top: 10px;
 	background: white;
 	width: 600px;
 	padding: 20px;
@@ -807,7 +821,6 @@ color:#E66921;
     border: solid 1px #dd331b;
 }
 #contentBox{
-	margin: 0px auto;
 	width: 600px;
 	overflow: hidden;
 }
