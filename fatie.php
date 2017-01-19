@@ -195,12 +195,7 @@
 		
 	  <script type="text/javascript">
 		  
-		    $(function(){
-				$('#jiexi').on('click',function(){
-					var inputText = '[左哼哼]';
-			        alert(AnalyticEmotion(inputText))
-				})
-			})
+		  
 		  
 				
 	  </script>
