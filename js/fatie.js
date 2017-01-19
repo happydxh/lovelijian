@@ -216,7 +216,7 @@ $(function(){
 						var json = $.parseJSON(response);
 						var html = '';
 						var placeholder = ''
-						//alert(AnalyticEmotion(json[0]['comment']))
+				
 						$.each(json, function (index, value) {
 							placeholder = value.user
 							//解码comment
@@ -299,7 +299,7 @@ $(function(){
 									    //对发送的内容进行编码
 									    var answer_comment = encodeURIComponent(answer_textarea);
 									    
-									   // var ansuser = $(commentList[commentindex]).find('.commentUser').text();
+									
 									    
 									    var ansuser =  $(this).parents('#answerForm').find('#answer_textarea').attr('placeholder').substr(3);
 									   
@@ -316,9 +316,7 @@ $(function(){
 										
 				                        $(commentList[commentindex]).find('.answerol').prepend(answer_html);
 				                        
-										//$(commentList[commentindex]).find('#answerForm')[0].reset();
-										
-										//alert($(commentList[commentindex]).find('#commentid').val());
+									
 										$.ajax({
 											type:"post",
 											url:"php/add_answer.php",
@@ -356,7 +354,7 @@ $(function(){
 								success:function(response){
 									var answer_json = $.parseJSON(response);
 									var html = '';
-									//alert(AnalyticEmotion(json[0]['comment']))
+									
 									$.each(answer_json, function (index, value) {
 										//解码comment
 										var jiama = decodeURIComponent(value.comment);

@@ -51,13 +51,7 @@
 	    return $str; 
 	} 
 	
-//	$now = time();
-//	
-//	$base64 = "";
-//	$img = base64_decode($base64);
-//	$a = file_put_contents('face/test'.$now.'.jpg', $img);//返回的是字节数
-//	$b = 'face/test'.$now.'.jpg';
-//	print_r($b);
+
 ?>
 
 <!DOCTYPE html>
@@ -192,11 +186,7 @@
 		<div id="back"></div>
 		<script src="js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/tool.js" type="text/javascript" charset="utf-8"></script>
-		<!--编辑器-->
-		<!--<script type="text/javascript" src="UMeditor/third-party/jquery.min.js"></script>
-	    <script type="text/javascript" charset="utf-8" src="UMeditor/umeditor.config.js"></script>
-	    <script type="text/javascript" charset="utf-8" src="UMeditor/umeditor.min.js"></script>
-	    <script type="text/javascript" src="UMeditor/lang/zh-cn/zh-cn.js"></script>-->
+		
 		
 		<script src="js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/json2.js" type="text/javascript" charset="utf-8"></script>
