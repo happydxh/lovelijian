@@ -1,8 +1,24 @@
 <?php
 
     require 'php/config.php';
+	$_sql = mysql_query("SELECT COUNT(*) AS count FROM lj_article");
+	$_result = mysql_fetch_array($_sql, MYSQL_ASSOC);
+	
+	$_pagesize = 3;
+	$_count = ceil($_result['count'] / $_pagesize);
+	$_page = 1;
+	if (!isset($_POST['page'])) {
+		$_page = 1;
+	} else {
+		$_page = $_POST['page'];
+		if ($_page > $_count) {
+			$_page = $_count;
+		}
+	}
+	
+	$_limit = ($_page - 1) * $_pagesize;
     //显示贴子
-    $query = mysql_query("SELECT (SELECT face_url FROM lj_user WHERE user=a.user) AS faceurl,a.id,a.content,a.user,a.date , a.zan FROM lj_article a ORDER BY a.date DESC LIMIT 0,20") or die('SQL 错误！');
+    $query = mysql_query("SELECT (SELECT face_url FROM lj_user WHERE user=a.user) AS faceurl,a.id,a.content,a.user,a.date , a.zan FROM lj_article a ORDER BY a.date DESC LIMIT {$_limit},{$_pagesize}") or die('SQL 错误！');
 	
     date_default_timezone_set('PRC');
 	function tranTime($time) { 
@@ -154,6 +170,7 @@
 								      '</li>';
 							};
 					    ?>
+					    <div class="addmore">加载更多...</div>
 					</ul>
 				</section>
 			</div>

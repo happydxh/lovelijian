@@ -80,7 +80,7 @@ $(function(){
 			});
 			
 			
-            
+            //帖子列表
 		    var tiezilist = $('#contentBox ul').children('li');
 		    tiezilist.each(function(i){
 		    	var index = i
@@ -465,6 +465,7 @@ $(function(){
 		    })
 			
 			
+			//帖子加载更多
 			
 			
 			

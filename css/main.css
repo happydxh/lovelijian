@@ -824,6 +824,16 @@ color:#E66921;
 	width: 600px;
 	overflow: hidden;
 }
+#contentBox ul .addmore{
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	background: gray;
+	font-size: 14px;
+	color: white;
+	cursor: pointer;
+}
 #contentBox ul li{
 	width: 600px;
 	background: white;
