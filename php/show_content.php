@@ -4,7 +4,7 @@
 	$_sql = mysql_query("SELECT COUNT(*) AS count FROM lj_article");
 	$_result = mysql_fetch_array($_sql, MYSQL_ASSOC);
 	
-	$_pagesize = 2;
+	$_pagesize = 6;
 	$_count = ceil($_result['count'] / $_pagesize);
 	$_page = 1;
 	if (!isset($_POST['page'])) {
@@ -21,7 +21,7 @@
 	
 	
 	  //显示贴子
-    $query = mysql_query("SELECT (SELECT face_url FROM lj_user WHERE user=a.user) AS faceurl,a.id,a.content,a.user,a.date , a.zan FROM lj_article a ORDER BY a.date DESC LIMIT {$_limit},{$_pagesize}") or die('SQL 错误！');
+    $query = mysql_query("SELECT (SELECT face_url FROM lj_user WHERE user=a.user) AS faceurl,({$_count}) AS count,a.id,a.content,a.user,a.date , a.zan FROM lj_article a ORDER BY a.date DESC LIMIT {$_limit},{$_pagesize}") or die('SQL 错误！');
 	
 	$json = '';
 	
@@ -31,7 +31,7 @@
 		}
 		$json .= urldecode(json_encode($row)).',';
 	}
-	
+    //sleep(1);
 	echo '['.substr($json, 0, strlen($json) - 1).']';
 	
 	mysql_close();

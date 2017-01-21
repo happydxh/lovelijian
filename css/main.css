@@ -827,13 +827,25 @@ color:#E66921;
 }
 #contentBox ul .addmore{
 	width: 100%;
-	height: 30px;
-	line-height: 30px;
+	height: 36px;
+	line-height: 34px;
 	text-align: center;
 	background: gray;
 	font-size: 14px;
 	color: white;
 	cursor: pointer;
+	border: none;
+}
+#contentBox ul .addMorePinglun{
+	width: 100%;
+	height: 36px;
+	line-height: 34px;
+	text-align: center;
+	background: gray;
+	font-size: 14px;
+	color: white;
+	cursor: pointer;
+	border: none;
 }
 #contentBox ul li{
 	width: 600px;
