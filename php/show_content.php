@@ -20,7 +20,8 @@
 	
 	
 	
-	$query = mysql_query("SELECT content,user,date FROM lj_article ORDER BY date DESC LIMIT 0 , 2") or die('SQL 错误！');
+	  //显示贴子
+    $query = mysql_query("SELECT (SELECT face_url FROM lj_user WHERE user=a.user) AS faceurl,a.id,a.content,a.user,a.date , a.zan FROM lj_article a ORDER BY a.date DESC LIMIT {$_limit},{$_pagesize}") or die('SQL 错误！');
 	
 	$json = '';
 	

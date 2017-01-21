@@ -823,6 +823,7 @@ color:#E66921;
 #contentBox{
 	width: 600px;
 	overflow: hidden;
+	margin-top: 20px;
 }
 #contentBox ul .addmore{
 	width: 100%;

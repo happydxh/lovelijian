@@ -1,58 +1,3 @@
-<?php
-
-    require 'php/config.php';
-	$_sql = mysql_query("SELECT COUNT(*) AS count FROM lj_article");
-	$_result = mysql_fetch_array($_sql, MYSQL_ASSOC);
-	
-	$_pagesize = 3;
-	$_count = ceil($_result['count'] / $_pagesize);
-	$_page = 1;
-	if (!isset($_POST['page'])) {
-		$_page = 1;
-	} else {
-		$_page = $_POST['page'];
-		if ($_page > $_count) {
-			$_page = $_count;
-		}
-	}
-	
-	$_limit = ($_page - 1) * $_pagesize;
-    //显示贴子
-    $query = mysql_query("SELECT (SELECT face_url FROM lj_user WHERE user=a.user) AS faceurl,a.id,a.content,a.user,a.date , a.zan FROM lj_article a ORDER BY a.date DESC LIMIT {$_limit},{$_pagesize}") or die('SQL 错误！');
-	
-    date_default_timezone_set('PRC');
-	function tranTime($time) { 
-	    $rtime = date("Y-m-d H:i:s",$time); 
-	    $htime = date("H:i",$time); 
-	     
-	    $time = time() - $time; 
-	 
-	    if ($time < 60) { 
-	        $str = '刚刚'; 
-	    } 
-	    elseif ($time < 60 * 60) { 
-	        $min = floor($time/60); 
-	        $str = $min.'分钟前'; 
-	    } //时间轴 www.jbxue.com
-	    elseif ($time < 60 * 60 * 24) { 
-	        $h = floor($time/(60*60)); 
-	        $str = $h.'小时前 '.$htime; 
-	    } 
-	    elseif ($time < 60 * 60 * 24 * 3) { 
-	        $d = floor($time/(60*60*24)); 
-	        if($d==1) 
-	           $str = '昨天 '.$rtime; 
-	        else 
-	           $str = '前天 '.$rtime; 
-	    } 
-	    else { 
-	        $str = $rtime; 
-	    } 
-	    return $str; 
-	} 
-	
-
-?>
 
 <!DOCTYPE html>
 <html>
@@ -116,61 +61,15 @@
 				
 				<!--content list-->
 				<section id="contentBox">
-					<ul>
+					<ul id="contentUl">
 						
-						<?php
-						     $_htmllist = array();
-			                 while($_rows = mysql_fetch_array($query,MYSQL_ASSOC)){
-			                 	$_htmllist['id'] = $_rows['id'];
-			                 	$_htmllist['faceurl'] = $_rows['faceurl'];
-			                    $_htmllist['user'] = $_rows['user'];
-								$_htmllist['content'] = $_rows['content'];
-								$_htmllist['date'] = $_rows['date'];
-								$_htmllist['zan'] = $_rows['zan'];
-								$_time = $_htmllist['date'];
-								$_timecuo = strtotime($_time);
-								$_newtime =  tranTime($_timecuo);
-								echo '<li>'.
-								          '<div class="contentwrap">'.
-								          	  '<div class="usertime">'.
-								          	      '<img class="faceImgs" src="'.$_htmllist['faceurl'].'"/>'.
-								          	      '<span class="user">'.$_htmllist['user'].'</span>'.
-								          	      '<span class="time">'.$_newtime.'</span>'.
-								          	  '</div>'.
-								          	  '<div class="content">'.$_htmllist['content'].'</div>'.
-								          	  '<div class="bottomBox">'.
-								          	      '<span class="pinglun">评论(<em id="count">0</em>)</span>'.
-								          	      '<span class="zan">赞(<em id="zan">'.$_htmllist['zan'].'</em>)</span>'.
-								          	  '</div>'.
-								          '</div>'.
-								          '<div class="comment">'.
-								                '<div class="biaoji1"></div>'.
-									    		'<form id="commentForm">'.
-									    			'<input type="hidden" name="articleid" id="articleid" value="'.$_htmllist['id'].'" />'.
-									    			'<img id="pinglunFace" class="faceImgs" alt="face" src=""/>'.
-									    			'<textarea name="comments" class="emotion" id="textarea"></textarea>'.
-									    			'<div class="emoijBox">'.
-										    			'<span id="emoij"></span>'.
-										    			'<input id="commentBtn" type="button" value="评论" />'.
-									    			'</div>'.
-									    		'</form>'.
-									    		'<div id="showComment">'.
-									    			'<ol class="commentOl" id="comments">'.
-										    			    
-															
-									    			'</ol>'.
-									    		'</div>'.
-									    	'</div>'.
-								      '</li>';
-							};
-					    ?>
-					    <div class="addmore">加载更多...</div>
+					    
 					</ul>
 				</section>
 			</div>
-			<div class="music">
+			<!--<div class="music">
 				<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=450 src="//music.163.com/outchain/player?type=0&id=539997813&auto=0&height=430"></iframe>
-			</div>
+			</div>-->
 		</section>
 		
 		
