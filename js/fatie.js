@@ -245,10 +245,17 @@ $(function(){
 													},1500);
 											}else{
 												if($.cookie('user')){
+													var pinglun_textarea = ''
+													if( /\[[\u0391-\uFFE5\w]*\]/ig.test( $(tiezilist[index]).find('#textarea').val() ) ){
+														//解析表情
+														pinglun_textarea = AnalyticEmotion($(tiezilist[index]).find('#textarea').val());
+													}else{
+														pinglun_textarea = $(tiezilist[index]).find('#textarea').val();
+													}
 													//解析表情
-													var textareas = AnalyticEmotion($(tiezilist[index]).find('#textarea').val());
+													//var textareas = AnalyticEmotion($(tiezilist[index]).find('#textarea').val());
 												    //对发送的内容进行编码
-												    var comments = encodeURIComponent(textareas);
+												    var comments = encodeURIComponent(pinglun_textarea);
 												    
 													var htmls = '';
 													htmls += '<li>'+
@@ -258,7 +265,7 @@ $(function(){
 											    					'<div class="commentRight">'+
 											    						'<p>'+
 												    						'<span class="commentUser">'+$.cookie('user')+':</span>'+
-												    						'<span class="commentContent">'+textareas+'</span>'+
+												    						'<span class="commentContent">'+pinglun_textarea+'</span>'+
 												    				     '</p>'+
 												    				    '<div class="commentBottom">'+
 												    				    	'<time>刚刚</time>'+
@@ -328,19 +335,22 @@ $(function(){
 										
 										
 						
-						                //显示评论
+										//显示评论
 										$.ajax({
 											type:"post",
 											url:"php/show_comment.php",
 											data:{
 												articleid:$(tiezilist[index]).find('#articleid').val()
 											},
-											success:function(response){
+											success:function(response){ 
 												var json = $.parseJSON(response);
 												var html = '';
-												var placeholder = ''
+												var placeholder = '';
+												var pinglunCount = 0;
 										
 												$.each(json, function (index, value) {
+													pinglunCount = value.count;
+													//alert(pinglunCount)
 													placeholder = value.user
 													//解码comment
 													var jiama = decodeURIComponent(value.comment);
@@ -379,6 +389,83 @@ $(function(){
 												});
 						                        
 												$(tiezilist[index]).find('#comments').append(html);
+												//$('#comments').eq(index).append(html);
+												//加载更多评论
+												$(tiezilist[index]).find('#comments').append('<input type="button" class="addMorePinglun" value="加载更多评论..." />');
+												var page = 2;
+												if (page > pinglunCount) {
+													$(tiezilist[index]).find('#comments').find('.addMorePinglun').off('click');
+													$(tiezilist[index]).find('#comments').find('.addMorePinglun').hide();
+												}
+												$(tiezilist[index]).find('#comments .addMorePinglun').on('click',function(){
+													$(this).attr('disabled',true);
+													$.ajax({
+														type:"post",
+														url:"php/show_comment.php",
+														data:{
+															articleid:$(tiezilist[index]).find('#articleid').val(),
+															page:page
+														},
+														beforeSend : function (jqXHR, settings) {
+															$(tiezilist[index]).find('#comments .addMorePinglun').val('');
+															$(tiezilist[index]).find('#comments .addMorePinglun').css('background','url(img/loading4.gif) no-repeat center')
+														},
+														success:function(response){
+															var addComment_json = $.parseJSON(response);
+															var addComment_html = '';
+															var placeholder = '';
+													
+															$.each(addComment_json, function (index, value) {
+																//alert(pinglunCount)
+																placeholder = value.user
+																//解码comment
+																var jiama = decodeURIComponent(value.comment);
+																//格式时间
+																var unix_time = get_unix_time(value.date);
+																var autotime = trantime(unix_time)
+																addComment_html += '<li>'+
+													    					'<div class="commentLeft">'+
+													    						'<img src="'+value.faceurl+'"/>'+
+													    					'</div>'+
+													    					'<div class="commentRight">'+
+													    						'<p>'+
+														    						'<span class="commentUser">'+value.user+':</span>'+
+														    						'<span class="commentContent">'+jiama+'</span>'+
+														    				     '</p>'+
+														    				    '<div class="commentBottom">'+
+														    				    	'<time>'+autotime+'</time>'+
+														    				    	'<span class="huifu">回复</span>'+
+														    				    '</div>'+
+														    				    '<div id="answerBox">'+
+														    				        '<dl class="answerol">'+
+																		    		
+																		    		'</dl>'+
+															    				    '<form id="answerForm" >'+
+																		    			'<input type="hidden" name="commentid" id="commentid" value="'+value.id+'" />'+
+																		    			'<textarea name="answer_comment" class="answer_textarea" autofocus="autofocus"  placeholder="" id="answer_textarea"></textarea>'+
+																		    			'<div class="emoijBox">'+
+																			    			'<span class="answer_emoij" id="answer_emoij"></span>'+
+																			    			'<input class="answer_Btn" id="answer_Btn" type="button" value="评论" />'+
+																		    			'</div>'+
+																		    		'</form>'+
+																		    		
+																	    		'</div>'+
+													    					'</div>'+
+													    				'</li>';
+															});
+															$(tiezilist[index]).find('#comments li').last().after(addComment_html);
+															page++;
+															if (page > pinglunCount) {
+																$(tiezilist[index]).find('#comments .addMorePinglun').off('click');
+																$(tiezilist[index]).find('#comments .addMorePinglun').hide();
+															}
+															$(tiezilist[index]).find('#comments .addMorePinglun').val('加载更多...');
+															$(tiezilist[index]).find('#comments .addMorePinglun').css('background','');
+															$(tiezilist[index]).find('#comments .addMorePinglun').attr('disabled',false);
+														},
+														async:true
+													});
+												});
 												
 												//评论list
 												var commentList = $(tiezilist[index]).find('#comments').children('li');
@@ -726,7 +813,7 @@ $(function(){
 								data:{
 									articleid:$(tiezilist[index]).find('#articleid').val()
 								},
-								success:function(response){
+								success:function(response){ 
 									var json = $.parseJSON(response);
 									var html = '';
 									var placeholder = '';
@@ -777,13 +864,78 @@ $(function(){
 									//加载更多评论
 									$(tiezilist[index]).find('#comments').append('<input type="button" class="addMorePinglun" value="加载更多评论..." />');
 									var page = 2;
-									alert(pinglunCount)
 									if (page > pinglunCount) {
-										$('#comments').eq(index).find('.addMorePinglun').off('click');
-										$('#comments').eq(index).find('.addMorePinglun').hide();
+										$(tiezilist[index]).find('#comments').find('.addMorePinglun').off('click');
+										$(tiezilist[index]).find('#comments').find('.addMorePinglun').hide();
 									}
 									$(tiezilist[index]).find('#comments .addMorePinglun').on('click',function(){
-										alert();
+										$(this).attr('disabled',true);
+										$.ajax({
+											type:"post",
+											url:"php/show_comment.php",
+											data:{
+												articleid:$(tiezilist[index]).find('#articleid').val(),
+												page:page
+											},
+											beforeSend : function (jqXHR, settings) {
+												$(tiezilist[index]).find('#comments .addMorePinglun').val('');
+												$(tiezilist[index]).find('#comments .addMorePinglun').css('background','url(img/loading4.gif) no-repeat center')
+											},
+											success:function(response){
+												var addComment_json = $.parseJSON(response);
+												var addComment_html = '';
+												var placeholder = '';
+										
+												$.each(addComment_json, function (index, value) {
+													//alert(pinglunCount)
+													placeholder = value.user
+													//解码comment
+													var jiama = decodeURIComponent(value.comment);
+													//格式时间
+													var unix_time = get_unix_time(value.date);
+													var autotime = trantime(unix_time)
+													addComment_html += '<li>'+
+										    					'<div class="commentLeft">'+
+										    						'<img src="'+value.faceurl+'"/>'+
+										    					'</div>'+
+										    					'<div class="commentRight">'+
+										    						'<p>'+
+											    						'<span class="commentUser">'+value.user+':</span>'+
+											    						'<span class="commentContent">'+jiama+'</span>'+
+											    				     '</p>'+
+											    				    '<div class="commentBottom">'+
+											    				    	'<time>'+autotime+'</time>'+
+											    				    	'<span class="huifu">回复</span>'+
+											    				    '</div>'+
+											    				    '<div id="answerBox">'+
+											    				        '<dl class="answerol">'+
+															    		
+															    		'</dl>'+
+												    				    '<form id="answerForm" >'+
+															    			'<input type="hidden" name="commentid" id="commentid" value="'+value.id+'" />'+
+															    			'<textarea name="answer_comment" class="answer_textarea" autofocus="autofocus"  placeholder="" id="answer_textarea"></textarea>'+
+															    			'<div class="emoijBox">'+
+																    			'<span class="answer_emoij" id="answer_emoij"></span>'+
+																    			'<input class="answer_Btn" id="answer_Btn" type="button" value="评论" />'+
+															    			'</div>'+
+															    		'</form>'+
+															    		
+														    		'</div>'+
+										    					'</div>'+
+										    				'</li>';
+												});
+												$(tiezilist[index]).find('#comments li').last().after(addComment_html);
+												page++;
+												if (page > pinglunCount) {
+													$(tiezilist[index]).find('#comments .addMorePinglun').off('click');
+													$(tiezilist[index]).find('#comments .addMorePinglun').hide();
+												}
+												$(tiezilist[index]).find('#comments .addMorePinglun').val('加载更多...');
+												$(tiezilist[index]).find('#comments .addMorePinglun').css('background','');
+												$(tiezilist[index]).find('#comments .addMorePinglun').attr('disabled',false);
+											},
+											async:true
+										});
 									});
 									
 									//评论list

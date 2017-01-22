@@ -4,7 +4,7 @@
 	$_sql = mysql_query("SELECT COUNT(*) AS count FROM lj_article");
 	$_result = mysql_fetch_array($_sql, MYSQL_ASSOC);
 	
-	$_pagesize = 6;
+	$_pagesize = 2;
 	$_count = ceil($_result['count'] / $_pagesize);
 	$_page = 1;
 	if (!isset($_POST['page'])) {
