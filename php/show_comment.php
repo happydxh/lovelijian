@@ -4,13 +4,14 @@
 	$_sql = mysql_query("SELECT COUNT(*) AS count FROM lj_comment WHERE articleid='{$_POST['articleid']}'");
 	$_result = mysql_fetch_array($_sql, MYSQL_ASSOC);
 	
-	$_pagesize = 2;
+	$_pagesize = 6;
+	$_allcount = $_result['count'];
 	$_count = ceil($_result['count'] / $_pagesize);
 	$_page = 1;
-	if (!isset($_POST['page'])) {
+	if (!isset($_POST['commentpage'])) {
 		$_page = 1;
 	} else {
-		$_page = $_POST['page'];
+		$_page = $_POST['commentpage'];
 		if ($_page > $_count) {
 			$_page = $_count;
 		}
@@ -20,7 +21,7 @@
 	
 	
 	
-	$_commentquery = mysql_query("SELECT (SELECT face_url FROM lj_user WHERE user=a.user) AS faceurl,({$_count}) AS count,a.id ,a.comment,a.user,a.date FROM lj_comment a WHERE a.articleid='{$_POST['articleid']}' ORDER BY a.date DESC LIMIT {$_limit},{$_pagesize}") or die('SQL 错误！');
+	$_commentquery = mysql_query("SELECT (SELECT face_url FROM lj_user WHERE user=a.user) AS faceurl,({$_allcount}) AS count,a.id ,a.comment,a.user,a.date FROM lj_comment a WHERE a.articleid='{$_POST['articleid']}' ORDER BY a.date DESC LIMIT {$_limit},{$_pagesize}") or die('SQL 错误！');
 	
 
 

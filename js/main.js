@@ -32,6 +32,26 @@ $(function(){
 		$(this).find('.shezhi').fadeOut();
 	})
 	
+	 //返回顶部
+    $('#back').on('click',function(){
+    	$('html,body').animate({
+			scrollTop:0
+		},800);
+    })
+    $(window).on('scroll',function(){
+    	checkPosition($(window).height())
+    })
+    
+    checkPosition($(window).height())
+    
+    function checkPosition(pos){
+    	if($(window).scrollTop() < pos){
+    		$('#back').fadeOut()
+    	}else{
+    		$('#back').fadeIn()
+    	}
+    }
+	
 	//tool function
     function getScroll(){
 		return {
