@@ -885,7 +885,7 @@ color:#E66921;
 	margin-left: 45px;
 	color: gray;
 }
-#contentBox ul li .content{
+#contentBox ul li .content, #videoShow ul li .content{
 	margin: 5px 0px;
 	border: none;
 	font-size: 16px; 
