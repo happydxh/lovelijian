@@ -107,6 +107,22 @@ $(function(){
 			async:true
 		});
 		
+		//点赞
+		$('#contentBox ul li').find('.zan').on('click',function(){
+			var zanCount = $('#zan').text();
+			zanCount++
+			$('#zan').text(zanCount);
+			$.ajax({
+				type:"post",
+				url:"php/add_zan.php",
+				data:{
+					articleid:$('#articleid').val(),
+					zan:zanCount
+				},
+				async:true
+			});
+		});
+		
 	
 	
 	
