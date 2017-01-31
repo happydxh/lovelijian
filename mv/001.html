@@ -99,6 +99,10 @@
 			    </div>
 			</div>
 		</section>
+		<p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p>
+		<p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p>
+		<p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p><p>1</p>
+		
 		
 		<div id="loading">
 			<p>加载中</p>
@@ -147,7 +151,7 @@
 				
 				//退出登入
 				$('.tuichu').on('click',function(){
-					$.cookie('user','',{expires:-1});
+					$.cookie('user','',{expires:-1,path:'/'});
 					$('#touxiang').hide();
 					history.go(0);
 				})

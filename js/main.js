@@ -20,7 +20,7 @@ $(function(){
 	
 	//退出登入
 	$('.tuichu').on('click',function(){
-		$.cookie('user','',{expires:-1});
+		$.cookie('user','',{expires:-1,path:'/'});
 		$('#touxiang').hide();
 		history.go(0);
 	})
@@ -395,6 +395,7 @@ $(function(){
 						if ($('#expires').is(':checked')) {
 							$.cookie('user', $('#login_user').val(), {
 								expires : 7,
+								path:'/'
 							});
 						} else {
 							$.cookie('user', $('#login_user').val());

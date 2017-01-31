@@ -188,11 +188,12 @@ $(function(){
 				var commentList = $('#comments').children('li');
 				commentList.each(function(i){
 				var commentindex = i;
+				var reuser = $(commentList[commentindex]).find('.commentUser').text();
 				
 				//显示隐藏回复标签
 				$(this).find('.huifu').on('click',function(){
 					$(commentList[commentindex]).find('#answerForm').toggle();
-					$(commentList[commentindex]).find('#answer_textarea').attr('placeholder','回复@'+placeholder+':');
+					$(commentList[commentindex]).find('#answer_textarea').attr('placeholder','回复@'+reuser);
 				})
 				
 				//textarea高度自适应
