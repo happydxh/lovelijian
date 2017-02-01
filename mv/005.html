@@ -42,12 +42,37 @@
 				<video  width="800px" autoplay="autoplay" id="bgAudio"  controls="controls" poster="">
 					<source type="video/mp4" src="http://oivwcgufp.bkt.clouddn.com/%E6%9D%8E%E5%81%A5%20-%20%E5%BC%82%E4%B9%A1%E4%BA%BA.mp4">
 			    </video>
-			    <p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p>
-			    <p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p>
-			    <p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p>
-			    <p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p>
-			    <p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p>
-			    <p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p>
+			    <section id="contentBox" style="margin: 0px 0px 0px 30px;">
+					<ul id="contentUl">
+						<li>
+					         <div class="contentwrap">
+					          	  <div class="bottomBox">
+					          	      <span class="pinglun">评论(<em id="count">0</em>)</span>
+					          	      <span class="zan">赞(<em id="zan">0</em>)</span>
+					          	  </div>
+					          </div>
+					          <div class="comment">
+					                <div class="biaoji1"></div>
+						    		<form id="commentForm">
+						    			<input type="hidden" name="videoid" id="videoid" value="5" />
+						    			<input type="hidden" name="type" id="type" value="mv" />
+						    			<img id="pinglunFace" class="faceImgs" alt="face" src=""/>
+						    			<textarea name="comments" class="emotion" id="textarea"></textarea>
+						    			<div class="emoijBox">
+							    			<span id="emoij"></span>
+							    			<input id="commentBtn" type="button" value="评论" />
+						    			</div>
+						    		</form>
+						    		<div id="showComment">
+						    			<ol class="commentOl" id="comments">
+							    			  
+						    			</ol>
+						    		</div>
+						    	</div>
+					      </li>
+					    
+					</ul>
+				</section>
 			</div>
 			<div class="videoRight">
 				<h3>MV介绍</h3>
@@ -74,10 +99,22 @@
 			</div>
 		</section>
 		
+		<div id="loading">
+			<p>加载中</p>
+		</div>
+		<div id="success">
+			<p>成功</p>
+		</div>
+		<div id="tishi">
+			<p>请登入后操作</p>
+		</div>
 		<div id="back"></div>
 		<script src="../js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/json2.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../emoji/jquery.sinaEmotion.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/tool.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/comment.js" type="text/javascript" charset="utf-8"></script>
 		
 		
 		
@@ -107,7 +144,7 @@
 				
 				//退出登入
 				$('.tuichu').on('click',function(){
-					$.cookie('user','',{expires:-1});
+					$.cookie('user','',{expires:-1,path:'/'});
 					$('#touxiang').hide();
 					history.go(0);
 				})
