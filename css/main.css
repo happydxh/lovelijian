@@ -1011,15 +1011,23 @@ color:#E66921;
 	margin-left: 10px;
 	width: 510px;
 }
+#showComment .commentOl li .commentRight p{
+	word-wrap: break-word;  
+    word-break: normal;
+}
 #showComment .commentOl li .commentRight p span.commentUser{
 	color: #eb7350;
 	font-size: 14px;
 	line-height: 20px;
+	 white-space:nowrap; 
 }
 #showComment .commentOl li .commentRight p span.commentContent{
 	color: #333;
 	font-size: 12px;
 	line-height: 20px;
+	word-wrap: break-word;  
+    word-break: normal;
+	
 }
 #showComment .commentOl li .commentRight .commentBottom{
 	width: 510px;
@@ -1112,11 +1120,14 @@ color:#E66921;
 #answerBox .answerol dt p{
 	margin-left: 30px;
 	line-height: 20px;
+	word-wrap: break-word;  
+    word-break: normal;
 }
 #answerBox .answerol dt p:nth-of-type(1){
 	margin-left: 0px;
 }
 #answerBox .answerol dt .answer_user{
+	white-space:nowrap; 
 	color: #eb7350;
 }
 #answerBox .answerol dt .answerBottom{
