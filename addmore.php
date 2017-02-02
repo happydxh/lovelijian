@@ -101,7 +101,15 @@
 				<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=450 src="//music.163.com/outchain/player?type=0&id=539997813&auto=0&height=430"></iframe>
 			</div>-->
 		</section>
-		
+		<footer id="footer">
+		    <div class="foot">
+	            <a href="relation.html" target="_blank">联系我们</a> |
+	            <a href="statement.html" target="_blank">网站声明</a> |
+		        <a href="feedback.html" target="_blank">问题反馈</a> |
+		        <a href="build.html" target="_blank">友情链接</a> 
+	        </div>
+	        <p>Copyright &copy; 2016 爱李健 版权所有 <span>京ICP证0843234号</span></p>
+		</footer>
 		
 		<div id="loading">
 			<p>加载中</p>

@@ -1175,13 +1175,13 @@ color:#E66921;
 	margin-top: 20px;
 }
 /*网站声明*/
-.statementText{
+#reg .statementText{
 	margin: 30px auto;
 	width: 560px;
 	color: gray;
 	font-size: 16px;
 	text-indent: 32px;
-	text-align: left;
+	margin-left: 50px;
 }
 /*问题反馈*/
 #contentBox ul li .feedback{
