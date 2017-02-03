@@ -26,7 +26,8 @@
 		<section id="contentWrap">
 			<div class="contentWrapLeft">
 				<div id="fatieBox" style="width: 700px;">
-					<p class="question"></p>
+					<!--<p class="question"></p>-->
+					<p style="color: red;font-size: 16px;font-weight: bold;">发布文章:</p>
 					<section id="editor" style="width: 660px;">
 					    <form id="formfatie" name="fatie">
 					    	<input type="text" name="title" id="title" placeholder="请输入文章标题" style="margin: 10px 0;width: 400px;height: 24px;font-size: 14px;" />
@@ -61,11 +62,59 @@
 		<script src="js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/json2.js" type="text/javascript" charset="utf-8"></script>
 		
-		<script src="js/fatie.js" type="text/javascript" charset="utf-8"></script>
-		
 	    <script type="text/javascript">
 		  
-		  
+		    //实例化编辑器
+            var ue = UE.getEditor('myEditor');
+            
+            //发帖
+			$('#fatieBtn').on('click',function(){
+				if($.cookie('admin')){
+					var article = ue.getContent()
+					var articlecontent = encodeURIComponent(article);
+					if( articlecontent == '' || $('#title').val() == ''){
+						var tishi = $('#tishi');
+						tishi.show();
+						$('#tishi').find('p').html('标题和内容不得为空！');
+						center(tishi,200,40);
+						setTimeout(function(){
+							tishi.hide();
+						},1500);
+					}else{
+						var loading = $('#loading');
+						loading.show();
+						$('#loading').find('p').html('发表中..');
+						center(loading,200,40)
+						$.ajax({
+							type:"post",
+							url:"php/add_dongtai_content.php",
+							data:{
+								title:$('#title').val(),
+								content:articlecontent
+							},
+							success:function(text){
+								loading.hide();
+								if(text){
+									var success = $('#success');
+									success.show();
+									success.find('p').html('发表成功');
+									center(success,200,40);
+									setTimeout(function(){
+										success.hide();
+										history.go(0);
+									},1500);
+									
+								}
+							},
+							async:true
+						});
+					}
+					
+			    }else{
+			    	alert("请先登入")
+			    }
+
+			});
 		  
 				
 	    </script>

@@ -46,7 +46,16 @@ $(function(){
 				if($.cookie('user')){
 					var article = ue.getContent()
 					var articlecontent = encodeURIComponent(article);
-					var loading = $('#loading');
+					if(articlecontent == ''){
+						var tishi = $('#tishi');
+						tishi.show();
+						$('#tishi').find('p').html('内容不得为空哦！');
+						center(tishi,200,40);
+						setTimeout(function(){
+							tishi.hide();
+						},1500);
+					}else{
+						var loading = $('#loading');
 					loading.show();
 					$('#loading').find('p').html('发表中..');
 					center(loading,200,40)
@@ -73,6 +82,8 @@ $(function(){
 						},
 						async:true
 					});
+					}
+					
 			    }else{
 			    	alert("请先登入")
 			    }

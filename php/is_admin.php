@@ -1,9 +1,9 @@
 <?php
 	require 'config.php';
 	
-	$_pass = sha1($_POST['pass']);
+	$_pass = $_POST['pass'])
 	
-	$query = mysql_query("SELECT user FROM lj_user WHERE user='{$_POST['user']}' AND pass='{$_pass}'") or die('SQL错误！');
+	$query = mysql_query("SELECT user FROM lj_admin WHERE user='{$_POST['user']}' AND pass='{$_pass}'") or die('SQL错误！');
 	
 	if (mysql_fetch_array($query, MYSQL_ASSOC)) {		//用户名和密码正确
 	

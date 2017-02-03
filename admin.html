@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>登入后台</title>
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+	</head>
+	<body>
+		<header id="header">
+			<h2 class="logo">爱李健</h2>
+			
+			
+		</header>
+		<div id="login">
+		    <h2>登入后台</h2>
+		    <p class="loginInfo">用户名或密码错误</p>
+		    <form id="formlogin" name="reg" >
+	    		<div class="int">
+	    		  <label for="login_user">用&nbsp;&nbsp;户&nbsp;&nbsp;名：</label>
+	    		  <input type="text" id="login_user" name="user" class="text" />
+	    		</div>
+	    		
+	    		<div class="int">
+	    		  <label for="login_pass">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</label>
+	    		  <input type="password" id="login_pass" name="pass" class="text" />
+	    		</div>
+	    	    
+	    	    <div class="expiresBox">
+	    		  <input type="checkbox" name="expires" id="expires" checked="checked" />
+	    		  <label for="expires">记住密码</label>
+	    		</div>
+	    		<input type="button" id="regbtn" class="loginBtn" value="立即登入" />
+	    		
+	    	</form>
+	    	
+		</div>
+		<div id="loading">
+			<p>加载中</p>
+		</div>
+		<div id="success">
+			<p>成功</p>
+		</div>
+		<script src="js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/tool.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				//登入后台
+				$('.loginBtn').on('click',function(){
+					var _this = this;
+					var loading = $('#loading');
+					loading.show();
+					$('#loading').find('p').html('登入中..');
+					center(loading,200,40)
+					_this.disabled = true;
+					$(_this).css('background','darkgray');
+					$.ajax({
+						type:"post",
+						url:"php/is_login.php",
+						data:$('#formlogin').serialize(),
+						success:function(text){
+							loading.hide();
+							if(text == 1){//失败
+								$('.loginInfo').show();
+								_this.disabled = false;
+								$(_this).css('background','#a29060');
+							}else{
+								var success = $('#success');
+								success.show();
+								success.find('p').html('登入成功');
+								center(success,200,40);
+								if ($('#expires').is(':checked')) {
+									$.cookie('admin', $('#login_user').val(), {
+										expires : 7,
+										path:'/'
+									});
+								} else {
+									$.cookie('user', $('#login_user').val());
+								}
+								setTimeout(function(){
+									success.hide();
+									_this.disabled = false;
+									$(_this).css('background','#a29060');
+									$('#formlogin')[0].reset();
+									//$('.login').children('a').html($.cookie('user')).css('color','#f4c45a');
+									//window.history.back();  
+									window.location.href='houtai.html';
+								},1500);
+							}
+						},
+						async:true
+					});
+				})
+				
+				
+			})	
+		</script>
+	</body>
+</html>
