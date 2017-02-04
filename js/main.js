@@ -426,7 +426,7 @@ $(function(){
 							html += '<li><a href="dongtai.php?id='+value.id+'" target="_blank">'+value.title+'</a><span>'+value.date+'</span></li>';
 						});
 						$('#dongtaiUl').append(html);
-						$('#dongtaiUl').append('<li><a href="#">查看更多&gt;&gt;</a></li>');
+						$('#dongtaiUl').append('<li><a href="dongtailist.html" target="_blank">查看更多&gt;&gt;</a></li>');
 			},
 			async:true
 		});

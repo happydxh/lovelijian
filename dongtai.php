@@ -1,15 +1,21 @@
 <?php
     require 'php/config.php';
 	if($_GET['id']){
-		$_query = mysql_query("SELECT title, id,content,date,zan FROM lj_dongtai a WHERE id='{$_GET['id']}' ORDER BY date DESC") or die('SQL 错误！');
+		$_query = mysql_query("SELECT title, id,content,date,zan,readcount FROM lj_dongtai a WHERE id='{$_GET['id']}' ORDER BY date DESC") or die('SQL 错误！');
 		$_rows = mysql_fetch_array($_query,MYSQL_ASSOC);
 		if($_rows){
+			//累积阅读量
+			mysql_query("UPDATE lj_dongtai SET readcount = readcount+1 WHERE id='{$_GET['id']}' ");
 			$_html = array();
 			$_html['id'] = $_rows['id'];
 			$_html['title'] = $_rows['title'];
 			$_html['content'] = $_rows['content'];
 			$_html['date'] = $_rows['date'];
 			$_html['zan'] = $_rows['zan'];
+			$_html['readcount'] = $_rows['readcount'];
+		}else{
+			echo "非法操作。。。";
+			exit;
 		}
 	}
 ?>
@@ -61,14 +67,15 @@
 						<li>
 					         <div class="contentwrap">
 					          	  <div class="usertime">
-					          	      <h3 style="font-size: 18px;"><?php echo $_html['title']?></h3>
-					          	      
+					          	      <h3 id="title" style="font-size: 18px;" datatitle="<?php echo $_html['title']?>"></h3>
 					          	  </div>
 					          	  <div class="content" datacomment="<?php echo $_html['content']?>"></div>
 					          	  <span class="time" style="font-family: '微软雅黑';color: gray;font-size: 14px;"><?php echo $_html['date']?></span>
+					          	  <span class="readcount" style="font-family: '微软雅黑';color: gray;font-size: 14px;">阅读数(<em id="readcount"><?php echo $_html['readcount']?></em>)</span>
 					          	  <div class="bottomBox">
 					          	      <span class="pinglun">评论(<em id="count">0</em>)</span>
 					          	      <span class="zan">赞(<em id="zan"><?php echo $_html['zan']?></em>)</span>
+					          	      
 					          	  </div>
 					          </div>
 					          <div class="comment">

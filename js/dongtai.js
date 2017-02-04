@@ -1,6 +1,8 @@
 $(function(){
 	
-
+        //截取文章标题
+        var title = $('#title').attr('datatitle');
+        $('#title').text(title.substr(4));
 		
 		//发表评论
 		var addCommentUrl = "php/add_dongtai_comment.php";

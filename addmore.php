@@ -11,6 +11,9 @@
 			$_html['user'] = $_rows['user'];
 			$_html['date'] = $_rows['date'];
 			$_html['zan'] = $_rows['zan'];
+		}else{
+			echo "非法操作。。。";
+			exit;
 		}
 	}
 ?>
