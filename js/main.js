@@ -414,5 +414,21 @@ $(function(){
 				async:true
 			});
 		})
+		
+		//显示动态标题
+		$.ajax({
+			type:"post",
+			url:"php/show_dongtai_title.php",
+			success:function(response){
+				var json = $.parseJSON(response);
+						var html = '';
+						$.each(json, function (index, value) {
+							html += '<li><a href="dongtai.php?id='+value.id+'" target="_blank">'+value.title+'</a><span>'+value.date+'</span></li>';
+						});
+						$('#dongtaiUl').append(html);
+						$('#dongtaiUl').append('<li><a href="#">查看更多&gt;&gt;</a></li>');
+			},
+			async:true
+		});
 
 })

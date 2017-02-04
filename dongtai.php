@@ -1,14 +1,13 @@
 <?php
     require 'php/config.php';
 	if($_GET['id']){
-		$_query = mysql_query("SELECT (SELECT face_url FROM lj_user WHERE user=a.user) AS faceurl,a.id,a.content,a.user,a.date , a.zan FROM lj_article a WHERE id='{$_GET['id']}' ORDER BY a.date DESC") or die('SQL 错误！');
+		$_query = mysql_query("SELECT title, id,content,date,zan FROM lj_dongtai a WHERE id='{$_GET['id']}' ORDER BY date DESC") or die('SQL 错误！');
 		$_rows = mysql_fetch_array($_query,MYSQL_ASSOC);
 		if($_rows){
 			$_html = array();
-			$_html['faceurl'] = $_rows['faceurl'];
 			$_html['id'] = $_rows['id'];
+			$_html['title'] = $_rows['title'];
 			$_html['content'] = $_rows['content'];
-			$_html['user'] = $_rows['user'];
 			$_html['date'] = $_rows['date'];
 			$_html['zan'] = $_rows['zan'];
 		}
@@ -19,7 +18,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>发帖</title>
+		<title>动态</title>
 		<link rel="stylesheet" type="text/css" href="css/main.css"/>
 		<link rel="stylesheet" type="text/css" href="emoji/jquery.sinaEmotion.css"/>
 		
@@ -62,11 +61,11 @@
 						<li>
 					         <div class="contentwrap">
 					          	  <div class="usertime">
-					          	      <img class="faceImgs" src="<?php echo $_html['faceurl']?>"/>
-					          	      <span class="user"><?php echo $_html['user']?></span>
-					          	      <span class="time" datatime="<?php echo $_html['date']?>"></span>
+					          	      <h3 style="font-size: 18px;"><?php echo $_html['title']?></h3>
+					          	      
 					          	  </div>
 					          	  <div class="content" datacomment="<?php echo $_html['content']?>"></div>
+					          	  <span class="time" style="font-family: '微软雅黑';color: gray;font-size: 14px;"><?php echo $_html['date']?></span>
 					          	  <div class="bottomBox">
 					          	      <span class="pinglun">评论(<em id="count">0</em>)</span>
 					          	      <span class="zan">赞(<em id="zan"><?php echo $_html['zan']?></em>)</span>
@@ -127,7 +126,7 @@
 		<script src="emoji/jquery.sinaEmotion.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/tool.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/addmore.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/dongtai.js" type="text/javascript" charset="utf-8"></script>
 		
 	    <script type="text/javascript">
 		  

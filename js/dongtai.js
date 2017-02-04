@@ -1,32 +1,27 @@
 $(function(){
 	
-	    //格式时间
-	    var time = $('#contentUl li').find('.time').attr('datatime');
-	    var unix_time = get_unix_time(time);
-		var autotime = trantime(unix_time);
-		$('#contentUl li').find('.time').text(autotime);
-		
 
 		
 		//发表评论
-		var addCommentUrl = "php/add_comment.php";
+		var addCommentUrl = "php/add_dongtai_comment.php";
 		addcomment(addCommentUrl);
+		
 
 		
 		//显示评论数
-		var showCommentCountUrl = "php/show_commentCount.php";
+		var showCommentCountUrl = "php/show_dongtai_commentCount.php";
 		showCommentCount(showCommentCountUrl);
 
 		
 		//点赞
-		var addZanUrl = "php/add_zan.php";
+		var addZanUrl = "php/add_dongtai_zan.php";
 		dianzan(addZanUrl);
 
 		
 		//显示评论
 		$.ajax({
 			type:"post",
-			url:"php/addmore_showcomment.php",
+			url:"php/dongtai_showcomment.php",
 			data:{
 				articleid:$('#articleid').val()
 			},
@@ -137,7 +132,7 @@ $(function(){
 						
 							$.ajax({
 								type:"post",
-								url:"php/add_answer.php",
+								url:"php/add_dongtai_answer.php",
 								data:{
 									user:$.cookie('user'),
 									answer_comment:answer_comment,
@@ -165,7 +160,7 @@ $(function(){
 				//显示回复
 				$.ajax({
 					type:"post",
-					url:"php/show_answer.php",
+					url:"php/show_dongtai_answer.php",
 					data:{
 						commentid:$(commentList[commentindex]).find('#commentid').val()
 					},
@@ -209,7 +204,7 @@ $(function(){
 								//显示回复
 								$.ajax({
 									type:"post",
-									url:"php/show_answer.php",
+									url:"php/show_dongtai_answer.php",
 									data:{
 										commentid:$(this).find('.huifu').attr('dataid')
 									},
@@ -268,9 +263,7 @@ $(function(){
 			},
 			async:true
 		});
-	
-	
-	
-	
-	
+		
+		
+		
 })

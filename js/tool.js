@@ -43,33 +43,33 @@
         elem.style.resize = 'none';
  
         var change = function () {
-                var scrollTop, height,
-                        padding = 0,
-                        style = elem.style;
+            var scrollTop, height,
+            padding = 0,
+            style = elem.style;
  
-                if (elem._length === elem.value.length) return;
-                elem._length = elem.value.length;
+            if (elem._length === elem.value.length) return;
+            elem._length = elem.value.length;
  
-                if (!isFirefox && !isOpera) {
-                        padding = parseInt(getStyle('paddingTop')) + parseInt(getStyle('paddingBottom'));
-                };
-                scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+            if (!isFirefox && !isOpera) {
+                    padding = parseInt(getStyle('paddingTop')) + parseInt(getStyle('paddingBottom'));
+            };
+            scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
  
-                elem.style.height = minHeight + 'px';
-                if (elem.scrollHeight > minHeight) {
-                        if (maxHeight && elem.scrollHeight > maxHeight) {
-                                height = maxHeight - padding;
-                                style.overflowY = 'auto';
-                        } else {
-                                height = elem.scrollHeight - padding;
-                                style.overflowY = 'hidden';
-                        };
-                        style.height = height + extra + 'px';
-                        scrollTop += parseInt(style.height) - elem.currHeight;
-                        document.body.scrollTop = scrollTop;
-                        document.documentElement.scrollTop = scrollTop;
-                        elem.currHeight = parseInt(style.height);
-                };
+            elem.style.height = minHeight + 'px';
+	        if (elem.scrollHeight > minHeight) {
+	                if (maxHeight && elem.scrollHeight > maxHeight) {
+	                        height = maxHeight - padding;
+	                        style.overflowY = 'auto';
+	                } else {
+	                        height = elem.scrollHeight - padding;
+	                        style.overflowY = 'hidden';
+	                };
+	                style.height = height + extra + 'px';
+	                scrollTop += parseInt(style.height) - elem.currHeight;
+	                document.body.scrollTop = scrollTop;
+	                document.documentElement.scrollTop = scrollTop;
+	                elem.currHeight = parseInt(style.height);
+	        };
         };
  
 	        addEvent('propertychange', change);
@@ -136,27 +136,166 @@
         
 
         //js字符过滤html标签互转函数
-                function htmlencode(str) {
-					 str = str.replace(/&/g, '&amp;');
-					 str = str.replace(/</g, '&lt;');
-					 str = str.replace(/>/g, '&gt;');
-					 //str = str.replace(/(?:t| |v|r)*n/g, '<br />');
-					 str = str.replace(/  /g, '&nbsp; ');
-					 str = str.replace(/t/g, '&nbsp; &nbsp; ');
-					 str = str.replace(/x22/g, '&quot;');
-					 str = str.replace(/x27/g, '&#39;');
-					 str = str.replace(/\//g, '&xie;');
-					 return str;
-				}
+        function htmlencode(str) {
+			 str = str.replace(/&/g, '&amp;');
+			 str = str.replace(/</g, '&lt;');
+			 str = str.replace(/>/g, '&gt;');
+			 //str = str.replace(/(?:t| |v|r)*n/g, '<br />');
+			 str = str.replace(/  /g, '&nbsp; ');
+			 str = str.replace(/t/g, '&nbsp; &nbsp; ');
+			 str = str.replace(/x22/g, '&quot;');
+			 str = str.replace(/x27/g, '&#39;');
+			 str = str.replace(/\//g, '&xie;');
+			 return str;
+		}
+		
+		function htmldecode(str) {
+			 str = str.replace(/&amp;/gi, '&');
+			 str = str.replace(/&nbsp;/gi, ' ');
+			 str = str.replace(/&quot;/gi, '"');
+			 str = str.replace(/&#39;/g, "'");
+			 str = str.replace(/&lt;/gi, '<');
+			 str = str.replace(/&gt;/gi, '>');
+			 str = str.replace(/&xie;/gi, '/');
+			 //str = str.replace(/<br[^>]*>(?:(rn)|r|n)?/gi, 'n');
+			 return str;
+		}
+		
+		
+	//评论功能公共函数
+	
+		//解码帖子内容
+		var content = $('#contentUl li').find('.content').attr('datacomment');
+		var jiema = decodeURIComponent(content);
+		$('#contentUl li').find('.content').html(jiema);
+		
+		//textarea高度自适应
+		var texts = $('#textarea').get(0);
+	    autoTextarea(texts);
+	    // 绑定表情
+		$('#emoij').SinaEmotion($('#contentBox ul li').find('.emotion'));
+		
+		//评论者头像
+		if($.cookie('user')){
+			$.ajax({
+				type:"post",
+				url:"php/show_face.php",
+				data:{
+						user:$.cookie('user')
+					},
+				success:function(texts){
+					$('#contentBox ul li').find('#pinglunFace').attr('src',texts);
+				},
+				async:true
+			});
+		}else{
+			var faceUrl = 'face/moren.png'
+			$('#contentBox ul li').find('#pinglunFace').attr('src',faceUrl);
+		}
+		
+		//发表评论
+		function addcomment(url){
+			$('#contentBox ul li').find('#commentBtn').on('click',function(){
+			if( $('#contentBox ul li').find('#textarea').val() == '' ){
+				var tishi = $('#tishi');
+					tishi.show();
+					$('#tishi').find('p').html('评论内容不得为空哦！');
+					center(tishi,200,40);
+					setTimeout(function(){
+						tishi.hide();
+					},1500);
+			}else{
+				if($.cookie('user')){
+					var src = $('#pinglunFace').attr('src');
+					var pinglun_textarea = ''
+					if( /\[[\u0391-\uFFE5\w]*\]/ig.test( $('#contentBox ul li').find('#textarea').val() ) ){
+						//解析表情
+						pinglun_textarea = AnalyticEmotion($('#contentBox ul li').find('#textarea').val());
+					}else{
+						pinglun_textarea = $('#contentBox ul li').find('#textarea').val();
+					}
+				    //对发送的内容进行编码
+				    var comments = encodeURIComponent(pinglun_textarea);
+				    
+					var htmls = '';
+					htmls += '<li>'+
+			    					'<div class="commentLeft">'+
+			    						'<img src="'+src+'"/>'+
+			    					'</div>'+
+			    					'<div class="commentRight">'+
+			    						'<p>'+
+				    						'<span class="commentUser">'+$.cookie('user')+':</span>'+
+				    						'<span class="commentContent">'+pinglun_textarea+'</span>'+
+				    				     '</p>'+
+				    				    '<div class="commentBottom">'+
+				    				    	'<time>刚刚</time>'+
+				    				    	'<span class="huifu">回复</span>'+
+				    				    '</div>'+
+			    					'</div>'+
+			    				'</li>';
+					
+                    
+					$('#contentBox ul li').find('#comments').prepend(htmls);
+					$('#contentBox ul li').find('#commentForm')[0].reset();
+					
+					//评论数
+					var count = $('#contentBox ul li').find('#count').text();
+					count++
+					$('#contentBox ul li').find('#count').text(count);
+					$.ajax({
+						type:"post",
+						url:url,
+						data:{
+							user:$.cookie('user'),
+							comments:comments,
+							articleid:$('#contentBox ul li').find('#articleid').val()
+						},
+						async:true
+					});
+				    }else{
+				    	var tishi = $('#tishi');
+						tishi.show();
+						$('#tishi').find('p').html('请登入后操作');
+						center(tishi,200,40);
+						setTimeout(function(){
+							tishi.hide();
+						},1500);
+				    }
+			   }
+			});
+		}
+		
+		//显示评论数
+		function showCommentCount(url){
+			$.ajax({
+				type:"post",
+				url:url,
+				data:{
+					articleid:$('#articleid').val()
+				},
+				success:function(response){
+					$('#count').text(response)
+				},
+				async:true
+			});
+		}
+		
+		//点赞
+		function dianzan(url){
+			$('#contentBox ul li').find('.zan').on('click',function(){
+				var zanCount = $('#zan').text();
+				zanCount++
+				$('#zan').text(zanCount);
+				$.ajax({
+					type:"post",
+					url:url,
+					data:{
+						articleid:$('#articleid').val(),
+						zan:zanCount
+					},
+					async:true
+				});
+			});
+		}
 				
-				function htmldecode(str) {
-					 str = str.replace(/&amp;/gi, '&');
-					 str = str.replace(/&nbsp;/gi, ' ');
-					 str = str.replace(/&quot;/gi, '"');
-					 str = str.replace(/&#39;/g, "'");
-					 str = str.replace(/&lt;/gi, '<');
-					 str = str.replace(/&gt;/gi, '>');
-					 str = str.replace(/&xie;/gi, '/');
-					 //str = str.replace(/<br[^>]*>(?:(rn)|r|n)?/gi, 'n');
-					 return str;
-				}
+
