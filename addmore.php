@@ -129,6 +129,7 @@
 		<script src="js/json2.js" type="text/javascript" charset="utf-8"></script>
 		<script src="emoji/jquery.sinaEmotion.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/tool.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/publicFunc.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/addmore.js" type="text/javascript" charset="utf-8"></script>
 		

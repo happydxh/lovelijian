@@ -133,62 +133,7 @@
 		  	  //设置初始音量大小
 		  	  document.getElementById("bgAudio").volume = 0.4;
 		  	  
-		  	  //如果cookie存在，自动登入
-				if($.cookie('user')){
-					$('.tuichu').show();
-					$('.login').children('a').html($.cookie('user')).css('color','#f4c45a');
-					$.ajax({
-						type:"post",
-						url:"../php/show_face.php",
-						data:{
-								user:$.cookie('user')
-							},
-						success:function(texts){
-							$('#touxiang').attr('src','../'+texts).show();
-						},
-						async:true
-					});
-					
-				}
-				
-				//退出登入
-				$('.tuichu').on('click',function(){
-					$.cookie('user','',{expires:-1,path:'/'});
-					$('#touxiang').hide();
-					history.go(0);
-				})
-				
-				//显示隐藏个人中心
-				$('#touxiangBox').hover(function(){
-					$(this).find('.shezhi').fadeIn();
-				},function(){
-					$(this).find('.shezhi').fadeOut();
-				})
-				
-				
-       
-				
-				
-
-                //返回顶部
-                $('#back').on('click',function(){
-                	$('html,body').animate({
-						scrollTop:0
-					},800);
-                })
-                $(window).on('scroll',function(){
-                	checkPosition($(window).height())
-                })
-                
-                checkPosition($(window).height())
-                
-                function checkPosition(pos){
-                	if($(window).scrollTop() < pos){
-                		$('#back').fadeOut()
-                	}else{
-                		$('#back').fadeIn()
-                	}
-                }
+		  	  
 				
 		  })
 				
