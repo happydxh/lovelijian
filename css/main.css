@@ -72,8 +72,8 @@ h1, h2, h3, h4, h5, h6{ font-size:100%; }
 	font-family: "微软雅黑";
 }
 #header .login{
-	float: left;
-	margin-left: 500px;
+	float: right;
+	margin-right: 6px;
 	cursor: pointer;
 }
 #header .login a{
@@ -83,8 +83,8 @@ h1, h2, h3, h4, h5, h6{ font-size:100%; }
 	color: #f4c45a;
 }
 #header .reg{
-	float: left;
-	margin-left: 10px;
+	float: right;
+	margin-right: 100px;
 	cursor: pointer;
 }
 #header .reg a{
@@ -104,7 +104,7 @@ h1, h2, h3, h4, h5, h6{ font-size:100%; }
 	width: 30px;
 	height: 30px;
 	border-radius: 15px;
-	margin: 14px 0px 0 10px;
+	margin: 14px 0px 0 0px;
 	display: none;
 	
 }
